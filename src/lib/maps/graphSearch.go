@@ -29,7 +29,7 @@ func (uf *GraphPathSearch) depthFirstSearch(current, target int) bool {
 		return true
 	}
 	uf.visited[current] = true
-	for neighbor := range uf.sceneGraph.GetNode(current).GetEdges() {
+	for neighbor := range uf.sceneGraph.GetNode(current).GetAllEdges() {
 		if !uf.visited[neighbor] {
 			if uf.depthFirstSearch(neighbor, target) {
 				return true

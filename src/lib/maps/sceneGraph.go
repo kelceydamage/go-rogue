@@ -6,32 +6,34 @@ import (
 )
 
 type SceneGraph struct {
+	theme          *Theme
 	nodes          map[int]*Node
 	terminusNodeId int
 	deadEndNodes   generics.HashSet[int]
 }
 
-func NewSceneGraph() *SceneGraph {
+func NewSceneGraph(theme *Theme) *SceneGraph {
 	return &SceneGraph{
+		theme:          theme,
 		nodes:          make(map[int]*Node),
 		terminusNodeId: -1,
 		deadEndNodes:   generics.NewHashSet[int](),
 	}
 }
 
-func (sg *SceneGraph) AddNode(nodeId int) {
-	sg.nodes[nodeId] = NewNode(nodeId)
+func (sg *SceneGraph) AddNode(nodeId int, nodeType NodeType) {
+	sg.nodes[nodeId] = NewNode(nodeId, nodeType)
 }
 
-func (sg *SceneGraph) AddEdge(nodeIdA, nodeIdB int) {
-	sg.nodes[nodeIdA].AddEdge(nodeIdB)
-	sg.nodes[nodeIdB].AddEdge(nodeIdA)
+func (sg *SceneGraph) AddEdge(nodeIdA, nodeIdB int, edgeType EdgeType) {
+	sg.nodes[nodeIdA].AddEdge(nodeIdB, edgeType)
+	sg.nodes[nodeIdB].AddEdge(nodeIdA, edgeType)
 }
 
 func (sg *SceneGraph) SetTerminusNode(nodeId int) {
 	sg.terminusNodeId = nodeId
 	sg.nodes[nodeId].SetTerminusNode(true)
-	sg.AddEdge(nodeId, nodeId-1)
+	sg.AddEdge(nodeId, nodeId-1, EdgeType(Path))
 }
 
 func (sg *SceneGraph) IsTerminusNode(nodeId int) bool {
@@ -59,7 +61,7 @@ func (sg *SceneGraph) GetDeadEndNodes() generics.HashSet[int] {
 }
 
 func (sg *SceneGraph) GetNeighbors(nodeId int) generics.HashSet[int] {
-	return sg.nodes[nodeId].GetEdges()
+	return sg.nodes[nodeId].GetAllEdges()
 }
 
 func (sg *SceneGraph) GetNodeCount() int {
@@ -83,7 +85,7 @@ func (sg *SceneGraph) GetNode(nodeId int) *Node {
 }
 
 func (sg *SceneGraph) ContainsEdge(nodeId, edgeId int) bool {
-	return sg.nodes[nodeId].GetEdges().Contains(edgeId)
+	return sg.nodes[nodeId].GetAllEdges().Contains(edgeId)
 }
 
 func (sg *SceneGraph) IsReservedNode(nodeId int) bool {
@@ -92,4 +94,8 @@ func (sg *SceneGraph) IsReservedNode(nodeId int) bool {
 
 func (sg *SceneGraph) GetOrignId() int {
 	return 0
+}
+
+func (sg *SceneGraph) GetTheme() *Theme {
+	return sg.theme
 }

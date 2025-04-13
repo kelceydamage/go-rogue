@@ -134,6 +134,7 @@ func GetRandomNumer() int {
 }
 
 func WriteDotFile(filename string, sceneGraph *maps.SceneGraph) {
+	labels := NewLabels()
 	file, err := os.Create(filename)
 	if err != nil {
 		fmt.Println("Error creating file:", err)
@@ -141,21 +142,33 @@ func WriteDotFile(filename string, sceneGraph *maps.SceneGraph) {
 	}
 	defer file.Close()
 
-	_, err = file.WriteString("graph G {\n")
+	// Start the DOT graph
+	_, err = file.WriteString(fmt.Sprintf("graph G {\n  label=\"%s\";\n  labelloc=\"t\";\n  fontsize=\"20\";\n", sceneGraph.GetTheme().Name))
 	if err != nil {
 		fmt.Println("Error writing to file:", err)
 		return
 	}
 
-	for nodeId, node := range sceneGraph.GetAllNodes() {
-		_, err = file.WriteString(fmt.Sprintf("  %d [label=\"%d\"];\n", nodeId, nodeId))
+	// Write nodes with labels and colors
+	for _, node := range sceneGraph.GetAllNodes() {
+		fmt.Println("Nodetype", node.GetNodeType())
+		color := maps.GetNodeColor(node.GetNodeType()) // Get the color based on node type
+		fmt.Println("Color", color)
+		_, err = file.WriteString(fmt.Sprintf("  %d [label=\"%s\", color=\"%s\"];\n", node.GetId(), labels.labels[color], color))
 		if err != nil {
 			fmt.Println("Error writing to file:", err)
 			return
 		}
-		for edgeId, _ := range node.GetEdges() {
-			if nodeId < edgeId {
-				_, err = file.WriteString(fmt.Sprintf("  %d -- %d;\n", nodeId, edgeId))
+	}
+
+	// Write edges
+	for _, node := range sceneGraph.GetAllNodes() {
+		for neighbor := range node.GetAllEdges() {
+			if node.GetId() < neighbor { // Avoid duplicate edges
+				fmt.Printf("NodeId: %d Neighbor: %d\n", node.GetId(), neighbor)
+				edge := node.GetEdge(neighbor)
+				fmt.Println("EdgeType", edge.Name)
+				_, err = file.WriteString(fmt.Sprintf("  %d -- %d [label=\"%s\", color=\"%s\", style=\"%s\", penwidth=\"%d\"];\n", node.GetId(), neighbor, edge.Name, edge.Color, edge.Style, edge.Width))
 				if err != nil {
 					fmt.Println("Error writing to file:", err)
 					return
@@ -164,10 +177,29 @@ func WriteDotFile(filename string, sceneGraph *maps.SceneGraph) {
 		}
 	}
 
+	// End the DOT graph
 	_, err = file.WriteString("}\n")
 	if err != nil {
 		fmt.Println("Error writing to file:", err)
 		return
 	}
+
 	fmt.Println("Graph written to", filename)
+}
+
+type Labels struct {
+	labels map[string]string
+}
+
+func NewLabels() *Labels {
+	return &Labels{
+		labels: map[string]string{
+			"green":  "_",
+			"red":    "E",
+			"blue":   "D",
+			"cyan":   "Start",
+			"black":  "Dead",
+			"purple": "End",
+		},
+	}
 }

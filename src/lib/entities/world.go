@@ -1,5 +1,10 @@
 package entities
 
+import (
+	"go-rogue/src/lib/maps"
+	"math/rand"
+)
+
 type World struct {
 	currenZone int
 	zones      map[int]*Zone
@@ -13,7 +18,9 @@ func NewWorld() *World {
 }
 
 func (w *World) AddZone(zoneId int, seed int64, exitNode, exitZoneId int, forwardTraversal bool) {
-	w.zones[zoneId] = NewZone(zoneId, seed)
+	randomTheme := maps.ThemeLUT[rand.Intn(3)]
+	print("Adding zone with ID: ", zoneId, " and theme: ", randomTheme.Name, "\n")
+	w.zones[zoneId] = NewZone(zoneId, seed, randomTheme)
 	if forwardTraversal {
 		w.zones[zoneId].AddLink(0, exitZoneId)
 		w.zones[exitZoneId].AddLink(exitNode, zoneId)
