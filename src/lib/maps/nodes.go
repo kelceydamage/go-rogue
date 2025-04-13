@@ -1,7 +1,6 @@
 package maps
 
 import (
-	"fmt"
 	"go-rogue/src/lib/generics"
 )
 
@@ -16,36 +15,113 @@ const (
 	DeadEndNode   NodeType = "deadend"
 )
 
+type NodeMetaData struct {
+	Name         NodeType
+	Label        string
+	IsDeadNode   bool
+	Color        Colors
+	IsResolvable bool
+}
+
+func NewStartNodeMetaData() *NodeMetaData {
+	return &NodeMetaData{
+		Name:         NodeType(StartNode),
+		Label:        "Start",
+		IsDeadNode:   false,
+		Color:        Colors(Cyan),
+		IsResolvable: false,
+	}
+}
+
+func NewDecisionNodeMetaData() *NodeMetaData {
+	return &NodeMetaData{
+		Name:         NodeType(DecisionNode),
+		Label:        "D",
+		IsDeadNode:   false,
+		Color:        Colors(Blue),
+		IsResolvable: true,
+	}
+}
+
+func NewEncounterNodeMetaData() *NodeMetaData {
+	return &NodeMetaData{
+		Name:         NodeType(EncounterNode),
+		Label:        "E",
+		IsDeadNode:   false,
+		Color:        Colors(Red),
+		IsResolvable: true,
+	}
+}
+
+func NewSceneryNodeMetaData() *NodeMetaData {
+	return &NodeMetaData{
+		Name:         NodeType(SceneryNode),
+		Label:        "_",
+		IsDeadNode:   false,
+		Color:        Colors(Green),
+		IsResolvable: true,
+	}
+}
+
+func NewEndingNodeMetaData() *NodeMetaData {
+	return &NodeMetaData{
+		Name:         NodeType(EndingNode),
+		Label:        "End",
+		IsDeadNode:   false,
+		Color:        Colors(Purple),
+		IsResolvable: false,
+	}
+}
+
+func NewDeadEndNodeMetaData() *NodeMetaData {
+	return &NodeMetaData{
+		Name:         NodeType(DeadEndNode),
+		Label:        "Dead",
+		IsDeadNode:   true,
+		Color:        Colors(Black),
+		IsResolvable: false,
+	}
+}
+
+var NodeTypes = map[NodeType]*NodeMetaData{
+	StartNode:     NewStartNodeMetaData(),
+	DecisionNode:  NewDecisionNodeMetaData(),
+	EncounterNode: NewEncounterNodeMetaData(),
+	SceneryNode:   NewSceneryNodeMetaData(),
+	EndingNode:    NewEndingNodeMetaData(),
+	DeadEndNode:   NewDeadEndNodeMetaData(),
+}
+
 type Node struct {
 	id             int
-	nodeType       NodeType
-	isDeadNode     bool
+	metaData       *NodeMetaData
 	isTerminusNode bool
 	edges          *Edges
-	colors         Colors
+	resolved       bool
 }
 
 func NewNode(nodeId int, nodeType NodeType) *Node {
 	return &Node{
 		id:             nodeId,
-		nodeType:       nodeType,
-		isDeadNode:     false,
+		metaData:       NodeTypes[nodeType],
 		isTerminusNode: false,
 		edges:          NewEdges(),
-		colors:         Colors(Gray),
+		resolved:       false,
 	}
 }
 
 func (n *Node) GetNodeType() NodeType {
-	return n.nodeType
+	return n.metaData.Name
 }
 
 func (n *Node) SetNodeType(nodeType NodeType) {
-	n.nodeType = nodeType
+	n.metaData = NodeTypes[nodeType]
 }
 
 func (n *Node) SetDeadNode(isDeadNode bool) {
-	n.isDeadNode = isDeadNode
+	if !n.metaData.IsDeadNode {
+		n.metaData = NodeTypes[DeadEndNode]
+	}
 }
 
 func (n *Node) SetTerminusNode(isTerminusNode bool) {
@@ -53,7 +129,7 @@ func (n *Node) SetTerminusNode(isTerminusNode bool) {
 }
 
 func (n *Node) IsDeadEndNode() bool {
-	return n.isDeadNode
+	return n.metaData.IsDeadNode
 }
 
 func (n *Node) IsTerminusNode() bool {
@@ -66,7 +142,6 @@ func (n *Node) GetId() int {
 
 func (n *Node) AddEdge(edgeId int, edgeType EdgeType) {
 	n.edges.AddEdge(edgeId)
-	fmt.Println("Set Edge Type EdgeId", edgeId, "EdgeType", edgeType)
 	n.edges.SetEdgeType(edgeId, edgeType)
 }
 
@@ -88,4 +163,12 @@ func (n *Node) GetEdgeCount() int {
 
 func (n *Node) ClearEdges() {
 	n.edges.ClearEdges()
+}
+
+func (n *Node) GetMetaData() *NodeMetaData {
+	return n.metaData
+}
+
+func (n *Node) SetMetaData(metaData *NodeMetaData) {
+	n.metaData = metaData
 }

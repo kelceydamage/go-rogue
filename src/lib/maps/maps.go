@@ -188,22 +188,3 @@ func findNearestConnectedNodeConnectedToZero(sceneGraph *SceneGraph, graphPathSe
 	}
 	return -1
 }
-
-func GetNodeColor(nodeType NodeType) string {
-	switch nodeType {
-	case StartNode:
-		return "cyan"
-	case DecisionNode:
-		return "blue"
-	case EncounterNode:
-		return "red"
-	case SceneryNode:
-		return "green"
-	case EndingNode:
-		return "purple"
-	case DeadEndNode:
-		return "black"
-	default:
-		return "gray"
-	}
-}

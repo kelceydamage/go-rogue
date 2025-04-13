@@ -134,7 +134,6 @@ func GetRandomNumer() int {
 }
 
 func WriteDotFile(filename string, sceneGraph *maps.SceneGraph) {
-	labels := NewLabels()
 	file, err := os.Create(filename)
 	if err != nil {
 		fmt.Println("Error creating file:", err)
@@ -151,10 +150,8 @@ func WriteDotFile(filename string, sceneGraph *maps.SceneGraph) {
 
 	// Write nodes with labels and colors
 	for _, node := range sceneGraph.GetAllNodes() {
-		fmt.Println("Nodetype", node.GetNodeType())
-		color := maps.GetNodeColor(node.GetNodeType()) // Get the color based on node type
-		fmt.Println("Color", color)
-		_, err = file.WriteString(fmt.Sprintf("  %d [label=\"%s\", color=\"%s\"];\n", node.GetId(), labels.labels[color], color))
+		nodeMetaData := node.GetMetaData()
+		_, err = file.WriteString(fmt.Sprintf("  %d [label=\"%s\", color=\"%s\"];\n", node.GetId(), nodeMetaData.Label, nodeMetaData.Color))
 		if err != nil {
 			fmt.Println("Error writing to file:", err)
 			return
@@ -165,10 +162,8 @@ func WriteDotFile(filename string, sceneGraph *maps.SceneGraph) {
 	for _, node := range sceneGraph.GetAllNodes() {
 		for neighbor := range node.GetAllEdges() {
 			if node.GetId() < neighbor { // Avoid duplicate edges
-				fmt.Printf("NodeId: %d Neighbor: %d\n", node.GetId(), neighbor)
-				edge := node.GetEdge(neighbor)
-				fmt.Println("EdgeType", edge.Name)
-				_, err = file.WriteString(fmt.Sprintf("  %d -- %d [label=\"%s\", color=\"%s\", style=\"%s\", penwidth=\"%d\"];\n", node.GetId(), neighbor, edge.Name, edge.Color, edge.Style, edge.Width))
+				edgeMetaData := node.GetEdge(neighbor).GetMetaData()
+				_, err = file.WriteString(fmt.Sprintf("  %d -- %d [label=\"%s\", color=\"%s\", style=\"%s\", penwidth=\"%d\"];\n", node.GetId(), neighbor, edgeMetaData.Name, edgeMetaData.Color, edgeMetaData.Style, edgeMetaData.Width))
 				if err != nil {
 					fmt.Println("Error writing to file:", err)
 					return
@@ -185,21 +180,4 @@ func WriteDotFile(filename string, sceneGraph *maps.SceneGraph) {
 	}
 
 	fmt.Println("Graph written to", filename)
-}
-
-type Labels struct {
-	labels map[string]string
-}
-
-func NewLabels() *Labels {
-	return &Labels{
-		labels: map[string]string{
-			"green":  "_",
-			"red":    "E",
-			"blue":   "D",
-			"cyan":   "Start",
-			"black":  "Dead",
-			"purple": "End",
-		},
-	}
 }
