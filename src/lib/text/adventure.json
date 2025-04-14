@@ -1,0 +1,98 @@
+{
+    "Dungeon": {
+        "StartNode": [
+            "You descend into the dark dungeon.",
+            "The air is damp and cold as you enter the dungeon.",
+            "You find yourself at the entrance of a foreboding dungeon."
+        ],
+        "EndingNode": [
+            "You have reached the treasure room.",
+            "The dungeon's final chamber lies before you.",
+            "You stand victorious at the end of the dungeon."
+        ],
+        "DecisionNode": [
+            "You encounter a locked door and a dark hallway.",
+            "Several paths diverge in the dungeon.",
+            "You must choose between a staircase and a narrow tunnel."
+        ],
+        "EncounterNode": [
+            "A skeleton warrior blocks your path!",
+            "You are ambushed by a dungeon monster!",
+            "A trap is triggered, and enemies appear!"
+        ],
+        "SceneryNode": [
+            "The walls are lined with ancient carvings.",
+            "You pass through a damp, narrow corridor.",
+            "The dungeon is eerily quiet."
+        ],
+        "DeadEndNode": [
+            "You reach a dead end. The path is blocked.",
+            "The corridor ends abruptly in a pile of rubble.",
+            "You find yourself at a dead end with no way forward."
+        ]
+    },
+    "Forest": {
+        "StartNode": [
+            "You step into the lush forest.",
+            "The journey begins in a serene woodland.",
+            "You find yourself surrounded by towering trees."
+        ],
+        "EndingNode": [
+            "You emerge from the forest into a clearing.",
+            "The forest's edge marks the end of your journey.",
+            "You stand at the final glade."
+        ],
+        "DecisionNode": [
+            "You encounter a fork in the forest path.",
+            "Several trails diverge among the trees.",
+            "You must choose between a sunny path and a shaded trail."
+        ],
+        "EncounterNode": [
+            "A wild animal blocks your path!",
+            "You are ambushed by forest bandits!",
+            "A rustling in the bushes reveals an enemy!"
+        ],
+        "SceneryNode": [
+            "The forest is alive with the sound of birds.",
+            "You pass through a grove of ancient oaks.",
+            "The sunlight filters through the canopy above."
+        ],
+        "DeadEndNode": [
+            "You reach a dead end. The trail disappears into thick undergrowth.",
+            "The path ends abruptly at a fallen tree.",
+            "You find yourself at a dead end with no way forward."
+        ]
+    },
+    "Cave": {
+        "StartNode": [
+            "You enter the dark, echoing cave.",
+            "The cave's entrance looms before you.",
+            "You step into the cold, damp cavern."
+        ],
+        "EndingNode": [
+            "You reach the heart of the cave.",
+            "The cave's final chamber lies ahead.",
+            "You stand at the end of the cavernous path."
+        ],
+        "DecisionNode": [
+            "You encounter a split in the cave tunnels.",
+            "Several dark passages lie before you.",
+            "You must choose between a narrow crevice and a wide tunnel."
+        ],
+        "EncounterNode": [
+            "A cave spider descends from above!",
+            "You are ambushed by a lurking predator!",
+            "A rumble echoes as enemies emerge from the shadows!"
+        ],
+        "SceneryNode": [
+            "The cave walls glisten with moisture.",
+            "You pass through a chamber filled with stalactites.",
+            "The air is cold and heavy in the cavern."
+        ],
+        "DeadEndNode": [
+            "You reach a dead end. The tunnel is blocked by fallen rocks.",
+            "The passage narrows until it becomes impassable.",
+            "You find yourself at a dead end with no way forward."
+        ]
+    }
+}

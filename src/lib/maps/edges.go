@@ -7,12 +7,12 @@ import (
 type EdgeType string
 
 const (
-	Tunnel       EdgeType = "tunnel"
-	Path         EdgeType = "path"
-	UnlockedDoor EdgeType = "unlockedDoor"
-	LockedDoor   EdgeType = "lockedDoor"
-	HiddenDoor   EdgeType = "hiddenDoor"
-	Crossing     EdgeType = "crossing"
+	Tunnel       EdgeType = "Tunnel"
+	Path         EdgeType = "Path"
+	UnlockedDoor EdgeType = "UnlockedDoor"
+	LockedDoor   EdgeType = "LockedDoor"
+	HiddenDoor   EdgeType = "HiddenDoor"
+	Crossing     EdgeType = "Crossing"
 )
 
 type EdgeStyle string
@@ -86,7 +86,7 @@ func NewHiddenDoorEdgeMetaData() *EdgeMetaData {
 func NewCrossingEdgeMetaData() *EdgeMetaData {
 	return &EdgeMetaData{
 		Name:         EdgeType(Crossing),
-		Width:        1,
+		Width:        8,
 		Style:        EdgeStyle(Dashed),
 		Color:        Colors(LightBlue),
 		IsResolvable: false,
@@ -105,6 +105,7 @@ var EdgeTypes = map[EdgeType]*EdgeMetaData{
 type Edge struct {
 	metaData *EdgeMetaData
 	resolved bool
+	id       int
 }
 
 func (e *Edge) GetMetaData() *EdgeMetaData {
@@ -115,10 +116,15 @@ func (e *Edge) SetMetaData(metaData *EdgeMetaData) {
 	e.metaData = metaData
 }
 
-func NewEdge(edgeType EdgeType) *Edge {
+func (e *Edge) GetId() int {
+	return e.id
+}
+
+func NewEdge(edgeType EdgeType, id int) *Edge {
 	return &Edge{
 		metaData: EdgeTypes[edgeType],
 		resolved: false,
+		id:       id,
 	}
 }
 
@@ -136,7 +142,7 @@ func NewEdges() *Edges {
 
 func (n *Edges) AddEdge(edgeId int) {
 	n.edgeKeys.Add(edgeId)
-	n.edges[edgeId] = NewEdge(Path)
+	n.edges[edgeId] = NewEdge(Path, edgeId)
 }
 
 func (e *Edges) GetAllEdges() generics.HashSet[int] {

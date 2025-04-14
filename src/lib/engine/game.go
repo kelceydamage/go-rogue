@@ -3,15 +3,20 @@ package engine
 import (
 	"fmt"
 	"go-rogue/src/lib/components"
+	"go-rogue/src/lib/config"
 	"go-rogue/src/lib/entities"
+	"go-rogue/src/lib/events"
 	"go-rogue/src/lib/interfaces"
 	"go-rogue/src/lib/maps"
 	"go-rogue/src/lib/scenes"
 	"go-rogue/src/lib/userInterface"
+	"go-rogue/src/lib/utilities"
+	"log"
 	"math/rand"
 	"os"
-	"strconv"
 	"time"
+
+	"github.com/eiannone/keyboard"
 )
 
 type GameScenes struct {
@@ -56,74 +61,135 @@ func NewGame(player *entities.Player, enemy interfaces.IEntity, tickRate float32
 	}
 }
 
+func (g *Game) LoadTraversal() *utilities.TraversalTextLoader {
+	traversalTextLoader := utilities.NewTraversalTextLoader()
+	err := traversalTextLoader.LoadFromFile("src/lib/text/traversal.json")
+	if err != nil {
+		panic(fmt.Sprintf("Error loading traversal text: %s", err))
+	}
+	return traversalTextLoader
+}
+
+func (g *Game) LoadEventText() *utilities.EventTextLoader {
+	eventTextLoader := utilities.NewEventTextLoader()
+	// Load event text from JSON file
+	err := eventTextLoader.LoadFromFile("src/lib/text/adventure.json")
+	if err != nil {
+		panic(fmt.Sprintf("Error loading event text: %s", err))
+	}
+	return eventTextLoader
+}
+
 func (g *Game) Run() {
-	userInterface.DrawTitleText("Go Rogue")
-	// Initial Map Generation
-	fmt.Println("Generating map...")
+
+	traversalTextLoader := g.LoadTraversal()
+	eventTextLoader := g.LoadEventText()
 	g.World.AddZone(0, 0, 0, 0, true)
-	fmt.Println("Writting map...")
-	WriteDotFile("graph.dot", g.World.GetCurrentZone().GetSceneGraph())
+	userInterface.DrawTitleText("Go Rogue")
+	utilities.WriteDotFile("graph.dot", g.World.GetCurrentZone().GetSceneGraph())
 
 	ticker := time.NewTicker(time.Duration(g.TickRate*1000) * time.Millisecond)
 	defer ticker.Stop()
 
 	var input string
-	fmt.Printf("\033[13;50HPress Enter to continue or type 'exit' to quit: ")
-	fmt.Scanln(&input)
-
-	// Check if the user wants to exit
 	if input == "exit" {
 		os.Exit(0)
 	}
 
 	for range ticker.C {
-		userInterface.DrawPlayerAttributes(g.Player)
-		scenes.RenderScene(
-			g.GameScenes.GetScene(GetRandomNumer()),
-		)
+		userInterface.ClearScreenBelow(2, config.CombatScreenSettingsInstance.Offset)
+		// Unpack the current node
+		currentNode := g.World.GetCurrentZone().GetSceneGraph().GetNode(g.Player.GetCurrentPosition())
+		theme := g.World.GetCurrentZone().GetSceneGraph().GetTheme()
+		if eventGenerator, exists := events.EventRegistry[currentNode.GetNodeType()]; exists {
+			event := eventGenerator(eventTextLoader, theme.Name)
 
-		fmt.Printf("\033[13;50HPress Enter to continue or type 'exit' to quit: ")
-		//currentPosition := g.Player.GetCurrentPosition()
-		movementOptions := g.Player.GetMovementOptions(g.World.GetCurrentZone().GetSceneGraph())
-		fmt.Printf("\033[13;50HPress the number to enter the room: %d                 ", movementOptions.Keys())
-		fmt.Scanln(&input)
-		i, err := strconv.Atoi(input)
-		if err != nil {
-			fmt.Printf("\033[13;50HPress Enter to continue or type 'exit' to quit: ")
-			continue
-		}
-		if movementOptions.Contains(i) {
-			g.Player.SetCurrentPosition(i)
-		}
+			// Execute the event
+			event.Execute()
 
-		// Move between zones
-		forwardTraversal := true
-		if g.Player.GetCurrentPosition() == g.World.GetCurrentZone().GetSceneGraph().GetTerminusNodeId() ||
-			g.Player.GetCurrentPosition() == g.World.GetCurrentZone().GetSceneGraph().GetOrignId() {
-			if g.Player.GetCurrentPosition() == g.World.GetCurrentZone().GetSceneGraph().GetOrignId() {
-				forwardTraversal = false
+			currentLine := 3
+			// Draw the event screen
+			userInterface.DrawEventScreen(
+				event.GetText(),
+				*config.CombatScreenSettingsInstance,
+				currentLine,
+			)
+
+			// Draw Traversal Options
+			currentLine, selectedEdge := userInterface.DrawTraversalOptionScreen(
+				g.World.GetCurrentZone().GetSceneGraph(),
+				g.Player,
+				traversalTextLoader,
+				*config.CombatScreenSettingsInstance,
+				currentLine,
+			)
+
+			currentLine = userInterface.DrawActionsScreen(
+				g.World.GetCurrentZone().GetSceneGraph(),
+				currentNode.GetEdge(selectedEdge),
+				traversalTextLoader,
+				*config.CombatScreenSettingsInstance,
+				currentLine,
+			)
+
+			g.Player.SetCurrentPosition(selectedEdge)
+
+			currentLine += 2
+			err := keyboard.Open()
+			if err != nil {
+				log.Fatal(err)
 			}
-			currentZoneId := g.World.GetCurrentZoneId()
-			zoneId, exists := g.World.GetCurrentZone().GetLink(g.Player.GetCurrentPosition())
-			if exists {
-				if zoneId == currentZoneId {
-					continue
-				}
-				g.World.SetCurrentZone(zoneId)
-			} else {
-				newZoneId := g.World.GetZoneCount() + 1
-				g.World.AddZone(newZoneId, 0, g.Player.GetCurrentPosition(), currentZoneId, forwardTraversal)
-				g.World.SetCurrentZone(newZoneId)
+
+			fmt.Printf("\033[%d;%dH%s\n", currentLine, config.CombatScreenSettingsInstance.Offset, "Press Enter to continue...")
+			_, key, err := keyboard.GetKey()
+			if err != nil {
+				log.Fatal(err)
 			}
-			if forwardTraversal {
-				g.Player.SetCurrentPosition(0)
-			} else {
-				g.Player.SetCurrentPosition(g.World.GetCurrentZone().GetSceneGraph().GetTerminusNodeId())
+
+			// Check if the Enter key is pressed
+			if key == keyboard.KeyEnter {
+				keyboard.Close()
+				continue
 			}
+			// Resolve Traversal
 		}
-		// Start combat Test
-		// fmt.Printf("\033[13;50HStarting combat... %s", userInterface.Spaces(80))
-		//g.Combat.Attack(g.Player, g.Enemy)
+	}
+}
+
+// Flow
+// * Process input
+// * Process movement
+// * Present edge-traversal
+// * Resolve edge-traversal
+// * Present event
+// * Process encounter | decision
+// * Resolve event
+// * Resolve turn
+
+func (g *Game) TransitionBetweenZones() {
+	forwardTraversal := true
+	if g.Player.GetCurrentPosition() == g.World.GetCurrentZone().GetSceneGraph().GetTerminusNodeId() ||
+		g.Player.GetCurrentPosition() == g.World.GetCurrentZone().GetSceneGraph().GetOrignId() {
+		if g.Player.GetCurrentPosition() == g.World.GetCurrentZone().GetSceneGraph().GetOrignId() {
+			forwardTraversal = false
+		}
+		currentZoneId := g.World.GetCurrentZoneId()
+		zoneId, exists := g.World.GetCurrentZone().GetLink(g.Player.GetCurrentPosition())
+		if exists {
+			if zoneId == currentZoneId {
+				return
+			}
+			g.World.SetCurrentZone(zoneId)
+		} else {
+			newZoneId := g.World.GetZoneCount() + 1
+			g.World.AddZone(newZoneId, 0, g.Player.GetCurrentPosition(), currentZoneId, forwardTraversal)
+			g.World.SetCurrentZone(newZoneId)
+		}
+		if forwardTraversal {
+			g.Player.SetCurrentPosition(0)
+		} else {
+			g.Player.SetCurrentPosition(g.World.GetCurrentZone().GetSceneGraph().GetTerminusNodeId())
+		}
 	}
 }
 
@@ -131,53 +197,4 @@ func GetRandomNumer() int {
 	rand.Seed(time.Now().UnixNano())
 	randomNumber := rand.Intn(100) % 3
 	return randomNumber
-}
-
-func WriteDotFile(filename string, sceneGraph *maps.SceneGraph) {
-	file, err := os.Create(filename)
-	if err != nil {
-		fmt.Println("Error creating file:", err)
-		return
-	}
-	defer file.Close()
-
-	// Start the DOT graph
-	_, err = file.WriteString(fmt.Sprintf("graph G {\n  label=\"%s\";\n  labelloc=\"t\";\n  fontsize=\"20\";\n", sceneGraph.GetTheme().Name))
-	if err != nil {
-		fmt.Println("Error writing to file:", err)
-		return
-	}
-
-	// Write nodes with labels and colors
-	for _, node := range sceneGraph.GetAllNodes() {
-		nodeMetaData := node.GetMetaData()
-		_, err = file.WriteString(fmt.Sprintf("  %d [label=\"%s\", color=\"%s\"];\n", node.GetId(), nodeMetaData.Label, nodeMetaData.Color))
-		if err != nil {
-			fmt.Println("Error writing to file:", err)
-			return
-		}
-	}
-
-	// Write edges
-	for _, node := range sceneGraph.GetAllNodes() {
-		for neighbor := range node.GetAllEdges() {
-			if node.GetId() < neighbor { // Avoid duplicate edges
-				edgeMetaData := node.GetEdge(neighbor).GetMetaData()
-				_, err = file.WriteString(fmt.Sprintf("  %d -- %d [label=\"%s\", color=\"%s\", style=\"%s\", penwidth=\"%d\"];\n", node.GetId(), neighbor, edgeMetaData.Name, edgeMetaData.Color, edgeMetaData.Style, edgeMetaData.Width))
-				if err != nil {
-					fmt.Println("Error writing to file:", err)
-					return
-				}
-			}
-		}
-	}
-
-	// End the DOT graph
-	_, err = file.WriteString("}\n")
-	if err != nil {
-		fmt.Println("Error writing to file:", err)
-		return
-	}
-
-	fmt.Println("Graph written to", filename)
 }

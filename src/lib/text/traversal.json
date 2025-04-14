@@ -1,0 +1,224 @@
+{
+    "Dungeon": {
+        "Path": {
+            "Preview": [
+                "a narrow stone path.",
+                "a moss-covered path stretches before you.",
+                "the path is dimly lit by torches."
+            ],
+            "Text": [
+                "You follow a narrow stone path.",
+                "The path is uneven and covered in moss.",
+                "You carefully tread along the dungeon's ancient walkway."
+            ]
+        },
+        "Crossing": {
+            "Preview": [
+                "a crumbling stone bridge.",
+                "a narrow crossing lies before you.",
+                "the bridge looks unstable."
+            ],
+            "Text": [
+                "You cross a crumbling stone bridge.",
+                "The crossing is precarious, with loose stones underfoot.",
+                "You make your way across a narrow dungeon crossing."
+            ]
+        },
+        "Tunnel": {
+            "Preview": [
+                "a dark, narrow tunnel.",
+                "a damp tunnel stretches into the darkness.",
+                "the tunnel looks tight and claustrophobic."
+            ],
+            "Text": [
+                "You crawl through a damp, narrow tunnel.",
+                "The tunnel is dark and echoes with distant sounds.",
+                "You squeeze through a tight passage in the dungeon."
+            ]
+        },
+        "UnlockedDoor": {
+            "Preview": [
+                "an unlocked wooden door.",
+                "a door stands slightly ajar.",
+                "the door looks easy to open."
+            ],
+            "Text": [
+                "You open the heavy wooden door and step through.",
+                "The door creaks loudly as you push it open.",
+                "You pass through an unlocked dungeon door."
+            ]
+        },
+        "LockedDoor": {
+            "Preview": [
+                "a locked iron door.",
+                "a heavy door blocks your path.",
+                "the door is locked and looks sturdy."
+            ],
+            "Text": [
+                "You unlock the iron door with a rusty key.",
+                "The locked door groans as it swings open.",
+                "You manage to open the locked dungeon door."
+            ]
+        },
+        "HiddenDoor": {
+            "Preview": [
+                "a hidden door behind a tapestry.",
+                "a concealed door is barely visible.",
+                "a hidden door in the shadows."
+            ],
+            "Text": [
+                "You discover a hidden door behind a tapestry.",
+                "The hidden door reveals a secret passage.",
+                "You push aside a stone panel to reveal a hidden door."
+            ]
+        }
+    },
+    "Forest": {
+        "Path": {
+            "Preview": [
+                "a dirt trail winding through the trees.",
+                "a well-trodden path stretches.",
+                "the forest path is dappled with sunlight."
+            ],
+            "Text": [
+                "You follow a dirt trail winding through the trees.",
+                "The path is soft underfoot, covered in fallen leaves.",
+                "You walk along a well-trodden forest path."
+            ]
+        },
+        "Crossing": {
+            "Preview": [
+                "a fallen log forming a bridge over a stream.",
+                "a narrow crossing lies, spanning a small brook.",
+                "the crossing looks slippery but manageable."
+            ],
+            "Text": [
+                "You carefully cross a fallen log over a stream.",
+                "The crossing is slippery, but you manage to keep your balance.",
+                "You step across a shallow brook using stepping stones."
+            ]
+        },
+        "Tunnel": {
+            "Preview": [
+                "a hollow tree trunk forming a tunnel.",
+                "a narrow gap between tree roots lies before you.",
+                "the tunnel is dark and filled with the scent of earth."
+            ],
+            "Text": [
+                "You crawl through a hollow tree trunk.",
+                "The tunnel is dark and filled with the scent of earth.",
+                "You squeeze through a narrow gap between tree roots."
+            ]
+        },
+        "UnlockedDoor": {
+            "Preview": [
+                "a wooden gate standing open.",
+                "lies an unlocked forest gate.",
+                "the gate  swings gently in the breeze."
+            ],
+            "Text": [
+                "You push open a wooden gate and step through.",
+                "The door swings open easily, revealing a new path.",
+                "You pass through an unlocked forest gate."
+            ]
+        },
+        "LockedDoor": {
+            "Preview": [
+                "a locked wooden gate blocking your path.",
+                "a heavy gate stands firmly shut.",
+                "the locked gate looks weathered but sturdy."
+            ],
+            "Text": [
+                "You unlock the wooden gate with a carved key.",
+                "The locked gate creaks as it swings open.",
+                "You manage to open the locked forest gate."
+            ]
+        },
+        "HiddenDoor": {
+            "Preview": [
+                "a hidden path behind a curtain of vines.",
+                "a concealed trail is barely visible through the undergrowth.",
+                "a hidden door camouflaged by the forest."
+            ],
+            "Text": [
+                "You discover a hidden path behind a curtain of vines.",
+                "The hidden door reveals a secret trail through the forest.",
+                "You push aside the undergrowth to reveal a hidden path."
+            ]
+        }
+    },
+    "Cave": {
+        "Path": {
+            "Preview": [
+                "a rocky path winding deeper into the cave.",
+                "a narrow trail stretches, uneven and slippery.",
+                "the path is dimly lit by faintly glowing crystals."
+            ],
+            "Text": [
+                "You follow a rocky path through the cave.",
+                "The path is uneven and slippery with moisture.",
+                "You carefully tread along the cave's winding trail."
+            ]
+        },
+        "Crossing": {
+            "Preview": [
+                "a natural stone bridge spanning a dark chasm.",
+                "a narrow crossing lies, overlooking a deep pit.",
+                "the bridge looks treacherous and unstable."
+            ],
+            "Text": [
+                "You cross a natural stone bridge over a chasm.",
+                "The crossing is narrow and treacherous.",
+                "You make your way across a ledge overlooking a deep pit."
+            ]
+        },
+        "Tunnel": {
+            "Preview": [
+                "a dark, narrow tunnel leading further into the cave.",
+                "a damp tunnel stretches, echoing with distant sounds.",
+                "the tunnel looks tight and claustrophobic."
+            ],
+            "Text": [
+                "You crawl through a narrow cave tunnel.",
+                "The tunnel is dark and echoes with dripping water.",
+                "You squeeze through a tight passage in the cave."
+            ]
+        },
+        "UnlockedDoor": {
+            "Preview": [
+                "an unlocked stone door.",
+                "a heavy stone door stands slightly ajar.",
+                "the door looks easy to push open."
+            ],
+            "Text": [
+                "You push open a heavy stone door and step through.",
+                "The door grinds against the floor as it opens.",
+                "You pass through an unlocked cave door."
+            ]
+        },
+        "LockedDoor": {
+            "Preview": [
+                "a locked stone door blocking your path.",
+                "a heavy door stands firmly shut.",
+                "the locked door looks ancient and sturdy."
+            ],
+            "Text": [
+                "You unlock the stone door with a heavy key.",
+                "The locked door opens with a loud rumble.",
+                "You manage to open the locked cave door."
+            ]
+        },
+        "HiddenDoor": {
+            "Preview": [
+                "a hidden door behind a pile of rocks.",
+                "a concealed door is barely visible in the shadows.",
+                "a hidden door camouflaged by the cave walls."
+            ],
+            "Text": [
+                "You discover a hidden door behind a rockfall.",
+                "The hidden door reveals a secret chamber.",
+                "You push aside loose stones to reveal a hidden door."
+            ]
+        }
+    }
+}

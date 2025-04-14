@@ -7,12 +7,14 @@ import (
 
 type Movement struct {
 	// Current Node ID in graph
-	currentPosition int
+	currentPosition  int
+	previousPosition int
 }
 
 func NewMovement(startPosition int) *Movement {
 	return &Movement{
-		currentPosition: startPosition,
+		currentPosition:  startPosition,
+		previousPosition: 0,
 	}
 }
 
@@ -20,7 +22,12 @@ func (m *Movement) GetCurrentPosition() int {
 	return m.currentPosition
 }
 
+func (m *Movement) GetPreviousPosition() int {
+	return m.previousPosition
+}
+
 func (m *Movement) SetCurrentPosition(position int) {
+	m.previousPosition = m.currentPosition
 	m.currentPosition = position
 }
 

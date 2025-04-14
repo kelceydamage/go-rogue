@@ -3,7 +3,6 @@ package components
 import (
 	"fmt"
 	"go-rogue/src/lib/interfaces"
-	"go-rogue/src/lib/userInterface"
 	"time"
 )
 
@@ -26,9 +25,6 @@ func (c *Combat) Attack(player interfaces.IEntity, target interfaces.IEntity) {
 		damage := player.GetStrength() * 3
 		if damage > 0 {
 			target.SetHealth(target.GetHealth() - damage)
-		}
-		if !userInterface.DrawCombatScreen(player, target) {
-			break
 		}
 	}
 	fmt.Println()
