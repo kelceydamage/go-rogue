@@ -5,12 +5,10 @@ import (
 	"go-rogue/src/lib/components"
 	"go-rogue/src/lib/config"
 	"go-rogue/src/lib/entities"
-	"go-rogue/src/lib/events"
 	"go-rogue/src/lib/interfaces"
 	"go-rogue/src/lib/maps"
 	"go-rogue/src/lib/scenes"
 	"go-rogue/src/lib/userInterface"
-	"go-rogue/src/lib/utilities"
 	"log"
 	"math/rand"
 	"os"
@@ -61,32 +59,11 @@ func NewGame(player *entities.Player, enemy interfaces.IEntity, tickRate float32
 	}
 }
 
-func (g *Game) LoadTraversal() *utilities.TraversalTextLoader {
-	traversalTextLoader := utilities.NewTraversalTextLoader()
-	err := traversalTextLoader.LoadFromFile("src/lib/text/traversal.json")
-	if err != nil {
-		panic(fmt.Sprintf("Error loading traversal text: %s", err))
-	}
-	return traversalTextLoader
-}
-
-func (g *Game) LoadEventText() *utilities.EventTextLoader {
-	eventTextLoader := utilities.NewEventTextLoader()
-	// Load event text from JSON file
-	err := eventTextLoader.LoadFromFile("src/lib/text/adventure.json")
-	if err != nil {
-		panic(fmt.Sprintf("Error loading event text: %s", err))
-	}
-	return eventTextLoader
-}
-
 func (g *Game) Run() {
-
-	traversalTextLoader := g.LoadTraversal()
-	eventTextLoader := g.LoadEventText()
 	g.World.AddZone(0, 0, 0, 0, true)
+	traversalProcessor := NewTraversalProcessor(&InputProcessor{})
 	userInterface.DrawTitleText("Go Rogue")
-	utilities.WriteDotFile("graph.dot", g.World.GetCurrentZone().GetSceneGraph())
+	maps.WriteDotFile("graph.dot", g.World.GetCurrentZone().GetSceneGraph())
 
 	ticker := time.NewTicker(time.Duration(g.TickRate*1000) * time.Millisecond)
 	defer ticker.Stop()
@@ -100,59 +77,33 @@ func (g *Game) Run() {
 		userInterface.ClearScreenBelow(2, config.CombatScreenSettingsInstance.Offset)
 		// Unpack the current node
 		currentNode := g.World.GetCurrentZone().GetSceneGraph().GetNode(g.Player.GetCurrentPosition())
-		theme := g.World.GetCurrentZone().GetSceneGraph().GetTheme()
-		if eventGenerator, exists := events.EventRegistry[currentNode.GetNodeType()]; exists {
-			event := eventGenerator(eventTextLoader, theme.Name)
 
-			// Execute the event
-			event.Execute()
+		currentLine := 3
+		// Draw the event screen
 
-			currentLine := 3
-			// Draw the event screen
-			userInterface.DrawEventScreen(
-				event.GetText(),
-				*config.CombatScreenSettingsInstance,
-				currentLine,
-			)
+		// Draw Traversal Options
 
-			// Draw Traversal Options
-			currentLine, selectedEdge := userInterface.DrawTraversalOptionScreen(
-				g.World.GetCurrentZone().GetSceneGraph(),
-				g.Player,
-				traversalTextLoader,
-				*config.CombatScreenSettingsInstance,
-				currentLine,
-			)
+		currentLine = traversalProcessor.Execute(currentNode, g.Player, currentLine)
 
-			currentLine = userInterface.DrawActionsScreen(
-				g.World.GetCurrentZone().GetSceneGraph(),
-				currentNode.GetEdge(selectedEdge),
-				traversalTextLoader,
-				*config.CombatScreenSettingsInstance,
-				currentLine,
-			)
-
-			g.Player.SetCurrentPosition(selectedEdge)
-
-			currentLine += 2
-			err := keyboard.Open()
-			if err != nil {
-				log.Fatal(err)
-			}
-
-			fmt.Printf("\033[%d;%dH%s\n", currentLine, config.CombatScreenSettingsInstance.Offset, "Press Enter to continue...")
-			_, key, err := keyboard.GetKey()
-			if err != nil {
-				log.Fatal(err)
-			}
-
-			// Check if the Enter key is pressed
-			if key == keyboard.KeyEnter {
-				keyboard.Close()
-				continue
-			}
-			// Resolve Traversal
+		currentLine += 2
+		err := keyboard.Open()
+		if err != nil {
+			log.Fatal(err)
 		}
+
+		fmt.Printf("\033[%d;%dH%s\n", currentLine, config.CombatScreenSettingsInstance.Offset, "Press Enter to continue...")
+		_, key, err := keyboard.GetKey()
+		if err != nil {
+			log.Fatal(err)
+		}
+
+		// Check if the Enter key is pressed
+		if key == keyboard.KeyEnter {
+			keyboard.Close()
+			continue
+		}
+		// Resolve Traversal
+
 	}
 }
 

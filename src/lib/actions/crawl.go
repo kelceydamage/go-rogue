@@ -10,7 +10,7 @@ type CrawlAction struct {
 func NewCrawlAction(edge *maps.Edge) *CrawlAction {
 	return &CrawlAction{
 		name:       "Crawl",
-		difficulty: edge.GetId(),
+		difficulty: edge.GetDifficulty(),
 	}
 }
 

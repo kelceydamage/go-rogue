@@ -10,7 +10,7 @@ type SneakAction struct {
 func NewSneakAction(edge *maps.Edge) *SneakAction {
 	return &SneakAction{
 		name:       "Sneak",
-		difficulty: edge.GetId(),
+		difficulty: edge.GetDifficulty(),
 	}
 }
 

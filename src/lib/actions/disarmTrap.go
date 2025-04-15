@@ -10,7 +10,7 @@ type DisarmTrapAction struct {
 func NewDisarmTrapAction(edge *maps.Edge) *DisarmTrapAction {
 	return &DisarmTrapAction{
 		name:       "Disarm Trap",
-		difficulty: edge.GetId(),
+		difficulty: edge.GetDifficulty(),
 	}
 }
 

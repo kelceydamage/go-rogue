@@ -10,10 +10,10 @@ type Zone struct {
 	links      map[int]int
 }
 
-func NewZone(zoneId int, seed int64, theme *maps.Theme) *Zone {
+func NewZone(zoneId int, sceneGraph *maps.SceneGraph) *Zone {
 	return &Zone{
 		id:         zoneId,
-		sceneGraph: maps.GenerateRandomSceneGraph(seed, theme),
+		sceneGraph: sceneGraph,
 		links:      make(map[int]int),
 	}
 }

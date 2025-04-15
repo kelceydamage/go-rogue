@@ -98,15 +98,19 @@ type Node struct {
 	isTerminusNode bool
 	edges          *Edges
 	resolved       bool
+	previewText    string
+	text           string
 }
 
-func NewNode(nodeId int, nodeType NodeType) *Node {
+func NewNode(nodeId int, nodeType NodeType, previewText, text string) *Node {
 	return &Node{
 		id:             nodeId,
 		metaData:       NodeTypes[nodeType],
 		isTerminusNode: false,
-		edges:          NewEdges(),
+		edges:          NewEdges(nodeId),
 		resolved:       false,
+		previewText:    previewText,
+		text:           text,
 	}
 }
 
@@ -140,9 +144,8 @@ func (n *Node) GetId() int {
 	return n.id
 }
 
-func (n *Node) AddEdge(edgeId int, edgeType EdgeType) {
-	n.edges.AddEdge(edgeId)
-	n.edges.SetEdgeType(edgeId, edgeType)
+func (n *Node) AddEdge(edge *Edge) {
+	n.edges.AddEdge(edge)
 }
 
 func (n *Node) GetAllEdges() generics.HashSet[int] {
@@ -151,10 +154,6 @@ func (n *Node) GetAllEdges() generics.HashSet[int] {
 
 func (n *Node) GetEdge(attachmentNodeId int) *Edge {
 	return n.edges.GetEdge(attachmentNodeId)
-}
-
-func (n *Node) SetEdgeType(attachmentNodeId int, edgeType EdgeType) bool {
-	return n.edges.SetEdgeType(attachmentNodeId, edgeType)
 }
 
 func (n *Node) GetEdgeCount() int {

@@ -12,7 +12,7 @@ type BashAction struct {
 func NewBashAction(edge *maps.Edge) *BashAction {
 	return &BashAction{
 		name:       "Bash",
-		difficulty: edge.GetId(),
+		difficulty: edge.GetDifficulty(),
 	}
 }
 

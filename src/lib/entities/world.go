@@ -6,21 +6,24 @@ import (
 )
 
 type World struct {
-	currenZone int
-	zones      map[int]*Zone
+	graphGenerator *maps.GraphGenerator
+	currenZone     int
+	zones          map[int]*Zone
 }
 
 func NewWorld() *World {
 	return &World{
-		currenZone: 0,
-		zones:      make(map[int]*Zone),
+		graphGenerator: maps.NewGraphGenerator(),
+		currenZone:     0,
+		zones:          make(map[int]*Zone),
 	}
 }
 
 func (w *World) AddZone(zoneId int, seed int64, exitNode, exitZoneId int, forwardTraversal bool) {
 	randomTheme := maps.ThemeLUT[rand.Intn(3)]
 	print("Adding zone with ID: ", zoneId, " and theme: ", randomTheme.Name, "\n")
-	w.zones[zoneId] = NewZone(zoneId, seed, randomTheme)
+	sceneGraph := w.graphGenerator.GenerateRandomSceneGraph(seed, randomTheme)
+	w.zones[zoneId] = NewZone(zoneId, sceneGraph)
 	if forwardTraversal {
 		w.zones[zoneId].AddLink(0, exitZoneId)
 		w.zones[exitZoneId].AddLink(exitNode, zoneId)

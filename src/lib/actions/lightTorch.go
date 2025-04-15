@@ -10,7 +10,7 @@ type LightTorchAction struct {
 func NewLightTorchAction(edge *maps.Edge) *LightTorchAction {
 	return &LightTorchAction{
 		name:       "Light Torch",
-		difficulty: edge.GetId(),
+		difficulty: edge.GetDifficulty(),
 	}
 }
 

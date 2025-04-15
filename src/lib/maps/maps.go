@@ -3,6 +3,7 @@ package maps
 import (
 	"fmt"
 	"go-rogue/src/lib/config"
+	"go-rogue/src/lib/utilities"
 	"math/rand"
 )
 
@@ -28,8 +29,53 @@ const (
 	DarkRed   Colors = "darkred"
 )
 
+type GraphGenerator struct {
+	traversalTextLoader *utilities.TraversalTextLoader
+	eventTextLoader     *utilities.EventTextLoader
+	edgeMap             map[string]*Edge
+}
+
+func NewGraphGenerator() *GraphGenerator {
+	return &GraphGenerator{
+		traversalTextLoader: LoadTraversal(),
+		eventTextLoader:     LoadEventText(),
+		edgeMap:             make(map[string]*Edge),
+	}
+}
+
+func (g *GraphGenerator) AddEdge(sceneGraph *SceneGraph, nodeA, nodeB int, edgeType EdgeType) *Edge {
+	// Generate a consistent key for the edge
+	edgeKey := generateEdgeKey(nodeA, nodeB)
+	fmt.Println("edgeKey", edgeKey)
+
+	// Check if the edge already exists
+	if edge, exists := g.edgeMap[edgeKey]; exists {
+		fmt.Println("Edge already exists:", edgeKey)
+		return edge // Reuse the existing edge
+	}
+
+	// Create a new edge if it doesn't exist
+	newEdge := NewEdge(
+		edgeType,
+		[]int{nodeA, nodeB},
+		// TODO: Implement diffuculty calculation
+		0,
+		g.traversalTextLoader.GetPreview(sceneGraph.theme.Name, string(edgeType)),
+		g.traversalTextLoader.GetText(sceneGraph.theme.Name, string(edgeType)),
+	)
+
+	// Add the edge to the map
+	g.edgeMap[edgeKey] = newEdge
+
+	// Add the edge to both nodes in the scene graph
+	sceneGraph.GetNode(nodeA).AddEdge(newEdge)
+	sceneGraph.GetNode(nodeB).AddEdge(newEdge)
+	fmt.Println("Adding edge between nodes", nodeA, "and", nodeB)
+	return newEdge
+}
+
 // Generates a random graph using a fixed seed, with random node count, edges, and cycles
-func GenerateRandomSceneGraph(seed int64, theme *Theme) *SceneGraph {
+func (g *GraphGenerator) GenerateRandomSceneGraph(seed int64, theme *Theme) *SceneGraph {
 	if seed == 0 {
 		seed = rand.Int63()
 	}
@@ -39,25 +85,25 @@ func GenerateRandomSceneGraph(seed int64, theme *Theme) *SceneGraph {
 
 	fmt.Println("PopulateSceneGraph")
 	// Add a random number of unlinked nodes based on rule
-	PopulateSceneGraph(sceneGraph)
+	g.PopulateSceneGraph(sceneGraph)
 
 	fmt.Println("GenerateDeadNodes")
 	// Reserve a percentage of nodes to be dead-end nodes
-	GenerateDeadNodes(sceneGraph)
+	g.GenerateDeadNodes(sceneGraph)
 
 	fmt.Println("GenerateEdges")
 	// Randomly distribute edges betwen nodes based on rules
-	GenerateEdges(sceneGraph, theme)
+	g.GenerateEdges(sceneGraph, theme)
 
 	fmt.Println("GenerateCycles")
 	// Ensure a minimum amount of cycles exist in the graph
-	GenerateCycles(sceneGraph, theme)
+	g.GenerateCycles(sceneGraph, theme)
 
 	fmt.Println("ConnectClusters")
 	// Connect any clusters to the nearest node in the root cluster
-	ConnectClusters(sceneGraph)
+	g.ConnectClusters(sceneGraph)
 
-	ColorDeadEndNodes(sceneGraph)
+	g.ColorDeadEndNodes(sceneGraph)
 	// TODO: Color nodes based on node type - path, dead-end, terminus, encounter, etc
 
 	// TODO: Color edges based on passability - walkable, blocked, locked door, etc
@@ -65,7 +111,7 @@ func GenerateRandomSceneGraph(seed int64, theme *Theme) *SceneGraph {
 	return sceneGraph
 }
 
-func ColorDeadEndNodes(sceneGraph *SceneGraph) {
+func (g *GraphGenerator) ColorDeadEndNodes(sceneGraph *SceneGraph) {
 	for id, _ := range sceneGraph.GetAllNodes() {
 		if id == 0 {
 			continue
@@ -76,9 +122,9 @@ func ColorDeadEndNodes(sceneGraph *SceneGraph) {
 	}
 }
 
-func PopulateSceneGraph(sceneGraph *SceneGraph) {
+func (g *GraphGenerator) PopulateSceneGraph(sceneGraph *SceneGraph) {
 	n := rand.Intn(config.SceneGraphSettingsInstance.MaxNodes) + config.SceneGraphSettingsInstance.MinNodes
-
+	fmt.Println("NodeCount", n)
 	for i := range n {
 		var nodeType NodeType
 
@@ -94,13 +140,19 @@ func PopulateSceneGraph(sceneGraph *SceneGraph) {
 		default:
 			nodeType = SceneryNode // Default to scenery
 		}
-		sceneGraph.AddNode(i, nodeType)
+		sceneGraph.AddNode(
+			i,
+			nodeType,
+			"",
+			g.eventTextLoader.GetText(sceneGraph.theme.Name, string(nodeType)),
+		)
 	}
 
 	sceneGraph.SetTerminusNode(n - 1)
+	g.AddEdge(sceneGraph, n-2, n-1, LockedDoor)
 }
 
-func GenerateDeadNodes(sceneGraph *SceneGraph) {
+func (g *GraphGenerator) GenerateDeadNodes(sceneGraph *SceneGraph) {
 	deadNodeCount := int(float32(sceneGraph.GetNodeCount()) * config.SceneGraphSettingsInstance.ProbabilityOfDeadEndNode)
 	sceneGraph.SetDeadEndNodes(rand.Perm(sceneGraph.GetNodeCount() - 3)[:deadNodeCount])
 	fmt.Println("DeadEndNods", sceneGraph.GetDeadEndNodes())
@@ -117,28 +169,31 @@ func GenerateDeadNodes(sceneGraph *SceneGraph) {
 			break
 		}
 		if attachmentNodeId != nodeId {
-			sceneGraph.AddEdge(nodeId, attachmentNodeId, EdgeType(Path))
+			edgeType := GetRandomEdgeType(sceneGraph.theme)
+			g.AddEdge(sceneGraph, nodeId, attachmentNodeId, edgeType)
 		}
 	}
 }
 
-func GenerateEdges(sceneGraph *SceneGraph, theme *Theme) {
+func (g *GraphGenerator) GenerateEdges(sceneGraph *SceneGraph, theme *Theme) {
 	edgeCount := rand.Intn(sceneGraph.GetNodeCount() * (sceneGraph.GetNodeCount() - 1) / 2)
+	fmt.Println("edgeCount", edgeCount)
 	for range edgeCount {
 		randomNodeIds := rand.Perm(sceneGraph.GetNodeCount())[:2]
-		if sceneGraph.IsReservedNode(randomNodeIds[0]) || sceneGraph.IsReservedNode(randomNodeIds[1]) {
+		nodeA, nodeB := randomNodeIds[0], randomNodeIds[1]
+		if sceneGraph.IsReservedNode(nodeA) || sceneGraph.IsReservedNode(nodeB) || nodeA == nodeB {
 			continue
 		}
 		if sceneGraph.GetEdgeCount(randomNodeIds[0]) < config.SceneGraphSettingsInstance.MaxEdgesPerNode &&
 			sceneGraph.GetEdgeCount(randomNodeIds[1]) < config.SceneGraphSettingsInstance.MaxEdgesPerNode &&
 			sceneGraph.GetNodeDistance(randomNodeIds[0], randomNodeIds[1]) <= config.SceneGraphSettingsInstance.MaxDistanceForEdgeToForm {
 			edgeType := GetRandomEdgeType(theme)
-			sceneGraph.AddEdge(randomNodeIds[0], randomNodeIds[1], edgeType)
+			g.AddEdge(sceneGraph, nodeA, nodeB, edgeType)
 		}
 	}
 }
 
-func GenerateCycles(sceneGraph *SceneGraph, theme *Theme) {
+func (g *GraphGenerator) GenerateCycles(sceneGraph *SceneGraph, theme *Theme) {
 	for i := range sceneGraph.GetNodeCount() {
 		for j := i + 1; j < sceneGraph.GetNodeCount(); j++ {
 			if sceneGraph.IsReservedNode(i) || sceneGraph.IsReservedNode(j) || sceneGraph.ContainsEdge(i, j) {
@@ -148,28 +203,27 @@ func GenerateCycles(sceneGraph *SceneGraph, theme *Theme) {
 			if sceneGraph.GetNodeDistance(i, j) <= config.SceneGraphSettingsInstance.MaxDistanceForEdgeToForm &&
 				rand.Float32() < config.SceneGraphSettingsInstance.ProbabilityOfCycles {
 				edgeType := GetRandomEdgeType(theme)
-				sceneGraph.AddEdge(i, j, edgeType)
-				fmt.Println("Adding cycle between nodes", i, "and", j)
+				g.AddEdge(sceneGraph, i, j, edgeType)
 			}
 		}
 	}
 }
 
-func ConnectClusters(sceneGraph *SceneGraph) {
+func (g *GraphGenerator) ConnectClusters(sceneGraph *SceneGraph) {
 	graphPathSearch := NewGraphPathSearch(sceneGraph)
 	for i := 1; i < sceneGraph.GetNodeCount(); i++ {
 		if !graphPathSearch.IsPathToNodeZero(i) {
-			nearestNode := findNearestConnectedNodeConnectedToZero(sceneGraph, graphPathSearch, i)
+			nearestNode := g.findNearestConnectedNodeConnectedToZero(sceneGraph, graphPathSearch, i)
 			fmt.Println("nearestNode", nearestNode)
 			if nearestNode != -1 {
 				fmt.Println("Connecting node", i, "to nearest node", nearestNode)
-				sceneGraph.AddEdge(i, nearestNode, EdgeType(LockedDoor))
+				g.AddEdge(sceneGraph, i, nearestNode, LockedDoor)
 			}
 		}
 	}
 }
 
-func findNearestConnectedNodeConnectedToZero(sceneGraph *SceneGraph, graphPathSearch *GraphPathSearch, nodeId int) int {
+func (g *GraphGenerator) findNearestConnectedNodeConnectedToZero(sceneGraph *SceneGraph, graphPathSearch *GraphPathSearch, nodeId int) int {
 	for i := nodeId - 1; i >= 0; i-- {
 		if sceneGraph.IsReservedNode(i) {
 			continue
@@ -187,4 +241,30 @@ func findNearestConnectedNodeConnectedToZero(sceneGraph *SceneGraph, graphPathSe
 		}
 	}
 	return -1
+}
+
+func LoadTraversal() *utilities.TraversalTextLoader {
+	traversalTextLoader := utilities.NewTraversalTextLoader()
+	err := traversalTextLoader.LoadFromFile("src/lib/text/traversal.json")
+	if err != nil {
+		panic(fmt.Sprintf("Error loading traversal text: %s", err))
+	}
+	return traversalTextLoader
+}
+
+func LoadEventText() *utilities.EventTextLoader {
+	eventTextLoader := utilities.NewEventTextLoader()
+	// Load event text from JSON file
+	err := eventTextLoader.LoadFromFile("src/lib/text/adventure.json")
+	if err != nil {
+		panic(fmt.Sprintf("Error loading event text: %s", err))
+	}
+	return eventTextLoader
+}
+
+func generateEdgeKey(nodeA, nodeB int) string {
+	if nodeA < nodeB {
+		return fmt.Sprintf("%d-%d", nodeA, nodeB)
+	}
+	return fmt.Sprintf("%d-%d", nodeB, nodeA)
 }

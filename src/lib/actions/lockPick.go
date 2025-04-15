@@ -10,7 +10,7 @@ type LockPickAction struct {
 func NewLockPickAction(edge *maps.Edge) *LockPickAction {
 	return &LockPickAction{
 		name:       "Pick Lock",
-		difficulty: edge.GetId(),
+		difficulty: edge.GetDifficulty(),
 	}
 }
 

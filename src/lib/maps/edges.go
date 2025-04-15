@@ -103,9 +103,31 @@ var EdgeTypes = map[EdgeType]*EdgeMetaData{
 }
 
 type Edge struct {
-	metaData *EdgeMetaData
-	resolved bool
-	id       int
+	metaData    *EdgeMetaData
+	resolved    bool
+	dificulty   int
+	ids         []int
+	previewText string
+	text        string
+}
+
+func NewEdge(edgeType EdgeType, ids []int, difficulty int, previewText string, text string) *Edge {
+	return &Edge{
+		metaData:    EdgeTypes[edgeType],
+		resolved:    false,
+		dificulty:   difficulty,
+		ids:         ids,
+		text:        text,
+		previewText: previewText,
+	}
+}
+
+func (e *Edge) GetPreviewText() string {
+	return e.previewText
+}
+
+func (e *Edge) GetText() string {
+	return e.text
 }
 
 func (e *Edge) GetMetaData() *EdgeMetaData {
@@ -116,33 +138,36 @@ func (e *Edge) SetMetaData(metaData *EdgeMetaData) {
 	e.metaData = metaData
 }
 
-func (e *Edge) GetId() int {
-	return e.id
+func (n *Edge) GetDifficulty() int {
+	return n.dificulty
 }
 
-func NewEdge(edgeType EdgeType, id int) *Edge {
-	return &Edge{
-		metaData: EdgeTypes[edgeType],
-		resolved: false,
-		id:       id,
+func (e *Edge) GetId(currentNodeId int) int {
+	for _, id := range e.ids {
+		if id != currentNodeId {
+			return id
+		}
 	}
+	return currentNodeId
 }
 
 type Edges struct {
 	edgeKeys generics.HashSet[int]
 	edges    map[int]*Edge
+	nodeId   int
 }
 
-func NewEdges() *Edges {
+func NewEdges(nodeId int) *Edges {
 	return &Edges{
 		edgeKeys: generics.NewHashSet[int](),
 		edges:    make(map[int]*Edge),
+		nodeId:   nodeId,
 	}
 }
 
-func (n *Edges) AddEdge(edgeId int) {
-	n.edgeKeys.Add(edgeId)
-	n.edges[edgeId] = NewEdge(Path, edgeId)
+func (n *Edges) AddEdge(edge *Edge) {
+	n.edgeKeys.Add(edge.GetId(n.nodeId))
+	n.edges[edge.GetId(n.nodeId)] = edge
 }
 
 func (e *Edges) GetAllEdges() generics.HashSet[int] {
@@ -151,14 +176,6 @@ func (e *Edges) GetAllEdges() generics.HashSet[int] {
 
 func (e *Edges) GetEdge(edgeId int) *Edge {
 	return e.edges[edgeId]
-}
-
-func (e *Edges) SetEdgeType(edgeId int, edgeType EdgeType) bool {
-	if e.edgeKeys.Contains(edgeId) {
-		e.edges[edgeId].SetMetaData(EdgeTypes[edgeType])
-		return true
-	}
-	return false
 }
 
 func (e *Edges) GetEdgeCount() int {

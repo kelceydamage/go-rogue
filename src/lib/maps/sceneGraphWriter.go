@@ -1,12 +1,11 @@
-package utilities
+package maps
 
 import (
 	"fmt"
-	"go-rogue/src/lib/maps"
 	"os"
 )
 
-func WriteDotFile(filename string, sceneGraph *maps.SceneGraph) {
+func WriteDotFile(filename string, sceneGraph *SceneGraph) {
 	file, err := os.Create(filename)
 	if err != nil {
 		fmt.Println("Error creating file:", err)

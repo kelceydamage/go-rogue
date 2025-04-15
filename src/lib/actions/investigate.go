@@ -12,7 +12,7 @@ type InvestigateAction struct {
 func NewInvestigateAction(edge *maps.Edge) *InvestigateAction {
 	return &InvestigateAction{
 		name:       "Investigate",
-		difficulty: edge.GetId(),
+		difficulty: edge.GetDifficulty(),
 	}
 }
 

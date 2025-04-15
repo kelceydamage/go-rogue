@@ -10,7 +10,7 @@ type WalkAction struct {
 func NewWalkAction(edge *maps.Edge) *WalkAction {
 	return &WalkAction{
 		name:       "Walk",
-		difficulty: edge.GetId(),
+		difficulty: edge.GetDifficulty(),
 	}
 }
 

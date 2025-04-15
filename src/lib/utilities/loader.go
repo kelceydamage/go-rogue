@@ -81,7 +81,6 @@ func (loader *TraversalTextLoader) LoadFromFile(filename string) error {
 		return fmt.Errorf("failed to unmarshal JSON: %w", err)
 	}
 
-	fmt.Println("Loaded texts:", loader.Texts)
 	return nil
 }
 

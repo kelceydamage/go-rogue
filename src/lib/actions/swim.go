@@ -10,7 +10,7 @@ type SwimAction struct {
 func NewSwimAction(edge *maps.Edge) *SwimAction {
 	return &SwimAction{
 		name:       "Swim",
-		difficulty: edge.GetId(),
+		difficulty: edge.GetDifficulty(),
 	}
 }
 

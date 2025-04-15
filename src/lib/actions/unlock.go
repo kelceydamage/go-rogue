@@ -10,7 +10,7 @@ type UnlockAction struct {
 func NewUnlockAction(edge *maps.Edge) *UnlockAction {
 	return &UnlockAction{
 		name:       "Unlock",
-		difficulty: edge.GetId(),
+		difficulty: edge.GetDifficulty(),
 	}
 }
 

@@ -10,7 +10,7 @@ type ClimbAction struct {
 func NewClimbAction(edge *maps.Edge) *ClimbAction {
 	return &ClimbAction{
 		name:       "Climb",
-		difficulty: edge.GetId(),
+		difficulty: edge.GetDifficulty(),
 	}
 }
 

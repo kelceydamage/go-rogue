@@ -10,7 +10,7 @@ type OpenAction struct {
 func NewOpenAction(edge *maps.Edge) *OpenAction {
 	return &OpenAction{
 		name:       "Open Door",
-		difficulty: edge.GetId(),
+		difficulty: edge.GetDifficulty(),
 	}
 }
 

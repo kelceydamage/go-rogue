@@ -21,19 +21,13 @@ func NewSceneGraph(theme *Theme) *SceneGraph {
 	}
 }
 
-func (sg *SceneGraph) AddNode(nodeId int, nodeType NodeType) {
-	sg.nodes[nodeId] = NewNode(nodeId, nodeType)
-}
-
-func (sg *SceneGraph) AddEdge(nodeIdA, nodeIdB int, edgeType EdgeType) {
-	sg.nodes[nodeIdA].AddEdge(nodeIdB, edgeType)
-	sg.nodes[nodeIdB].AddEdge(nodeIdA, edgeType)
+func (sg *SceneGraph) AddNode(nodeId int, nodeType NodeType, previewText, text string) {
+	sg.nodes[nodeId] = NewNode(nodeId, nodeType, previewText, text)
 }
 
 func (sg *SceneGraph) SetTerminusNode(nodeId int) {
 	sg.terminusNodeId = nodeId
 	sg.nodes[nodeId].SetTerminusNode(true)
-	sg.AddEdge(nodeId, nodeId-1, EdgeType(Path))
 }
 
 func (sg *SceneGraph) IsTerminusNode(nodeId int) bool {

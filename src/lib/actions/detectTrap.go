@@ -10,7 +10,7 @@ type DetectTrapAction struct {
 func NewDetectTrapAction(edge *maps.Edge) *DetectTrapAction {
 	return &DetectTrapAction{
 		name:       "Detect Trap",
-		difficulty: edge.GetId(),
+		difficulty: edge.GetDifficulty(),
 	}
 }
 
