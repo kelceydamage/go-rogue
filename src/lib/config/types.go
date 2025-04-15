@@ -11,12 +11,13 @@ type HeaderSettings struct {
 	Width     int
 }
 
-type CombatScreenSettings struct {
-	StartLine int
-	Width     int
-	Offset    int
+type MainScreenSettings struct {
+	StartLine     int
+	Width         int
+	Offset        int
+	WordWrapWidth int
 }
-type sceneGraphSettings struct {
+type SceneGraphSettings struct {
 	MinNodes                     int
 	MaxNodes                     int
 	MaxEdgesPerNode              int

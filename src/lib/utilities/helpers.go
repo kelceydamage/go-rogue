@@ -1,4 +1,4 @@
-package userInterface
+package utilities
 
 import "fmt"
 
@@ -14,7 +14,36 @@ func CenterText(text string, width int) string {
 	return fmt.Sprintf("%s%s", Spaces(padding), text)
 }
 
-func wrapText(text string, maxWidth int) []string {
+func WrapTextNoIndent(text string, maxWidth int) []string {
+	var lines []string
+
+	for len(text) > 0 {
+		if len(text) <= maxWidth {
+			lines = append(lines, text)
+			break
+		}
+
+		split := maxWidth
+		// Find the last space within the maxWidth limit
+		for split > 0 && text[split] != ' ' {
+			split--
+		}
+		if split == 0 { // No space found, force split
+			split = maxWidth
+		}
+
+		lines = append(lines, text[:split])
+		text = text[split:]
+		// Remove leading space for the next line
+		if len(text) > 0 && text[0] == ' ' {
+			text = text[1:]
+		}
+	}
+
+	return lines
+}
+
+func WrapText(text string, maxWidth int) []string {
 	var lines []string
 	indent := "    " // 4 spaces for indentation
 

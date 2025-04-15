@@ -7,12 +7,12 @@ import (
 type NodeType string
 
 const (
-	StartNode     NodeType = "start"
-	DecisionNode  NodeType = "decision"
-	EncounterNode NodeType = "encounter"
-	SceneryNode   NodeType = "scenery"
-	EndingNode    NodeType = "ending"
-	DeadEndNode   NodeType = "deadend"
+	StartNode     NodeType = "Start"
+	DecisionNode  NodeType = "Decision"
+	EncounterNode NodeType = "Encounter"
+	SceneryNode   NodeType = "Scenery"
+	EndingNode    NodeType = "Ending"
+	DeadEndNode   NodeType = "Deadend"
 )
 
 type NodeMetaData struct {
@@ -112,6 +112,14 @@ func NewNode(nodeId int, nodeType NodeType, previewText, text string) *Node {
 		previewText:    previewText,
 		text:           text,
 	}
+}
+
+func (n *Node) GetPreviewText() string {
+	return n.previewText
+}
+
+func (n *Node) GetText() string {
+	return n.text
 }
 
 func (n *Node) GetNodeType() NodeType {

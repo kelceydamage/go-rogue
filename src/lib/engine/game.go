@@ -9,6 +9,7 @@ import (
 	"go-rogue/src/lib/maps"
 	"go-rogue/src/lib/scenes"
 	"go-rogue/src/lib/userInterface"
+	"go-rogue/src/lib/utilities"
 	"log"
 	"math/rand"
 	"os"
@@ -62,6 +63,7 @@ func NewGame(player *entities.Player, enemy interfaces.IEntity, tickRate float32
 func (g *Game) Run() {
 	g.World.AddZone(0, 0, 0, 0, true)
 	traversalProcessor := NewTraversalProcessor(&InputProcessor{})
+	eventProcessor := NewEventProcessor()
 	userInterface.DrawTitleText("Go Rogue")
 	maps.WriteDotFile("graph.dot", g.World.GetCurrentZone().GetSceneGraph())
 
@@ -74,7 +76,7 @@ func (g *Game) Run() {
 	}
 
 	for range ticker.C {
-		userInterface.ClearScreenBelow(2, config.CombatScreenSettingsInstance.Offset)
+		utilities.ClearScreenBelow(2, config.General.Offset)
 		// Unpack the current node
 		currentNode := g.World.GetCurrentZone().GetSceneGraph().GetNode(g.Player.GetCurrentPosition())
 
@@ -82,7 +84,7 @@ func (g *Game) Run() {
 		// Draw the event screen
 
 		// Draw Traversal Options
-
+		currentLine = eventProcessor.Execute(currentNode, g.Player, currentLine)
 		currentLine = traversalProcessor.Execute(currentNode, g.Player, currentLine)
 
 		currentLine += 2
@@ -91,7 +93,7 @@ func (g *Game) Run() {
 			log.Fatal(err)
 		}
 
-		fmt.Printf("\033[%d;%dH%s\n", currentLine, config.CombatScreenSettingsInstance.Offset, "Press Enter to continue...")
+		fmt.Printf("\033[%d;%dH%s\n", currentLine, config.General.Offset, "Press Enter to continue...")
 		_, key, err := keyboard.GetKey()
 		if err != nil {
 			log.Fatal(err)

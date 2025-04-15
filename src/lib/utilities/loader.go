@@ -9,12 +9,12 @@ import (
 )
 
 type EventTextLoader struct {
-	Texts map[string]map[string][]string `json:"texts"` // Nested map for themes and node types
+	Texts map[string]map[string]map[string][]string `json:"texts"`
 }
 
 func NewEventTextLoader() *EventTextLoader {
 	return &EventTextLoader{
-		Texts: make(map[string]map[string][]string),
+		Texts: make(map[string]map[string]map[string][]string),
 	}
 }
 
@@ -32,20 +32,29 @@ func (loader *EventTextLoader) LoadFromFile(filename string) error {
 	return nil
 }
 
-func (loader *EventTextLoader) GetText(theme string, eventType string) string {
+func (loader *EventTextLoader) GetText(theme string, nodeType string, subcategory string) string {
 	themeTexts, themeExists := loader.Texts[theme]
 	if !themeExists {
 		return "No text available for this theme."
 	}
 
-	textOptions, eventExists := themeTexts[eventType]
-	if !eventExists || len(textOptions) == 0 {
-		return "No text available for this event type."
+	nodeTexts, nodeExists := themeTexts[nodeType]
+	if !nodeExists {
+		return "No text available for this node type."
 	}
 
-	// Randomize selection
-	rand.Seed(time.Now().UnixNano())
-	return textOptions[rand.Intn(len(textOptions))]
+	// Handle subcategories
+	if subcategory != "" {
+		subcategoryTexts, subcategoryExists := nodeTexts[subcategory]
+		if subcategoryExists && len(subcategoryTexts) > 0 {
+			rand.Seed(time.Now().UnixNano())
+			return subcategoryTexts[rand.Intn(len(subcategoryTexts))]
+		}
+		return "No text available for this subcategory."
+	}
+
+	// Fallback for non-subcategorized text
+	return "No text available."
 }
 
 type TraversalTextLoader struct {

@@ -10,12 +10,12 @@ import (
 	"strconv"
 )
 
-type Directions struct {
+type DirectionText struct {
 	LUT map[string]string
 }
 
-func NewDirections() *Directions {
-	return &Directions{
+func NewDirections() *DirectionText {
+	return &DirectionText{
 		LUT: map[string]string{
 			"F": "To the front",
 			"L": "To the left",
@@ -24,6 +24,8 @@ func NewDirections() *Directions {
 		},
 	}
 }
+
+var directionText = NewDirections()
 
 type DirectionOptions struct {
 	CardinalLUT        map[string]int
@@ -78,8 +80,6 @@ func (d *DirectionOptions) GetNodeId(cardinal string) int {
 	return d.CardinalLUT[cardinal]
 }
 
-var directions = NewDirections()
-
 type TraversalProcessor struct {
 	NavigationOptions *DirectionOptions
 	InputProcessor    *InputProcessor
@@ -93,6 +93,35 @@ func NewTraversalProcessor(
 		InputProcessor: inputProcessor,
 	}
 	return TraversalProcessor
+}
+
+func (tp *TraversalProcessor) Execute(currentNode *maps.Node, player *entities.Player, currentLine int) int {
+	tp.SetTraversalOptions(currentNode, player)
+	// TODO: There is a segfault going back to node 0
+	// Execute the traversal logic here
+	// This could involve moving the player, updating the game state, etc.
+	fmt.Println()
+	fmt.Println("Current Line:", currentLine)
+	currentLine = tp.DrawTraversalOptionScreen(currentNode, tp.GetTraversalOptions(), currentLine)
+	fmt.Println("Current Line:", currentLine)
+	currentLine = tp.DrawBackTrackingOptionScreen(currentNode, player, currentLine)
+	fmt.Println("Current Line:", currentLine)
+	input := tp.CaptureInput(tp.NavigationOptions.GetCardinalKeys(), currentLine)
+	selectedEdge := currentNode.GetEdge(tp.GetNodeId(input))
+	actions := tp.GetActions(selectedEdge)
+	currentLine = tp.DrawActionsScreen(actions, currentLine)
+	fmt.Println("Current Line:", currentLine)
+	input = tp.CaptureInput(tp.InputProcessor.StringRangeFromLength(len(actions)), currentLine)
+	actionIndex, _ := strconv.Atoi(input)
+	actionIndex--
+
+	// Do Action
+
+	currentLine = tp.DrawActionResultsScreen(selectedEdge, &actions[actionIndex], currentLine)
+	fmt.Println("Current Line:", currentLine)
+
+	player.SetCurrentPosition(selectedEdge.GetId(currentNode.GetId()))
+	return currentLine
 }
 
 func (tp *TraversalProcessor) GetCardinal(node int) string {
@@ -116,31 +145,7 @@ func (tp *TraversalProcessor) GetPreviousPosition(player *entities.Player) int {
 }
 
 func (tp *TraversalProcessor) CaptureInput(validOptions []string, currentLine int) string {
-	return tp.InputProcessor.GetValidInput(validOptions, currentLine, config.CombatScreenSettingsInstance.Offset)
-}
-
-func (tp *TraversalProcessor) Execute(currentNode *maps.Node, player *entities.Player, currentLine int) int {
-	tp.SetTraversalOptions(currentNode, player)
-	// TODO: There is a segfault going back to node 0
-	// Execute the traversal logic here
-	// This could involve moving the player, updating the game state, etc.
-	currentLine = tp.DrawTraversalOptionScreen(currentNode, tp.GetTraversalOptions(), currentLine)
-	currentLine = tp.DrawBackTrackingOptionScreen(currentNode, player, currentLine)
-
-	input := tp.CaptureInput(tp.NavigationOptions.GetCardinalKeys(), currentLine)
-	selectedEdge := currentNode.GetEdge(tp.GetNodeId(input))
-	actions := tp.GetActions(selectedEdge)
-	currentLine = DrawActionsScreen(actions, currentLine)
-	input = tp.CaptureInput(tp.InputProcessor.StringRangeFromLength(len(actions)), currentLine)
-	actionIndex, _ := strconv.Atoi(input)
-	actionIndex--
-
-	// Do Action
-
-	currentLine = DrawActionResultsScreen(selectedEdge, &actions[actionIndex], currentLine)
-
-	player.SetCurrentPosition(selectedEdge.GetId(currentNode.GetId()))
-	return currentLine
+	return tp.InputProcessor.GetValidInput(validOptions, currentLine, config.General.Offset)
 }
 
 func (tp *TraversalProcessor) GetActions(selectedEdge *maps.Edge) []actions.Action {
@@ -152,16 +157,15 @@ func (tp *TraversalProcessor) DrawTraversalOptionScreen(
 	movementOptions map[int]string,
 	currentLine int,
 ) int {
-	fmt.Println("342432424", movementOptions)
 	for nodeId, direction := range movementOptions {
 		edge := currentNode.GetEdge(nodeId)
 		fmt.Printf(
 			"\033[%d;%dH[%s][%d] %s: %s\n",
 			currentLine,
-			config.CombatScreenSettingsInstance.Offset,
+			config.General.Offset,
 			direction,
 			nodeId,
-			directions.LUT[direction],
+			directionText.LUT[direction],
 			edge.GetPreviewText(),
 		)
 		currentLine++
@@ -175,7 +179,7 @@ func (tp *TraversalProcessor) DrawBackTrackingOptionScreen(currentNode *maps.Nod
 		fmt.Printf(
 			"\033[%d;%dH[%s][%d] %s: %s\n",
 			currentLine,
-			config.CombatScreenSettingsInstance.Offset,
+			config.General.Offset,
 			"U",
 			player.GetPreviousPosition(),
 			"Back the way you came",
@@ -186,27 +190,27 @@ func (tp *TraversalProcessor) DrawBackTrackingOptionScreen(currentNode *maps.Nod
 	return currentLine
 }
 
-func DrawActionsScreen(
+func (tp *TraversalProcessor) DrawActionsScreen(
 	actions []actions.Action,
 	currentLine int,
 ) int {
-	currentLine += 2
-	fmt.Printf("\033[%d;%dHAvailable Actions: ", currentLine, config.CombatScreenSettingsInstance.Offset)
+	currentLine += 3
+	fmt.Printf("\033[%d;%dHAvailable Actions: ", currentLine, config.General.Offset)
 	currentLine++
 	for i, action := range actions {
 		currentLine++
-		fmt.Printf("\033[%d;%dH[%d] %s\n", currentLine, config.CombatScreenSettingsInstance.Offset, i+1, action.GetName())
+		fmt.Printf("\033[%d;%dH[%d] %s\n", currentLine, config.General.Offset, i+1, action.GetName())
 	}
 	currentLine++
 	return currentLine
 }
 
-func DrawActionResultsScreen(
+func (tp *TraversalProcessor) DrawActionResultsScreen(
 	edge *maps.Edge,
 	action *actions.Action,
 	currentLine int,
 ) int {
-	currentLine += 2
-	fmt.Printf("\033[%d;%dH%s\n", currentLine, config.CombatScreenSettingsInstance.Offset, edge.GetText())
+	currentLine += 3
+	fmt.Printf("\033[%d;%dH%s\n", currentLine, config.General.Offset, edge.GetText())
 	return currentLine
 }

@@ -1,26 +1,26 @@
-package userInterface
+package engine
 
 import (
 	"fmt"
 	"go-rogue/src/lib/config"
 	"go-rogue/src/lib/interfaces"
+	"go-rogue/src/lib/utilities"
 )
 
 func DrawPlayerAttributes(player interfaces.IEntity) {
-	rules := config.AttributesScreenSettingsInstance
-	fmt.Printf(getAttributeHeaderTextOutput(rules))
+	fmt.Printf(getAttributeHeaderTextOutput(config.Attributes))
 	for index, key := range player.GetAttributeMapOrderedKeys() {
-		fmt.Printf(getAttributeTextOutput(key, player.GetAttributes()[key], index+1, rules))
+		fmt.Printf(getAttributeTextOutput(key, player.GetAttributes()[key], index+1, config.Attributes))
 	}
-	fmt.Printf(getAttributeFooterTextOutput(len(player.GetAttributeMapOrderedKeys()), rules))
+	fmt.Printf(getAttributeFooterTextOutput(len(player.GetAttributeMapOrderedKeys()), config.Attributes))
 }
 
 func getPaddedField(fieldName string, fieldPadding int) string {
-	return fmt.Sprintf("%s:%s", fieldName, Spaces(fieldPadding-len(fieldName)))
+	return fmt.Sprintf("%s:%s", fieldName, utilities.Spaces(fieldPadding-len(fieldName)))
 }
 
 func getPaddedValue(fieldName string, value float32, rules *config.AttributesScreenSettings) string {
-	return Spaces(rules.Width - 1 - len(fmt.Sprintf("%s %.2f", fieldName, value)))
+	return utilities.Spaces(rules.Width - 1 - len(fmt.Sprintf("%s %.2f", fieldName, value)))
 }
 
 func getAttributeTextOutput(attributeName string, value float32, line int, rules *config.AttributesScreenSettings) string {
@@ -38,7 +38,7 @@ func getAttributeHeaderTextOutput(rules *config.AttributesScreenSettings) string
 	return fmt.Sprintf(
 		"\033[%d;0H\033[47m\033[30mPlayer Attributes:%s\033[0m\n",
 		rules.StartLine,
-		Spaces(rules.Width-len("Player Attributes:")),
+		utilities.Spaces(rules.Width-len("Player Attributes:")),
 	)
 }
 
@@ -46,6 +46,6 @@ func getAttributeFooterTextOutput(line int, rules *config.AttributesScreenSettin
 	return fmt.Sprintf(
 		"\033[%d;0H\033[47m\033[30m%s\033[0m\n",
 		rules.StartLine+line+1,
-		Spaces(rules.Width-len("")),
+		utilities.Spaces(rules.Width-len("")),
 	)
 }

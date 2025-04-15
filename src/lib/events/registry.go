@@ -1,10 +1,6 @@
 package events
 
-import (
-	"go-rogue/src/lib/maps"
-	"go-rogue/src/lib/utilities"
-)
-
+/*
 // TODO
 var EventRegistry = map[maps.NodeType]func(loader *utilities.EventTextLoader, theme string) Event{
 	maps.StartNode: func(loader *utilities.EventTextLoader, theme string) Event {
@@ -47,3 +43,4 @@ var TraversalRegistry = map[maps.EdgeType]func(loader *utilities.TraversalTextLo
 		return loader.GetText(theme, "HiddenDoor")
 	},
 }
+*/

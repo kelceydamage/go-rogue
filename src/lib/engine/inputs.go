@@ -10,15 +10,12 @@ type InputProcessor struct{}
 func (i *InputProcessor) GetValidInput(validInputs []string, currentLine, offset int) string {
 	var input string
 	currentLine++
-
 	for {
-		fmt.Printf("\033[%d;%dHSelect an option: ", currentLine, offset)
+		fmt.Printf("\033[47m\033[30m\033[%d;%dHSelect an option:\033[0m ", currentLine, offset)
 		_, err := fmt.Scanln(&input)
-
-		// Check if the input is valid
 		if err == nil {
 			if slices.Contains(validInputs, input) {
-				return input // Return the valid input
+				return input
 			}
 		}
 	}
@@ -27,7 +24,7 @@ func (i *InputProcessor) GetValidInput(validInputs []string, currentLine, offset
 func (i *InputProcessor) IntRangeFromLength(length int) []int {
 	result := make([]int, length)
 
-	for i := 0; i < length; i++ {
+	for i := range length {
 		result[i] = i + 1
 	}
 
@@ -37,7 +34,7 @@ func (i *InputProcessor) IntRangeFromLength(length int) []int {
 func (i *InputProcessor) StringRangeFromLength(length int) []string {
 	result := make([]string, length)
 
-	for i := 0; i < length; i++ {
+	for i := range length {
 		result[i] = fmt.Sprintf("%d", i+1)
 	}
 

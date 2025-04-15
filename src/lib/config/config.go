@@ -15,16 +15,17 @@ func NewHeaderSettings() *HeaderSettings {
 	}
 }
 
-func NewCombatScreenSettings() *CombatScreenSettings {
-	return &CombatScreenSettings{
-		StartLine: 11,
-		Width:     70,
-		Offset:    50,
+func NewMainScreenSettings() *MainScreenSettings {
+	return &MainScreenSettings{
+		StartLine:     11,
+		Width:         70,
+		Offset:        50,
+		WordWrapWidth: 70,
 	}
 }
 
-func NewSceneGraphSettings() *sceneGraphSettings {
-	return &sceneGraphSettings{
+func NewSceneGraphSettings() *SceneGraphSettings {
+	return &SceneGraphSettings{
 		MinNodes:                     10,
 		MaxNodes:                     20,
 		MaxEdgesPerNode:              4,
@@ -35,7 +36,7 @@ func NewSceneGraphSettings() *sceneGraphSettings {
 	}
 }
 
-var CombatScreenSettingsInstance = NewCombatScreenSettings()
-var HeaderSettingsInstance = NewHeaderSettings()
-var AttributesScreenSettingsInstance = NewAttributesScreenSettings()
-var SceneGraphSettingsInstance = NewSceneGraphSettings()
+var General = NewMainScreenSettings()
+var Header = NewHeaderSettings()
+var Attributes = NewAttributesScreenSettings()
+var SceneGraph = NewSceneGraphSettings()

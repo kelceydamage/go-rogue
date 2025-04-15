@@ -123,7 +123,7 @@ func (g *GraphGenerator) ColorDeadEndNodes(sceneGraph *SceneGraph) {
 }
 
 func (g *GraphGenerator) PopulateSceneGraph(sceneGraph *SceneGraph) {
-	n := rand.Intn(config.SceneGraphSettingsInstance.MaxNodes) + config.SceneGraphSettingsInstance.MinNodes
+	n := rand.Intn(config.SceneGraph.MaxNodes) + config.SceneGraph.MinNodes
 	fmt.Println("NodeCount", n)
 	for i := range n {
 		var nodeType NodeType
@@ -144,8 +144,9 @@ func (g *GraphGenerator) PopulateSceneGraph(sceneGraph *SceneGraph) {
 			i,
 			nodeType,
 			"",
-			g.eventTextLoader.GetText(sceneGraph.theme.Name, string(nodeType)),
+			g.eventTextLoader.GetText(sceneGraph.theme.Name, string(nodeType), "initial"),
 		)
+		fmt.Println(sceneGraph.theme.Name, string(nodeType), g.eventTextLoader.GetText(sceneGraph.theme.Name, string(nodeType), "initial"))
 	}
 
 	sceneGraph.SetTerminusNode(n - 1)
@@ -153,7 +154,7 @@ func (g *GraphGenerator) PopulateSceneGraph(sceneGraph *SceneGraph) {
 }
 
 func (g *GraphGenerator) GenerateDeadNodes(sceneGraph *SceneGraph) {
-	deadNodeCount := int(float32(sceneGraph.GetNodeCount()) * config.SceneGraphSettingsInstance.ProbabilityOfDeadEndNode)
+	deadNodeCount := int(float32(sceneGraph.GetNodeCount()) * config.SceneGraph.ProbabilityOfDeadEndNode)
 	sceneGraph.SetDeadEndNodes(rand.Perm(sceneGraph.GetNodeCount() - 3)[:deadNodeCount])
 	fmt.Println("DeadEndNods", sceneGraph.GetDeadEndNodes())
 	for nodeId := range sceneGraph.GetDeadEndNodes() {
@@ -184,9 +185,9 @@ func (g *GraphGenerator) GenerateEdges(sceneGraph *SceneGraph, theme *Theme) {
 		if sceneGraph.IsReservedNode(nodeA) || sceneGraph.IsReservedNode(nodeB) || nodeA == nodeB {
 			continue
 		}
-		if sceneGraph.GetEdgeCount(randomNodeIds[0]) < config.SceneGraphSettingsInstance.MaxEdgesPerNode &&
-			sceneGraph.GetEdgeCount(randomNodeIds[1]) < config.SceneGraphSettingsInstance.MaxEdgesPerNode &&
-			sceneGraph.GetNodeDistance(randomNodeIds[0], randomNodeIds[1]) <= config.SceneGraphSettingsInstance.MaxDistanceForEdgeToForm {
+		if sceneGraph.GetEdgeCount(randomNodeIds[0]) < config.SceneGraph.MaxEdgesPerNode &&
+			sceneGraph.GetEdgeCount(randomNodeIds[1]) < config.SceneGraph.MaxEdgesPerNode &&
+			sceneGraph.GetNodeDistance(randomNodeIds[0], randomNodeIds[1]) <= config.SceneGraph.MaxDistanceForEdgeToForm {
 			edgeType := GetRandomEdgeType(theme)
 			g.AddEdge(sceneGraph, nodeA, nodeB, edgeType)
 		}
@@ -200,8 +201,8 @@ func (g *GraphGenerator) GenerateCycles(sceneGraph *SceneGraph, theme *Theme) {
 				continue
 			}
 			sceneGraph.ContainsEdge(i, j)
-			if sceneGraph.GetNodeDistance(i, j) <= config.SceneGraphSettingsInstance.MaxDistanceForEdgeToForm &&
-				rand.Float32() < config.SceneGraphSettingsInstance.ProbabilityOfCycles {
+			if sceneGraph.GetNodeDistance(i, j) <= config.SceneGraph.MaxDistanceForEdgeToForm &&
+				rand.Float32() < config.SceneGraph.ProbabilityOfCycles {
 				edgeType := GetRandomEdgeType(theme)
 				g.AddEdge(sceneGraph, i, j, edgeType)
 			}
