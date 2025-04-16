@@ -1,6 +1,9 @@
 package utilities
 
-import "fmt"
+import (
+	"fmt"
+	"strings"
+)
 
 func Spaces(count int) string {
 	if count > 0 {
@@ -103,4 +106,8 @@ func ClearScreenBelow(line int, offset int) {
 
 	// Clear the screen from the cursor position downward
 	fmt.Print("\033[J")
+}
+
+func RemoveSpaces(s string) string {
+	return strings.ReplaceAll(s, " ", "")
 }

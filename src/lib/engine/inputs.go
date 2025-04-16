@@ -8,6 +8,7 @@ import (
 type InputProcessor struct{}
 
 func (i *InputProcessor) GetValidInput(validInputs []string, currentLine, offset int) string {
+	validInputs = append(validInputs, "X")
 	var input string
 	currentLine++
 	for {

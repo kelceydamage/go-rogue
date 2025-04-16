@@ -133,6 +133,10 @@ func (e *Edge) GetText() string {
 	return e.text
 }
 
+func (e *Edge) GetTransitionText() string {
+	return e.transitionText
+}
+
 func (e *Edge) GetMetaData() *EdgeMetaData {
 	return e.metaData
 }

@@ -144,7 +144,7 @@
                 "4": "The wind snuffs out every spark before it can grow."
             }
         },
-        "Lockpick": {
+        "Pick Lock": {
             "Success": {
                 "0": "With finesse, you unlock it in moments.",
                 "1": "The tumblers click one by one until the lock opens.",
@@ -160,7 +160,7 @@
                 "4": "The tools slip and you fail to pick the lock."
             }
         },
-        "Open": {
+        "Open Door": {
             "Success": {
                 "0": "The door creaks open, revealing the path ahead.",
                 "1": "You push the door open with little resistance.",

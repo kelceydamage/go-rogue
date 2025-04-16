@@ -62,7 +62,8 @@ func NewGame(player *entities.Player, enemy interfaces.IEntity, tickRate float32
 
 func (g *Game) Run() {
 	g.World.AddZone(0, 0, 0, 0, true)
-	traversalProcessor := NewTraversalProcessor(&InputProcessor{})
+	actionTextLoader := utilities.NewActionsLoader()
+	traversalProcessor := NewTraversalProcessor(&InputProcessor{}, actionTextLoader)
 	eventProcessor := NewEventProcessor()
 	userInterface.DrawTitleText("Go Rogue")
 	maps.WriteDotFile("graph.dot", g.World.GetCurrentZone().GetSceneGraph())

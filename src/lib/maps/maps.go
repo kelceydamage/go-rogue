@@ -47,11 +47,11 @@ func NewGraphGenerator() *GraphGenerator {
 func (g *GraphGenerator) AddEdge(sceneGraph *SceneGraph, nodeA, nodeB int, edgeType EdgeType) *Edge {
 	// Generate a consistent key for the edge
 	edgeKey := generateEdgeKey(nodeA, nodeB)
-	fmt.Println("edgeKey", edgeKey)
+	//fmt.Println("edgeKey", edgeKey)
 
 	// Check if the edge already exists
 	if edge, exists := g.edgeMap[edgeKey]; exists {
-		fmt.Println("Edge already exists:", edgeKey)
+		//fmt.Println("Edge already exists:", edgeKey)
 		return edge // Reuse the existing edge
 	}
 
@@ -72,7 +72,7 @@ func (g *GraphGenerator) AddEdge(sceneGraph *SceneGraph, nodeA, nodeB int, edgeT
 	// Add the edge to both nodes in the scene graph
 	sceneGraph.GetNode(nodeA).AddEdge(newEdge)
 	sceneGraph.GetNode(nodeB).AddEdge(newEdge)
-	fmt.Println("Adding edge between nodes", nodeA, "and", nodeB)
+	//fmt.Println("Adding edge between nodes", nodeA, "and", nodeB)
 	return newEdge
 }
 
@@ -151,7 +151,7 @@ func (g *GraphGenerator) PopulateSceneGraph(sceneGraph *SceneGraph) {
 			"",
 			g.eventTextLoader.GetText(sceneGraph.theme.Name, string(nodeType), subtype),
 		)
-		fmt.Println(sceneGraph.theme.Name, string(nodeType), subtype, g.eventTextLoader.GetText(sceneGraph.theme.Name, string(nodeType), subtype))
+		//fmt.Println(sceneGraph.theme.Name, string(nodeType), subtype, g.eventTextLoader.GetText(sceneGraph.theme.Name, string(nodeType), subtype))
 	}
 
 	sceneGraph.SetTerminusNode(n - 1)
@@ -220,9 +220,9 @@ func (g *GraphGenerator) ConnectClusters(sceneGraph *SceneGraph) {
 	for i := 1; i < sceneGraph.GetNodeCount(); i++ {
 		if !graphPathSearch.IsPathToNodeZero(i) {
 			nearestNode := g.findNearestConnectedNodeConnectedToZero(sceneGraph, graphPathSearch, i)
-			fmt.Println("nearestNode", nearestNode)
+			//fmt.Println("nearestNode", nearestNode)
 			if nearestNode != -1 {
-				fmt.Println("Connecting node", i, "to nearest node", nearestNode)
+				//fmt.Println("Connecting node", i, "to nearest node", nearestNode)
 				g.AddEdge(sceneGraph, i, nearestNode, LockedDoor)
 			}
 		}

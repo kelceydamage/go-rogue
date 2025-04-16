@@ -161,7 +161,7 @@ func (loader *ActionsLoader) LoadFromFile(filename string) error {
 		return fmt.Errorf("failed to read file: %w", err)
 	}
 
-	err = json.Unmarshal(data, &loader.Actions)
+	err = json.Unmarshal(data, loader)
 	if err != nil {
 		fmt.Println("Error unmarshaling JSON:", err)
 		return fmt.Errorf("failed to unmarshal JSON: %w", err)
