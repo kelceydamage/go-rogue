@@ -1,14 +1,14 @@
 {
     "Dungeon": {
         "Start": {
-            "initial": [
+            "Initial": [
                 "You descend into a musty corridor, its walls slick with condensation. A stale air envelops you, hinting at forgotten depths beyond. Each echoing footstep seems to challenge the lingering shadows around you.",
                 "Heavy stone arches line the entrance to this ancient stronghold, etched with runes that have faded over centuries. A subtle drip of water resonates in the distance, underscoring the stillness of the path ahead. The weight of history clings to every surface.",
                 "Dim torchlight reveals rough-hewn walls and scattered debris from previous adventurers. Dust stirs in the stagnant air, dancing briefly in the flickering glow. You sense the labyrinth’s dormant presence, waiting for your next move."
             ]
         },
         "Ending": {
-            "initial": [
+            "Initial": [
                 "You stand victorious at the heart of the duncgon, where long-forgotten treasures lie in silent testimony. Cracks of light filter through the crumbling ceiling, illuminating dust motes drifting lazily in the air. A solemn calm descends, marking the end of your perilous journey.",
                 "An ancient chamber opens up before you, its floor littered with remnants of past explorers. The final stretch of the corridor is bathed in eerie luminescence from hidden crystals embedded in the walls. In this lonely sanctum, your hard-won triumph resonates powerfully.",
                 "The last step leads you into a vaulted hall, adorned with faded tapestries and broken pillars. The stark stillness feels almost reverent, as though the duncgon itself acknowledges your persistence. As you exit, a gust of foreign air promises the world outside has changed in your absence."
@@ -44,10 +44,10 @@
                 "Weathered murals stretch across the walls, their colors dimmed by centuries in the dark. Flickering torchlight brings faint details to life—depictions of ancient battles and grand rituals. There's a solemn beauty in the stories these stones keep.",
                 "A series of grand arches lines the corridor, remnants of a once-flourishing craftsmanship. Crumbling mosaics beneath your feet depict legends long forgotten. Each step resonates through the labyrinth, as if the stones themselves attempt to whisper their tales."
             ],
-            "SecretPassages": [
-                "You notice a subtle draft behind a loose tapestry, suggesting a concealed doorway. The musty odor of trapped air seeps through, confirming the passage’s disuse. A hush settles around you as you consider uncovering what lies beyond.",
-                "A narrow gap by the wall draws your attention, barely noticeable if not for the trickle of dust escaping it. Closer inspection reveals hidden hinges cleverly blending with the stonework. The prospect of a hidden route promises both intrigue and danger.",
-                "You discover a suspicious seam in the mortar where the wall doesn’t quite match its surroundings. Feeling along the boundary reveals faint vibrations from within. The silent promise of hidden chambers beckons you to explore further."
+            "PointsOfInterest": [
+                "A massive stone door looms ahead, its surface engraved with intricate designs. The air around it hums with a strange energy, as if the door itself is alive. You can almost hear the whispers of those who have passed through before you.",
+                "You discover a hidden alcove filled with ancient tomes and scrolls, their pages yellowed with age. Dust motes dance in the air, illuminated by your torchlight. The knowledge contained within these texts could change everything.",
+                "A small altar stands in the center of the corridor, adorned with offerings long since turned to dust. The faint scent of incense lingers, hinting at rituals performed here ages ago. A sense of reverence fills the air, urging you to tread lightly."
             ]
         },
         "DeadEnd": {
@@ -56,7 +56,7 @@
                 "A wall of fused stones obstructs what was once a grand corridor, now sealed by time and decay. No sound penetrates from beyond, as if the duncgon itself has swallowed the path. You’re left to find another route through endless twists and turns.",
                 "Loose masonry tumbles from above, filling the passage with fresh rubble. An acrid, dusty smell assaults your senses, forcing you to step back. Progress is impossible here, and the haunting darkness offers no easy alternative."
             ],
-            "Hidden": [
+            "HiddenCache": [
                 "You reach the apparent end of the passage, yet the faintest trickle of air slips past the cracks. On closer inspection, the stones appear artificially arranged. There's an underlying sense that a single push in the right place might open a hidden way.",
                 "This dead end seems too perfect, its stones neatly fitted together. A slight hollow resonance when you tap on it suggests a concealed space beyond. The silence that follows feels both inviting and foreboding.",
                 "A metallic glimmer at the base of the wall catches your eye, half-buried beneath dusty rubble. You stoop to investigate, realizing it’s part of a hidden latch. Whether it leads to treasure or threat is unclear, but curiosity tugs you onward."
@@ -65,14 +65,14 @@
     },
     "Forest": {
         "Start": {
-            "initial": [
+            "Initial": [
                 "You step into a lush forest where towering trees stretch their branches to form a vibrant green canopy. The earthy aroma of moss and damp leaves envelops you as soft sunlight filters through the foliage. It's a realm teeming with hidden life, and each step feels like an invitation to explore further.",
                 "The forest welcomes you with a gentle breeze, carrying distant birdsong on the wind. Beneath your feet, fertile soil and tangled roots offer both comfort and challenge. Every rustle of leaves hints at creatures unseen, making you aware that the wilderness holds many surprises.",
                 "You find yourself amidst ancient trunks draped in vines and dotted with mushrooms. Dappled sunlight plays across the leaf-strewn ground, revealing footprints of passing animals. The further you venture, the more you sense the forest's timeless endurance and quiet watchfulness."
             ]
         },
         "Ending": {
-            "initial": [
+            "Initial": [
                 "You stand at the final glade, a serene clearing bathed in golden light where the canopy opens wide. A calm pond reflects the dancing leaves above, and the air is filled with the soft hum of insects. There's a deep peace here, signaling that your journey has led you to a place of natural stillness.",
                 "Reaching the heart of the forest, you step into a meadow where oversized ferns and wildflowers thrive. Shafts of sunlight illuminate a gentle stream trickling through mossy stones. The tranquility of the scene suggests your travels have culminated in a moment of pure serenity.",
                 "The forest’s central grove spreads before you in a breathtaking display of color and light. Sunbeams pierce the canopy as if in blessing, and the soft hush of rustling leaves feels like a final benediction. The quiet power of this place confirms your arrival at your rightful destination."
@@ -108,7 +108,7 @@
                 "You come upon a sunlit clearing, ringed by majestic pines. A thick carpet of emerald moss blankets the ground, as though inviting you to rest. The hush of the sheltered space gives an otherworldly feel, as if you've stepped into a hidden realm within the forest.",
                 "A gently winding stream sparkles under golden rays, its waters flowing alongside carpets of ferns. Tree roots dip into its current, forming natural arches over its surface. The mingling sounds of water and rustling leaves provide a soothing chorus."
             ],
-            "SecretGroves": [
+            "PointsOfInterest": [
                 "A secluded grove emerges behind a curtain of tangled vines, where bioluminescent fungi glow softly under the canopy. Fireflies weave among the mossy trunks, as if guiding you through a fairy-tale heart of the forest.",
                 "You discover a pocket of tall wildflowers in a hollow, surrounded by graceful willows bending low. Dew drops glimmer on each petal and leaf, forming tiny prisms of color when touched by stray sunbeams. It's a gentle oasis that feels worlds away from the outside.",
                 "A ring of ancient stones stands in the midst of the greenery, their surfaces etched with faint runes. Vines and lichens have nearly reclaimed them, yet a subtle energy hums in the air. The forest seems to protect this place, keeping its secrets for those who wander deep enough."
@@ -120,7 +120,7 @@
                 "A fallen oak trunk spans the path, uprooted so completely that its vast root system stands upright. Intertwined within are stones and soil, forming an impenetrable mass. You pause to admire nature's raw power, even as it impedes your progress.",
                 "The route tapers into a dense thicket of tightly knit branches. A single songbird chirps overhead, contrasting with the impassable vista ahead. Retreat seems inevitable, unless you want to force your way into the thorny unknown."
             ],
-            "Hidden": [
+            "HiddenCache": [
                 "You reach a small clearing that appears sealed off, yet the rustle of leaves behind dense brush suggests otherwise. A soft breeze slips through gaps in the foliage, tempting you to find the concealed passage beyond.",
                 "At a stony dead end, smooth cobbles are covered with a layer of emerald moss. A subtle draft emanates from beneath them, hinting at tunnels or hollow spaces just out of sight. You can't help wondering what secrets the forest floor might hide.",
                 "Vines and branches twist together to form a natural curtain, but a faint glow from within betrays that this wall is not as solid as it seems. The hush of the forest grows heavier here, as though guarding whatever lies behind its leafy veil."
@@ -129,14 +129,14 @@
     },
     "Cave": {
         "Start": {
-            "initial": [
+            "Initial": [
                 "You enter the dark, echoing cave. It's surprisingly cool inside despite the harsh sun outside. The sound of dripping water echoes through unseen passageways.",
                 "The cave's entrance looms before you, covered in a thin veil of moss. A stale breeze wafts out, carrying the faint scent of minerals. You can hear faint scurrying deep within.",
                 "You step into the cold, damp cavern. Jagged stalactites hang overhead like teeth. Shadows stretch across the stone walls, hinting at hidden depths."
             ]
         },
         "Ending": {
-            "initial": [
+            "Initial": [
                 "You reach the heart of the cave. Faint glow from bioluminescent fungi illuminates the final chamber. A sense of stillness envelops you as you realize your journey ends here.",
                 "The cave's final chamber lies ahead, lit by a shaft of pale light from a fissure above. Water cascades gently, forming a shallow pool at your feet. The air is oddly peaceful here, despite the surrounding darkness.",
                 "You stand at the end of the cavernous path, where the walls converge into a small shrine-like space. Ancient markings etched into the rock tell a story of those who came before. A calm silence lingers, as though the cave itself is at rest."
@@ -167,12 +167,12 @@
             ]
         },
         "Scenery": {
-            "Stalactites": [
+            "Landmarks": [
                 "The cave walls glisten with moisture under the flickering torchlight, revealing intricate mineral patterns. Stalactites hang menacingly overhead, dripping water at irregular intervals. Each drop echoes like a slow, rhythmic heartbeat in the silent hollow.",
                 "You pass through a chamber filled with stalactites, some reaching so low that you must duck to avoid them. The mineral smell reminds you of damp earth and ancient stone. In the darkness, every movement seems magnified and foreboding.",
                 "The air is cold and heavy in the cavern, where stalactites and stalagmites form massive pillars. Tiny streams trickle, carving delicate channels into the rock floor. Your footsteps seem muffled, as if the cave itself is holding its breath."
             ],
-            "Crystals": [
+            "PointsOfInterest": [
                 "You find a chamber filled with glowing crystals of various colors, casting dancing lights on the walls. A gentle humming resonates as you approach, as though the crystals themselves are singing. It's a surreal pocket of beauty hidden within the dark.",
                 "The walls sparkle with embedded gemstones that reflect your torchlight in dazzling patterns. It's mesmerizing yet eerie, as if you're trespassing in nature's hidden treasury. You can't help wondering if these gems hold secrets from ages past.",
                 "A faint luminescence emanates from crystalline formations, illuminating the chamber like a starry sky. The air is cool and still, carrying the subtle scent of mineral dust. You feel a serene wonder, as if you've stepped into a living geode."
@@ -184,7 +184,7 @@
                 "The passage narrows until it becomes impassable, sealed by centuries of mineral buildup. Dust hangs in the air, illuminated by your torchlight. You wonder how many travelers have been turned back at this very spot.",
                 "A dead end with no way forward greets you, the walls meeting in a jagged seam of rock. The faintest draft hints that there's something beyond, but no path is visible. You're left with a lingering sense of mystery."
             ],
-            "Hidden": [
+            "HiddenCache": [
                 "You reach what seems to be a dead end, though the rock ahead has an unusual texture. A gentle rapping on the stone reveals a hollow echo beneath. The thought of a secret passage sparks your curiosity.",
                 "The wall at this dead end doesn't quite look natural, as if it was shaped by something or someone. Cobwebs cling to the rough edges, suggesting it hasn't been disturbed in a long time. You sense hidden depths beyond.",
                 "A faint draft along this apparently solid wall suggests there's more here than meets the eye. The stones look suspiciously loose, as if carefully placed to conceal a passage. Every instinct tells you to investigate further."

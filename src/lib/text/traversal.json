@@ -1,224 +1,422 @@
 {
     "Dungeon": {
         "Path": {
-            "Preview": [
-                "a narrow stone path.",
-                "a moss-covered path stretches before you.",
-                "the path is dimly lit by torches."
-            ],
-            "Text": [
-                "You follow a narrow stone path.",
-                "The path is uneven and covered in moss.",
-                "You carefully tread along the dungeon's ancient walkway."
-            ]
+            "Preview": {
+                "0": "Dim torchlight flickers down a narrow stone corridor.",
+                "1": "A cold, shadowy passage stretches ahead, heavy with silence.",
+                "2": "The hallway ahead is lined with worn stone and distant echoes.",
+                "3": "A sinister corridor lies before you, cloaked in darkness.",
+                "4": "Faint whispers and flickering shadows beckon from a dim corridor."
+            },
+            "Text": {
+                "0": "The stone walls around you are damp, lit sporadically by flickering torches. You hear the faint drip of water as you cautiously navigate the narrow corridor.",
+                "1": "An unsettling quiet surrounds you in the dim corridor. The cold air clings to your skin, urging caution as you step forward into uncertainty.",
+                "2": "You tread carefully along the worn stone floor, each footstep echoing softly down the corridor. Shadows play tricks on your eyes, hinting at dangers lurking in the darkness.",
+                "3": "The oppressive darkness seems almost alive as you make your way down the sinister corridor, the air thick with tension and foreboding.",
+                "4": "Soft whispers float through the air, barely audible but compelling enough to guide you deeper into the dim, shadow-laden hallway."
+            },
+            "Transition": {
+                "0": "You move deeper into the dungeon, torchlight guiding your uncertain steps forward.",
+                "1": "Pressing onward despite the chill, you advance into the unknown depths.",
+                "2": "Determined, you proceed down the echoing hallway, preparing for whatever awaits ahead.",
+                "3": "With steady resolve, you venture further into the darkness, senses alert for any threat.",
+                "4": "Following the faint whispers, you step cautiously forward into the mysteries that await."
+            }
         },
         "Crossing": {
-            "Preview": [
-                "a crumbling stone bridge.",
-                "a narrow crossing lies before you.",
-                "the bridge looks unstable."
-            ],
-            "Text": [
-                "You cross a crumbling stone bridge.",
-                "The crossing is precarious, with loose stones underfoot.",
-                "You make your way across a narrow dungeon crossing."
-            ]
+            "Preview": {
+                "0": "A subterranean river rushes ominously ahead.",
+                "1": "The air grows damp as you approach an underground stream.",
+                "2": "Echoes of flowing water resonate through the dungeon.",
+                "3": "A dark, turbulent stream blocks your way forward.",
+                "4": "Cold waters churn in an underground channel ahead."
+            },
+            "Text": {
+                "0": "A swift underground river cuts through the dungeon, its waters dark and foreboding, illuminated faintly by distant torches.",
+                "1": "You encounter a shallow, rocky stream winding through the dungeon corridor, the slick stones beneath the surface promising a treacherous crossing.",
+                "2": "An underground river flows swiftly between narrow stone walls, the water cold and swift, daring you to cross.",
+                "3": "A wide, turbulent underground stream stands between you and your goal, its swirling waters hiding uncertain footing.",
+                "4": "The dungeon river flows deep and fast, forcing you to consider your path carefully before attempting a crossing."
+            },
+            "Transition": {
+                "0": "Gathering your courage, you carefully cross the swift river, emerging safely on the opposite bank.",
+                "1": "You navigate the slippery rocks carefully, successfully crossing to continue deeper into the dungeon.",
+                "2": "Braving the chill, you cross the swift underground stream and continue onward.",
+                "3": "You cautiously ford the turbulent waters, relieved to reach the solid footing on the other side.",
+                "4": "With determination, you navigate the dangerous waters and safely reach the far side, ready for what awaits beyond."
+            }
         },
         "Tunnel": {
-            "Preview": [
-                "a dark, narrow tunnel.",
-                "a damp tunnel stretches into the darkness.",
-                "the tunnel looks tight and claustrophobic."
-            ],
-            "Text": [
-                "You crawl through a damp, narrow tunnel.",
-                "The tunnel is dark and echoes with distant sounds.",
-                "You squeeze through a tight passage in the dungeon."
-            ]
+            "Preview": {
+                "0": "A tight, winding passage burrows deeper into the dungeon walls.",
+                "1": "The corridor narrows sharply, forming a cramped stone tunnel.",
+                "2": "A low, oppressive tunnel lies ahead, disappearing into darkness.",
+                "3": "A narrow stone passageway leads you deeper into the dungeon’s core.",
+                "4": "The passage ahead constricts, becoming a claustrophobic tunnel."
+            },
+            "Text": {
+                "0": "The dungeon walls close tightly around you, forcing you into a narrow, winding tunnel barely wide enough for passage.",
+                "1": "You navigate a cramped, rough-hewn stone tunnel, the walls pressing close and the ceiling lowering ominously.",
+                "2": "The tunnel ahead is dark and confining, the air stale and the stone walls cold to the touch.",
+                "3": "The narrow passage snakes downward, the tight space increasing your tension with every careful step.",
+                "4": "You squeeze through the tight stone tunnel, your breathing echoing loudly against the oppressive walls."
+            },
+            "Transition": {
+                "0": "Finally emerging from the cramped tunnel, you catch your breath in the slightly more open space ahead.",
+                "1": "Exiting the narrow tunnel, you enter a larger chamber, relieved to stretch your limbs.",
+                "2": "You step out of the oppressive tunnel, grateful for the extra room as you proceed further into the dungeon.",
+                "3": "Escaping the confining passageway, you prepare for what lies beyond, feeling renewed determination.",
+                "4": "Emerging from the tight tunnel, you find yourself in a broader area, ready for the next challenge."
+            }
         },
         "UnlockedDoor": {
-            "Preview": [
-                "an unlocked wooden door.",
-                "a door stands slightly ajar.",
-                "the door looks easy to open."
-            ],
-            "Text": [
-                "You open the heavy wooden door and step through.",
-                "The door creaks loudly as you push it open.",
-                "You pass through an unlocked dungeon door."
-            ]
+            "Preview": {
+                "0": "A sturdy iron door is slightly ajar ahead.",
+                "1": "A heavy dungeon door hangs partially open, revealing a dim chamber beyond.",
+                "2": "A dark, unlocked door invites you to explore further.",
+                "3": "Ahead, a wooden door stands slightly open, emanating cold air.",
+                "4": "An iron-bound door lies unlocked, offering passage."
+            },
+            "Text": {
+                "0": "The iron door ahead, rusted but sturdy, is partially open, allowing access to the unknown depths of the dungeon.",
+                "1": "The heavy door ahead is slightly ajar, the dim light from within barely illuminating the dark corridor outside.",
+                "2": "You approach a dark wooden door, unlocked and partially open, beckoning you to explore the secrets within.",
+                "3": "The partially opened wooden door ahead breathes cold, stale air, hinting at mysteries hidden inside.",
+                "4": "An unlocked iron-bound door stands slightly open, its hinges rusted but silent, awaiting your entry."
+            },
+            "Transition": {
+                "0": "You push the iron door open fully and step into the shadowy chamber ahead.",
+                "1": "Passing through the open door, you brace yourself for whatever lies hidden within.",
+                "2": "Stepping through the invitingly open door, you enter deeper into the dungeon’s mysteries.",
+                "3": "You cautiously move through the doorway, preparing for the unknown beyond.",
+                "4": "With determination, you pass through the unlocked door, venturing further into the depths."
+            }
         },
         "LockedDoor": {
-            "Preview": [
-                "a locked iron door.",
-                "a heavy door blocks your path.",
-                "the door is locked and looks sturdy."
-            ],
-            "Text": [
-                "You unlock the iron door with a rusty key.",
-                "The locked door groans as it swings open.",
-                "You manage to open the locked dungeon door."
-            ]
+            "Preview": {
+                "0": "A heavy iron door blocks your way, secured with a complex lock.",
+                "1": "Ahead, a formidable door stands locked, barring further entry.",
+                "2": "An imposing, locked wooden door promises secrets beyond.",
+                "3": "A reinforced metal door, securely locked, halts your progress.",
+                "4": "A robust door fitted with a large lock guards something important ahead."
+            },
+            "Text": {
+                "0": "A massive iron door stands firmly locked, its intricate locking mechanism suggesting valuable or perilous secrets beyond.",
+                "1": "The door ahead, thick and imposing, is securely fastened by an elaborate lock, barring any easy passage.",
+                "2": "You face a strong wooden door, reinforced by iron bands and secured tightly with a substantial lock.",
+                "3": "The reinforced metal door ahead appears impenetrable, its lock robust and challenging.",
+                "4": "A solid dungeon door, secured by a large and daunting lock, guards passage to the unknown."
+            },
+            "Transition": {
+                "0": "You successfully unlock the intricate mechanism, pushing forward into the hidden chamber beyond.",
+                "1": "With the lock disengaged, you press the heavy door open, stepping deeper into the dungeon.",
+                "2": "Unlocking the substantial door, you step cautiously forward, ready for whatever awaits.",
+                "3": "The sturdy lock clicks open, and you carefully push through into unexplored territory.",
+                "4": "As the heavy lock releases, you proceed confidently into the newly revealed dungeon area."
+            }
         },
         "HiddenDoor": {
-            "Preview": [
-                "a hidden door behind a tapestry.",
-                "a concealed door is barely visible.",
-                "a hidden door in the shadows."
-            ],
-            "Text": [
-                "You discover a hidden door behind a tapestry.",
-                "The hidden door reveals a secret passage.",
-                "You push aside a stone panel to reveal a hidden door."
-            ]
+            "Preview": {
+                "0": "An oddly smooth section of wall suggests hidden secrets.",
+                "1": "A faint draft hints at a concealed passage nearby.",
+                "2": "A stone slightly out of place marks a hidden doorway.",
+                "3": "Strange markings on the wall hint at a secret entrance.",
+                "4": "A subtle shift in wall patterns reveals a hidden mechanism."
+            },
+            "Text": {
+                "0": "Inspecting the smooth wall closely, you discover a hidden mechanism designed to conceal an entrance to a secret chamber.",
+                "1": "Feeling along the stone wall, you detect a faint breeze, revealing the presence of a concealed doorway.",
+                "2": "A stone slightly protruding from the wall reveals itself to be a hidden lever that activates a secret door.",
+                "3": "The wall markings, upon closer inspection, reveal themselves as symbols that conceal the edges of a hidden passage.",
+                "4": "A subtle irregularity in the wall's pattern indicates a cleverly hidden mechanism that opens a secret entrance."
+            },
+            "Transition": {
+                "0": "Activating the hidden mechanism, you step through into the secret chamber beyond.",
+                "1": "Pressing gently, the concealed door swings open, allowing you to enter the hidden passage.",
+                "2": "You trigger the hidden lever, revealing the secret door and stepping through into mystery.",
+                "3": "The secret passage opens with a grinding noise, allowing you to proceed into hidden depths.",
+                "4": "You manipulate the mechanism carefully, opening the concealed doorway and stepping inside."
+            }
         }
     },
     "Forest": {
         "Path": {
-            "Preview": [
-                "a dirt trail winding through the trees.",
-                "a well-trodden path stretches.",
-                "the forest path is dappled with sunlight."
-            ],
-            "Text": [
-                "You follow a dirt trail winding through the trees.",
-                "The path is soft underfoot, covered in fallen leaves.",
-                "You walk along a well-trodden forest path."
-            ]
+            "Preview": {
+                "0": "Sunlight filters gently through a leafy passage ahead.",
+                "1": "A shadowy trail beckons beneath dense, whispering branches.",
+                "2": "Fog gently blankets a winding path between towering trees.",
+                "3": "An overgrown path hints at ancient footsteps long forgotten.",
+                "4": "Leaves dance gently, whispering secrets along a secluded path."
+            },
+            "Text": {
+                "0": "You walk along a tranquil forest path bathed in warm sunlight. Birds chirp softly from hidden perches, and the scent of blooming wildflowers drifts lazily on the breeze.",
+                "1": "Ahead lies a dimly lit forest path, cloaked in shadows cast by thick, interwoven branches. The rustling leaves whisper quietly, suggesting secrets hidden deeper within the gloom.",
+                "2": "A cool mist envelops the forest, muting colors and softening sounds. The winding path ahead seems almost ethereal, disappearing gently into a ghostly white veil.",
+                "3": "The trail ahead is nearly reclaimed by nature, vines and roots weaving across the ground, hinting at generations of forgotten travelers. Moss-covered stones mark your way through this timeless corridor.",
+                "4": "Ahead lies a secluded, winding path, lined by trees whose branches sway softly, creating a gentle, whispering chorus as if the forest itself is sharing its secrets with those who listen closely."
+            },
+            "Transition": {
+                "0": "Feeling a sense of calm, you continue onward, the peaceful path gradually drawing you deeper into the welcoming embrace of the woods.",
+                "1": "Steeling your resolve, you step forward into the shadowy trail, determined to uncover the mysteries the forest conceals.",
+                "2": "Breathing deeply, you press forward, the mist swirling softly around you as the forest reveals itself one step at a time.",
+                "3": "Carefully stepping over roots and stones, you continue along the ancient trail, feeling as though the past itself walks beside you.",
+                "4": "Listening closely, you venture further down the path, guided by the soft whispers of leaves into the heart of the forest."
+            }
         },
         "Crossing": {
-            "Preview": [
-                "a fallen log forming a bridge over a stream.",
-                "a narrow crossing lies, spanning a small brook.",
-                "the crossing looks slippery but manageable."
-            ],
-            "Text": [
-                "You carefully cross a fallen log over a stream.",
-                "The crossing is slippery, but you manage to keep your balance.",
-                "You step across a shallow brook using stepping stones."
-            ]
+            "Preview": {
+                "0": "A gentle stream glimmers invitingly ahead.",
+                "1": "The sound of rushing water grows louder ahead.",
+                "2": "A moss-covered log bridges a softly murmuring brook.",
+                "3": "Sunlit waters ripple softly, inviting passage.",
+                "4": "The river ahead sparkles beneath dappled forest light."
+            },
+            "Text": {
+                "0": "You approach a peaceful forest stream, its clear waters reflecting sunlight as it babbles softly over smooth stones.",
+                "1": "A brisk river cuts through the forest, the current swift but shallow enough to cross carefully using scattered stepping stones.",
+                "2": "A fallen tree forms a natural bridge across a narrow brook, its mossy surface damp but sturdy beneath your feet.",
+                "3": "Gentle waves lap at the grassy banks of a quiet river, its tranquil waters welcoming your crossing.",
+                "4": "A shimmering forest river flows gently, its crystal-clear waters inviting you to wade carefully across."
+            },
+            "Transition": {
+                "0": "You cross the stream effortlessly, refreshed and ready to continue your journey.",
+                "1": "Carefully navigating the stepping stones, you safely reach the opposite bank.",
+                "2": "Crossing the log carefully, you step onto solid ground once more, deeper into the forest.",
+                "3": "You cross the calm river, feeling a peaceful sense of renewal as you step onto the opposite shore.",
+                "4": "Wading through the gentle waters, you emerge invigorated on the far side, ready to explore further."
+            }
         },
         "Tunnel": {
-            "Preview": [
-                "a hollow tree trunk forming a tunnel.",
-                "a narrow gap between tree roots lies before you.",
-                "the tunnel is dark and filled with the scent of earth."
-            ],
-            "Text": [
-                "You crawl through a hollow tree trunk.",
-                "The tunnel is dark and filled with the scent of earth.",
-                "You squeeze through a narrow gap between tree roots."
-            ]
+            "Preview": {
+                "0": "A dense canopy of intertwined branches creates a natural tunnel ahead.",
+                "1": "Dark foliage arches over your path, forming a mysterious tunnel.",
+                "2": "A narrow passage of trees creates a dimly lit forest tunnel.",
+                "3": "An eerie, natural tunnel beckons you beneath the twisted branches.",
+                "4": "Branches interweave above, forming a shadowy, enclosed passage."
+            },
+            "Text": {
+                "0": "You step into a natural tunnel formed by trees whose branches have grown tightly together, creating an enchanting but shadowed path.",
+                "1": "The forest tunnel ahead is shaded and cool, the dense foliage forming a mysterious corridor that muffles all sound.",
+                "2": "Trees lean inward, their trunks nearly touching as they form a narrow, twilight-filled tunnel through the woods.",
+                "3": "The tunnel formed by gnarled, ancient trees emits an unsettling quiet, as if the forest itself holds its breath while you pass.",
+                "4": "As you enter the shadowy tunnel formed by intertwined branches, the air becomes noticeably cooler and quieter."
+            },
+            "Transition": {
+                "0": "Emerging from the leafy tunnel, the forest opens up again, inviting further exploration.",
+                "1": "Stepping out of the darkened corridor, the forest gradually regains its natural brightness.",
+                "2": "You exit the narrow tunnel into a more open area, feeling the relief of fresh air and space.",
+                "3": "Exiting the eerie tunnel, you shake off the lingering sense of unease as sunlight warms your face.",
+                "4": "Leaving the tunnel behind, you continue deeper into the welcoming openness of the forest beyond."
+            }
         },
         "UnlockedDoor": {
-            "Preview": [
-                "a wooden gate standing open.",
-                "lies an unlocked forest gate.",
-                "the gate  swings gently in the breeze."
-            ],
-            "Text": [
-                "You push open a wooden gate and step through.",
-                "The door swings open easily, revealing a new path.",
-                "You pass through an unlocked forest gate."
-            ]
+            "Preview": {
+                "0": "A weathered gate stands slightly ajar, revealing the path beyond.",
+                "1": "Ahead, an old wooden door creaks softly in the breeze.",
+                "2": "A rustic wooden door, slightly open, invites exploration.",
+                "3": "A gate hangs open, welcoming you into a hidden glade.",
+                "4": "An ancient forest door stands unlocked, slightly open."
+            },
+            "Text": {
+                "0": "You approach a weathered gate nestled between dense hedges, its hinges rusted but still functional, offering easy passage.",
+                "1": "An old wooden door, worn by time, gently moves with the wind, its partially open state inviting further exploration.",
+                "2": "The rustic door before you is cracked open just enough to reveal glimpses of the serene clearing beyond.",
+                "3": "A simple wooden gate stands open, providing access to a tranquil and hidden forest glade.",
+                "4": "The ancient door set in the forest wall stands slightly ajar, promising intriguing discoveries ahead."
+            },
+            "Transition": {
+                "0": "Stepping through the open gate, you continue your journey into the peaceful forest beyond.",
+                "1": "Passing easily through the creaking door, you find yourself entering a new part of the woods.",
+                "2": "You open the door further, stepping into the inviting clearing beyond.",
+                "3": "Walking through the open gate, you feel a sense of discovery as you enter the hidden glade.",
+                "4": "You pass through the ancient door, eager to explore the mysteries lying ahead."
+            }
         },
         "LockedDoor": {
-            "Preview": [
-                "a locked wooden gate blocking your path.",
-                "a heavy gate stands firmly shut.",
-                "the locked gate looks weathered but sturdy."
-            ],
-            "Text": [
-                "You unlock the wooden gate with a carved key.",
-                "The locked gate creaks as it swings open.",
-                "You manage to open the locked forest gate."
-            ]
+            "Preview": {
+                "0": "A sturdy wooden gate blocks your path, secured with an old iron lock.",
+                "1": "Ahead, a locked gate stands silently, guarding unknown secrets.",
+                "2": "A moss-covered door with a rusted lock bars your way forward.",
+                "3": "A solid door hidden by vines remains firmly locked ahead.",
+                "4": "An ancient wooden door, locked tight, stands between you and the forest beyond."
+            },
+            "Text": {
+                "0": "The wooden gate ahead is securely locked, its iron fixtures rusted but still robust, hinting at untouched paths beyond.",
+                "1": "The gate before you stands firm and locked, its aged wood blending seamlessly into the forest backdrop.",
+                "2": "You encounter a heavily weathered, moss-covered door, its lock corroded yet resiliently intact.",
+                "3": "Vines have claimed much of this solid wooden door, though its sturdy lock suggests it still guards something valuable or dangerous.",
+                "4": "The ancient door ahead is securely locked, its worn surface promising secrets long hidden behind it."
+            },
+            "Transition": {
+                "0": "The lock clicks open, allowing you passage into the previously unseen forest beyond.",
+                "1": "With a satisfying snap, the lock yields, granting you entry to the mysteries hidden ahead.",
+                "2": "The rusted lock finally gives way, letting you step forward into unexplored woodland.",
+                "3": "You unlock and push aside the vine-covered door, stepping through into new discoveries.",
+                "4": "As the lock turns open, you push through the door, eager for the secrets the forest holds."
+            }
         },
         "HiddenDoor": {
-            "Preview": [
-                "a hidden path behind a curtain of vines.",
-                "a concealed trail is barely visible through the undergrowth.",
-                "a hidden door camouflaged by the forest."
-            ],
-            "Text": [
-                "You discover a hidden path behind a curtain of vines.",
-                "The hidden door reveals a secret trail through the forest.",
-                "You push aside the undergrowth to reveal a hidden path."
-            ]
+            "Preview": {
+                "0": "An unusual formation of branches hints at a hidden passage.",
+                "1": "Dense vines conceal something mysterious ahead.",
+                "2": "A faint outline suggests a secret door hidden among the trees.",
+                "3": "Something unusual catches your eye in the foliage ahead.",
+                "4": "A cleverly concealed entrance blends seamlessly into the forest."
+            },
+            "Text": {
+                "0": "A close inspection reveals branches arranged deliberately, masking a hidden entrance into another part of the forest.",
+                "1": "Thick vines, carefully parted, reveal a concealed wooden door hidden from casual view.",
+                "2": "A faintly visible outline amid dense foliage indicates a secret door designed to blend into the natural surroundings.",
+                "3": "Your eyes catch a subtle irregularity in the bushes, unveiling a hidden pathway concealed by leaves and branches.",
+                "4": "Upon closer examination, the forest wall reveals a cleverly hidden door designed to remain unnoticed."
+            },
+            "Transition": {
+                "0": "Pushing aside the branches, you step through the hidden doorway into the secret area beyond.",
+                "1": "You part the vines and enter through the concealed door, curious about what lies ahead.",
+                "2": "You carefully open the hidden door and step through into the secluded path it reveals.",
+                "3": "Stepping carefully through the hidden passage, you enter a new and mysterious section of the forest.",
+                "4": "You open the concealed door, stepping into the hidden space beyond, eager for discovery."
+            }
         }
     },
     "Cave": {
         "Path": {
-            "Preview": [
-                "a rocky path winding deeper into the cave.",
-                "a narrow trail stretches, uneven and slippery.",
-                "the path is dimly lit by faintly glowing crystals."
-            ],
-            "Text": [
-                "You follow a rocky path through the cave.",
-                "The path is uneven and slippery with moisture.",
-                "You carefully tread along the cave's winding trail."
-            ]
+            "Preview": {
+                "0": "A rocky path narrows, disappearing into the gloom.",
+                "1": "Echoes reverberate softly along a twisting stone corridor.",
+                "2": "A dimly lit passage curves gently downward into darkness.",
+                "3": "Soft drips of water echo along a shadowy cavern path.",
+                "4": "The path ahead narrows into a claustrophobic, winding passage."
+            },
+            "Text": {
+                "0": "The rugged cave path is uneven and littered with loose stones. Shadows dance on the walls, cast by your wavering light as you carefully navigate forward.",
+                "1": "Your footsteps echo off damp stone walls, emphasizing the solitude as you navigate the winding, narrow passage deeper into the cave.",
+                "2": "You carefully descend along the dimly lit stone path, sensing a cool draft that suggests larger chambers lie somewhere ahead in the gloom.",
+                "3": "The cavern path is damp and slippery, the rhythmic dripping of water forming a quiet, hypnotic melody as you cautiously progress.",
+                "4": "The cave walls close tightly around you, creating a narrow corridor that twists unpredictably, heightening your sense of anticipation with each careful step."
+            },
+            "Transition": {
+                "0": "Cautiously navigating the rough terrain, you push forward, eager to uncover what lies deeper within the cave.",
+                "1": "Determinedly following the echoing corridor, you feel a sense of discovery awaiting just around the bend.",
+                "2": "Descending carefully, you move toward the hidden chambers, your curiosity pulling you deeper into the cave's embrace.",
+                "3": "Steadying your footing, you advance further along the damp path, eager to discover the secrets hidden in the shadows ahead.",
+                "4": "Drawing a deep breath, you press onward through the tight passage, eager for the mysteries that lie ahead to reveal themselves."
+            }
         },
         "Crossing": {
-            "Preview": [
-                "a natural stone bridge spanning a dark chasm.",
-                "a narrow crossing lies, overlooking a deep pit.",
-                "the bridge looks treacherous and unstable."
-            ],
-            "Text": [
-                "You cross a natural stone bridge over a chasm.",
-                "The crossing is narrow and treacherous.",
-                "You make your way across a ledge overlooking a deep pit."
-            ]
+            "Preview": {
+                "0": "The echoing drip of water leads you toward an underground river.",
+                "1": "A dark stream flows quietly in the cavern ahead.",
+                "2": "Soft sounds of flowing water suggest an unseen obstacle ahead.",
+                "3": "A thin ribbon of water glimmers in the cave’s dim light.",
+                "4": "Water quietly ripples in the darkness, hinting at a hidden crossing."
+            },
+            "Text": {
+                "0": "A quiet subterranean river flows across your path, its waters clear but deceptively deep in spots.",
+                "1": "You reach a slow-moving cave stream, its cold waters glistening softly in your light, hiding slippery stones beneath.",
+                "2": "The gentle trickle of a narrow, shallow stream crosses your path, providing an easy but damp crossing through the cavern.",
+                "3": "A shallow, sparkling stream snakes quietly through the cave, the smooth stones beneath your feet slippery but navigable.",
+                "4": "You find yourself at the edge of a serene underground river, its surface reflecting dimly off the cave walls, masking its true depth."
+            },
+            "Transition": {
+                "0": "Carefully stepping into the water, you make your way across, emerging safely on the far side.",
+                "1": "You carefully cross the stream, mindful of each slippery stone beneath your feet.",
+                "2": "You quickly cross the shallow stream, shaking off water as you prepare to explore further.",
+                "3": "With caution, you cross the narrow ribbon of water, safely reaching the other side.",
+                "4": "Braving the quiet waters, you successfully cross, ready to delve deeper into the mysteries of the cave."
+            }
         },
         "Tunnel": {
-            "Preview": [
-                "a dark, narrow tunnel leading further into the cave.",
-                "a damp tunnel stretches, echoing with distant sounds.",
-                "the tunnel looks tight and claustrophobic."
-            ],
-            "Text": [
-                "You crawl through a narrow cave tunnel.",
-                "The tunnel is dark and echoes with dripping water.",
-                "You squeeze through a tight passage in the cave."
-            ]
+            "Preview": {
+                "0": "A narrow cave tunnel dips steeply into darkness ahead.",
+                "1": "The cave walls tighten into a low, shadowy tunnel.",
+                "2": "A claustrophobic tunnel snakes deeper into the cave system.",
+                "3": "The cave passage narrows into a tight, echo-filled tunnel.",
+                "4": "A cramped and twisting tunnel invites cautious exploration."
+            },
+            "Text": {
+                "0": "You enter a steep, narrow tunnel descending further into the cave, its rocky floor uneven beneath your feet.",
+                "1": "The cave tunnel is constricted, forcing you to crouch slightly as the walls and ceiling close tightly around you.",
+                "2": "The tunnel ahead twists unpredictably, the space tight and damp, echoing faintly with your careful steps.",
+                "3": "Navigating the narrow tunnel, your breath reverberates off the tight walls, intensifying the eerie atmosphere.",
+                "4": "The cave walls press in closely as you maneuver carefully through the winding, confined tunnel."
+            },
+            "Transition": {
+                "0": "You carefully navigate the steep tunnel, emerging safely into a larger cavern.",
+                "1": "Exiting the low tunnel, you find yourself relieved in the relative openness of the cave beyond.",
+                "2": "Emerging from the winding passage, the cave opens into a wider space, welcoming your next move.",
+                "3": "Stepping out of the echo-filled tunnel, you take a moment to collect yourself in the larger chamber ahead.",
+                "4": "You exit the cramped passage, ready to explore the expansive cavern revealed before you."
+            }
         },
         "UnlockedDoor": {
-            "Preview": [
-                "an unlocked stone door.",
-                "a heavy stone door stands slightly ajar.",
-                "the door looks easy to push open."
-            ],
-            "Text": [
-                "You push open a heavy stone door and step through.",
-                "The door grinds against the floor as it opens.",
-                "You pass through an unlocked cave door."
-            ]
+            "Preview": {
+                "0": "An ancient wooden door stands ajar in the cavern wall.",
+                "1": "Ahead, a partially open door offers a glimpse of the cave beyond.",
+                "2": "A simple door in the cave wall is unlocked and slightly open.",
+                "3": "An open door set in the cave wall suggests further exploration.",
+                "4": "A cracked-open door reveals a hidden section of the cave."
+            },
+            "Text": {
+                "0": "You find an ancient wooden door set into the rocky wall, its slightly ajar position revealing faint glimpses of what lies beyond.",
+                "1": "A partially open door ahead beckons you with a narrow view into a dimly lit chamber deep within the cave.",
+                "2": "Set in the rocky cave wall, the unlocked door stands slightly open, inviting exploration into unknown areas.",
+                "3": "The cave wall houses an open door, quietly inviting you to step further into the unseen passages beyond.",
+                "4": "A slightly open door embedded in the cave wall reveals hints of undiscovered chambers awaiting your curiosity."
+            },
+            "Transition": {
+                "0": "You carefully push the door open wider and step forward into the hidden chamber.",
+                "1": "Stepping through the door, you eagerly enter the mysterious space beyond.",
+                "2": "You move through the open door, excited by the prospect of exploring the unknown.",
+                "3": "Passing through the open door, you brace yourself for the secrets of the cavern ahead.",
+                "4": "You step through the cracked-open door, keen to uncover the hidden wonders that await."
+            }
         },
         "LockedDoor": {
-            "Preview": [
-                "a locked stone door blocking your path.",
-                "a heavy door stands firmly shut.",
-                "the locked door looks ancient and sturdy."
-            ],
-            "Text": [
-                "You unlock the stone door with a heavy key.",
-                "The locked door opens with a loud rumble.",
-                "You manage to open the locked cave door."
-            ]
+            "Preview": {
+                "0": "A locked wooden door bars entry deeper into the cave.",
+                "1": "Ahead, a sturdy door set into the cave wall remains securely locked.",
+                "2": "An old, locked door blocks further exploration of the cavern.",
+                "3": "A rusted lock on a cave door prevents easy access ahead.",
+                "4": "A securely locked door embedded in stone bars your progress."
+            },
+            "Text": {
+                "0": "A solid wooden door, locked securely with iron fittings, blocks your passage into the cave's hidden recesses.",
+                "1": "A heavy door firmly set into the cave wall remains locked, concealing whatever lies beyond.",
+                "2": "The aged, sturdy door ahead is locked, its rusted hardware suggesting it hasn't been opened for years.",
+                "3": "The cave door is barred by an old, rust-covered lock, stubbornly protecting the unknown depths within.",
+                "4": "You encounter a door securely fastened within the rocky cave wall, its robust lock hinting at hidden secrets beyond."
+            },
+            "Transition": {
+                "0": "With the lock released, you eagerly step forward into the unexplored cavern.",
+                "1": "The door swings open as the lock yields, revealing new mysteries deep inside the cave.",
+                "2": "Unlocking the aged door, you prepare yourself as you move deeper into the cave's unknown.",
+                "3": "The rusted lock breaks free, allowing you passage into unexplored chambers.",
+                "4": "With a firm click, the lock releases, and you enter confidently into the cave's secret spaces."
+            }
         },
         "HiddenDoor": {
-            "Preview": [
-                "a hidden door behind a pile of rocks.",
-                "a concealed door is barely visible in the shadows.",
-                "a hidden door camouflaged by the cave walls."
-            ],
-            "Text": [
-                "You discover a hidden door behind a rockfall.",
-                "The hidden door reveals a secret chamber.",
-                "You push aside loose stones to reveal a hidden door."
-            ]
+            "Preview": {
+                "0": "A locked wooden door bars entry deeper into the cave.",
+                "1": "Ahead, a sturdy door set into the cave wall remains securely locked.",
+                "2": "An old, locked door blocks further exploration of the cavern.",
+                "3": "A rusted lock on a cave door prevents easy access ahead.",
+                "4": "A securely locked door embedded in stone bars your progress."
+            },
+            "Text": {
+                "0": "A solid wooden door, locked securely with iron fittings, blocks your passage into the cave's hidden recesses.",
+                "1": "A heavy door firmly set into the cave wall remains locked, concealing whatever lies beyond.",
+                "2": "The aged, sturdy door ahead is locked, its rusted hardware suggesting it hasn't been opened for years.",
+                "3": "The cave door is barred by an old, rust-covered lock, stubbornly protecting the unknown depths within.",
+                "4": "You encounter a door securely fastened within the rocky cave wall, its robust lock hinting at hidden secrets beyond."
+            },
+            "Transition": {
+                "0": "With the lock released, you eagerly step forward into the unexplored cavern.",
+                "1": "The door swings open as the lock yields, revealing new mysteries deep inside the cave.",
+                "2": "Unlocking the aged door, you prepare yourself as you move deeper into the cave's unknown.",
+                "3": "The rusted lock breaks free, allowing you passage into unexplored chambers.",
+                "4": "With a firm click, the lock releases, and you enter confidently into the cave's secret spaces."
+            }
         }
     }
 }

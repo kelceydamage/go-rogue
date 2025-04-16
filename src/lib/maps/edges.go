@@ -2,6 +2,7 @@ package maps
 
 import (
 	"go-rogue/src/lib/generics"
+	"go-rogue/src/lib/utilities"
 )
 
 type EdgeType string
@@ -103,22 +104,24 @@ var EdgeTypes = map[EdgeType]*EdgeMetaData{
 }
 
 type Edge struct {
-	metaData    *EdgeMetaData
-	resolved    bool
-	dificulty   int
-	ids         []int
-	previewText string
-	text        string
+	metaData       *EdgeMetaData
+	resolved       bool
+	dificulty      int
+	ids            []int
+	previewText    string
+	text           string
+	transitionText string
 }
 
-func NewEdge(edgeType EdgeType, ids []int, difficulty int, previewText string, text string) *Edge {
+func NewEdge(edgeType EdgeType, ids []int, difficulty int, textScenarios *utilities.EdgeTypeScenarios, scenario string) *Edge {
 	return &Edge{
-		metaData:    EdgeTypes[edgeType],
-		resolved:    false,
-		dificulty:   difficulty,
-		ids:         ids,
-		text:        text,
-		previewText: previewText,
+		metaData:       EdgeTypes[edgeType],
+		resolved:       false,
+		dificulty:      difficulty,
+		ids:            ids,
+		text:           textScenarios.Text[scenario],
+		previewText:    textScenarios.Preview[scenario],
+		transitionText: textScenarios.Transition[scenario],
 	}
 }
 

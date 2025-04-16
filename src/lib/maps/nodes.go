@@ -2,6 +2,7 @@ package maps
 
 import (
 	"go-rogue/src/lib/generics"
+	"math/rand"
 )
 
 type NodeType string
@@ -14,6 +15,56 @@ const (
 	EndingNode    NodeType = "Ending"
 	DeadEndNode   NodeType = "Deadend"
 )
+
+type NodeSubType string
+
+const (
+	Initial          NodeSubType = "Initial"
+	Fork             NodeSubType = "Fork"
+	Obstacle         NodeSubType = "Obstacle"
+	Choice           NodeSubType = "Choice"
+	Combat           NodeSubType = "Combat"
+	Passive          NodeSubType = "Passive"
+	Puzzle           NodeSubType = "Puzzle"
+	Landmarks        NodeSubType = "Landmarks"
+	PointsOfInterest NodeSubType = "PointsOfInterest"
+	Blocked          NodeSubType = "Blocked"
+	HiddenCache      NodeSubType = "HiddenCache"
+)
+
+type NodeSubtypes struct {
+	LUT map[string][]NodeSubType
+}
+
+func NewNodeSubtypes() *NodeSubtypes {
+	return &NodeSubtypes{
+		LUT: map[string][]NodeSubType{
+			"Start":     {Initial},
+			"Ending":    {Initial},
+			"Decision":  {Fork, Obstacle, Choice},
+			"Encounter": {Combat, Passive, Puzzle},
+			"Scenery":   {Landmarks, PointsOfInterest},
+			"Deadend":   {Blocked, HiddenCache},
+		},
+	}
+}
+
+func (ns *NodeSubtypes) GetRandomSubtype(nodeType string, theme *Theme) string {
+	possibleSubtypes := ns.LUT[nodeType]
+	var total float32
+	for _, sub := range possibleSubtypes {
+		total += theme.NodeSubtypeProbabilities[sub]
+	}
+	r := rand.Float32() * total
+	for _, sub := range possibleSubtypes {
+		p := theme.NodeSubtypeProbabilities[sub]
+		if r < p {
+			return string(sub)
+		}
+		r -= p
+	}
+	return string(possibleSubtypes[len(possibleSubtypes)-1])
+}
 
 type NodeMetaData struct {
 	Name         NodeType
@@ -100,9 +151,10 @@ type Node struct {
 	resolved       bool
 	previewText    string
 	text           string
+	subtypes       string
 }
 
-func NewNode(nodeId int, nodeType NodeType, previewText, text string) *Node {
+func NewNode(nodeId int, nodeType NodeType, subtype, previewText, text string) *Node {
 	return &Node{
 		id:             nodeId,
 		metaData:       NodeTypes[nodeType],
@@ -111,7 +163,12 @@ func NewNode(nodeId int, nodeType NodeType, previewText, text string) *Node {
 		resolved:       false,
 		previewText:    previewText,
 		text:           text,
+		subtypes:       subtype,
 	}
+}
+
+func (n *Node) GetSubtype() string {
+	return n.subtypes
 }
 
 func (n *Node) GetPreviewText() string {

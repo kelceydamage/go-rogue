@@ -51,5 +51,5 @@ func WriteDotFile(filename string, sceneGraph *SceneGraph) {
 		return
 	}
 
-	fmt.Println("Graph written to", filename)
+	//fmt.Println("Graph written to", filename)
 }

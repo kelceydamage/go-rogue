@@ -19,7 +19,7 @@ func NewMainScreenSettings() *MainScreenSettings {
 	return &MainScreenSettings{
 		StartLine:     11,
 		Width:         70,
-		Offset:        50,
+		Offset:        40,
 		WordWrapWidth: 70,
 	}
 }

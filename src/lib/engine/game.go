@@ -77,9 +77,9 @@ func (g *Game) Run() {
 
 	for range ticker.C {
 		utilities.ClearScreenBelow(2, config.General.Offset)
+		DrawPlayerAttributes(g.Player)
 		// Unpack the current node
 		currentNode := g.World.GetCurrentZone().GetSceneGraph().GetNode(g.Player.GetCurrentPosition())
-
 		currentLine := 3
 		// Draw the event screen
 

@@ -5,6 +5,7 @@ import (
 	"go-rogue/src/lib/config"
 	"go-rogue/src/lib/utilities"
 	"math/rand"
+	"strconv"
 )
 
 type Colors string
@@ -54,14 +55,15 @@ func (g *GraphGenerator) AddEdge(sceneGraph *SceneGraph, nodeA, nodeB int, edgeT
 		return edge // Reuse the existing edge
 	}
 
+	scenario := rand.Intn(5)
 	// Create a new edge if it doesn't exist
 	newEdge := NewEdge(
 		edgeType,
 		[]int{nodeA, nodeB},
 		// TODO: Implement diffuculty calculation
 		0,
-		g.traversalTextLoader.GetPreview(sceneGraph.theme.Name, string(edgeType)),
-		g.traversalTextLoader.GetText(sceneGraph.theme.Name, string(edgeType)),
+		g.traversalTextLoader.GetTraversalTextScenarios(sceneGraph.theme.Name, string(edgeType)),
+		strconv.Itoa(scenario),
 	)
 
 	// Add the edge to the map
@@ -123,6 +125,7 @@ func (g *GraphGenerator) ColorDeadEndNodes(sceneGraph *SceneGraph) {
 }
 
 func (g *GraphGenerator) PopulateSceneGraph(sceneGraph *SceneGraph) {
+	subtypes := NewNodeSubtypes()
 	n := rand.Intn(config.SceneGraph.MaxNodes) + config.SceneGraph.MinNodes
 	fmt.Println("NodeCount", n)
 	for i := range n {
@@ -140,13 +143,15 @@ func (g *GraphGenerator) PopulateSceneGraph(sceneGraph *SceneGraph) {
 		default:
 			nodeType = SceneryNode // Default to scenery
 		}
+		subtype := subtypes.GetRandomSubtype(string(nodeType), sceneGraph.theme)
 		sceneGraph.AddNode(
 			i,
 			nodeType,
+			subtype,
 			"",
-			g.eventTextLoader.GetText(sceneGraph.theme.Name, string(nodeType), "initial"),
+			g.eventTextLoader.GetText(sceneGraph.theme.Name, string(nodeType), subtype),
 		)
-		fmt.Println(sceneGraph.theme.Name, string(nodeType), g.eventTextLoader.GetText(sceneGraph.theme.Name, string(nodeType), "initial"))
+		fmt.Println(sceneGraph.theme.Name, string(nodeType), subtype, g.eventTextLoader.GetText(sceneGraph.theme.Name, string(nodeType), subtype))
 	}
 
 	sceneGraph.SetTerminusNode(n - 1)

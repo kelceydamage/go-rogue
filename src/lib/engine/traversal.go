@@ -7,6 +7,7 @@ import (
 	"go-rogue/src/lib/config"
 	"go-rogue/src/lib/entities"
 	"go-rogue/src/lib/maps"
+	"go-rogue/src/lib/utilities"
 	"strconv"
 )
 
@@ -100,17 +101,17 @@ func (tp *TraversalProcessor) Execute(currentNode *maps.Node, player *entities.P
 	// TODO: There is a segfault going back to node 0
 	// Execute the traversal logic here
 	// This could involve moving the player, updating the game state, etc.
-	fmt.Println()
-	fmt.Println("Current Line:", currentLine)
+	//fmt.Println()
+	//fmt.Println("Current Line:", currentLine)
 	currentLine = tp.DrawTraversalOptionScreen(currentNode, tp.GetTraversalOptions(), currentLine)
-	fmt.Println("Current Line:", currentLine)
+	//fmt.Println("Current Line:", currentLine)
 	currentLine = tp.DrawBackTrackingOptionScreen(currentNode, player, currentLine)
-	fmt.Println("Current Line:", currentLine)
+	//fmt.Println("Current Line:", currentLine)
 	input := tp.CaptureInput(tp.NavigationOptions.GetCardinalKeys(), currentLine)
 	selectedEdge := currentNode.GetEdge(tp.GetNodeId(input))
 	actions := tp.GetActions(selectedEdge)
 	currentLine = tp.DrawActionsScreen(actions, currentLine)
-	fmt.Println("Current Line:", currentLine)
+	//fmt.Println("Current Line:", currentLine)
 	input = tp.CaptureInput(tp.InputProcessor.StringRangeFromLength(len(actions)), currentLine)
 	actionIndex, _ := strconv.Atoi(input)
 	actionIndex--
@@ -118,7 +119,7 @@ func (tp *TraversalProcessor) Execute(currentNode *maps.Node, player *entities.P
 	// Do Action
 
 	currentLine = tp.DrawActionResultsScreen(selectedEdge, &actions[actionIndex], currentLine)
-	fmt.Println("Current Line:", currentLine)
+	//fmt.Println("Current Line:", currentLine)
 
 	player.SetCurrentPosition(selectedEdge.GetId(currentNode.GetId()))
 	return currentLine
@@ -159,16 +160,20 @@ func (tp *TraversalProcessor) DrawTraversalOptionScreen(
 ) int {
 	for nodeId, direction := range movementOptions {
 		edge := currentNode.GetEdge(nodeId)
-		fmt.Printf(
-			"\033[%d;%dH[%s][%d] %s: %s\n",
-			currentLine,
-			config.General.Offset,
-			direction,
-			nodeId,
-			directionText.LUT[direction],
-			edge.GetPreviewText(),
+		wrappedText := utilities.WrapText(
+			fmt.Sprintf(
+				"[%s][%d] %s: %s",
+				direction,
+				nodeId,
+				directionText.LUT[direction],
+				edge.GetPreviewText(),
+			),
+			config.General.WordWrapWidth,
 		)
-		currentLine++
+		for _, line := range wrappedText {
+			fmt.Printf("\033[%d;%dH%s\n", currentLine, config.General.Offset, line)
+			currentLine++
+		}
 	}
 	return currentLine
 }
@@ -176,15 +181,19 @@ func (tp *TraversalProcessor) DrawTraversalOptionScreen(
 func (tp *TraversalProcessor) DrawBackTrackingOptionScreen(currentNode *maps.Node, player *entities.Player, currentLine int) int {
 	currentLine++
 	if currentNode.GetId() != 0 {
-		fmt.Printf(
-			"\033[%d;%dH[%s][%d] %s: %s\n",
-			currentLine,
-			config.General.Offset,
-			"U",
-			player.GetPreviousPosition(),
-			"Back the way you came",
-			currentNode.GetEdge(player.GetPreviousPosition()).GetPreviewText(),
+		wrappedText := utilities.WrapText(
+			fmt.Sprintf(
+				"[%s][%d] Back the way you came: %s",
+				"U",
+				player.GetPreviousPosition(),
+				currentNode.GetEdge(player.GetPreviousPosition()).GetPreviewText(),
+			),
+			config.General.WordWrapWidth,
 		)
+		for _, line := range wrappedText {
+			fmt.Printf("\033[%d;%dH%s\n", currentLine, config.General.Offset, line)
+			currentLine++
+		}
 	}
 	currentLine++
 	return currentLine

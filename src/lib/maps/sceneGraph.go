@@ -21,8 +21,8 @@ func NewSceneGraph(theme *Theme) *SceneGraph {
 	}
 }
 
-func (sg *SceneGraph) AddNode(nodeId int, nodeType NodeType, previewText, text string) {
-	sg.nodes[nodeId] = NewNode(nodeId, nodeType, previewText, text)
+func (sg *SceneGraph) AddNode(nodeId int, nodeType NodeType, subtype, previewText, text string) {
+	sg.nodes[nodeId] = NewNode(nodeId, nodeType, subtype, previewText, text)
 }
 
 func (sg *SceneGraph) SetTerminusNode(nodeId int) {
