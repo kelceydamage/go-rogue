@@ -2,226 +2,226 @@
     "Actions": {
         "Swim": {
             "Success": {
-                "0": "You glide through the water with ease, reaching the other side unscathed.",
-                "1": "Your strong strokes carry you swiftly across the current.",
-                "2": "You swim steadily, keeping your breath even and your pace calm until you're safely across.",
-                "3": "Despite the chill, your focus keeps you steady as you reach the far bank.",
-                "4": "With confident movements, you push through the water and emerge refreshed on the opposite shore."
+                "0": "You step to the edge, the water rippling around your boots as you prepare to dive in.",
+                "1": "Cold water laps at your waist as you wade deeper, lungs steadying for the push ahead.",
+                "2": "You lean forward into the current, arms slicing through the chill as you begin to move.",
+                "3": "Your body tenses against the shock of the water as you kick off toward the far side.",
+                "4": "The surface breaks around you as you dive, muscles working rhythmically with the pull of the current."
             },
             "Failure": {
-                "0": "The current proves too strong, pulling you off course before you can recover.",
-                "1": "You lose your footing mid-swim and struggle to keep your head above water.",
-                "2": "Your strokes falter in the cold, and you barely make it back to the shore you started from.",
-                "3": "You misjudge the depth and flounder halfway across, forced to turn back.",
-                "4": "A sudden cramp seizes your leg mid-swim, and you retreat to safety, breathless and soaked."
+                "0": "The current pulls at your legs before you’re fully committed—you stagger back to shore.",
+                "1": "You slip at the water’s edge and scramble to recover your footing.",
+                "2": "A sudden chill hits your chest and you retreat, breath caught short.",
+                "3": "Your foot catches on a slick stone beneath the surface, halting your entry.",
+                "4": "The cold shocks your limbs before you find rhythm, and you quickly back out of the water."
             }
         },
         "Bash": {
             "Success": {
-                "0": "With a powerful strike, the obstacle splinters and gives way.",
-                "1": "You slam your weight into it and feel the door crack open.",
-                "2": "The barricade shudders under your blow, breaking apart.",
-                "3": "One forceful hit is all it takes to break through.",
-                "4": "Your strength prevails—the locked object bursts open."
+                "0": "You shift your stance and draw back, lining up the strike with purpose.",
+                "1": "Your muscles tense as you raise your weapon, sighting the weak point.",
+                "2": "With a deep breath, you square your shoulders and prepare to deliver the blow.",
+                "3": "The weight in your arms feels just right as you step toward the target.",
+                "4": "You adjust your footing, winding up for a single focused strike."
             },
             "Failure": {
-                "0": "You slam into it hard, but it holds firm.",
-                "1": "Your strike lands, but the obstacle barely budges.",
-                "2": "Pain shoots up your arm as your blow glances off uselessly.",
-                "3": "You stagger back from the impact, dazed and bruised.",
-                "4": "Despite your effort, the barrier remains completely intact."
+                "0": "Your strike glances off the surface, and you stumble back to reassess.",
+                "1": "The blow lands awkwardly, leaving only a dull thud and ringing pain.",
+                "2": "You swing too early, missing the mark and forcing yourself to retreat.",
+                "3": "Pain jolts up your arm and you take a step back to recover.",
+                "4": "The surface holds firm—your strike rebounds, and you regroup for another attempt."
             }
         },
         "Climb": {
             "Success": {
-                "0": "You scale the surface with ease, finding every foothold.",
-                "1": "With steady progress, you reach the top without incident.",
-                "2": "Your hands and feet move in harmony as you ascend.",
-                "3": "You climb gracefully, barely losing your grip once.",
-                "4": "In a smooth motion, you pull yourself over the edge triumphantly."
+                "0": "You plant your hands against the slope and begin your ascent, seeking footholds among the stone.",
+                "1": "Your fingers grip the rough surface as you shift your weight upward, eyes tracking the route above.",
+                "2": "You steady your breath and place your foot against the rock, testing its hold as you begin the climb.",
+                "3": "Hands brushing mossy ledges, you begin to scale the incline, senses tuned to every shift beneath you.",
+                "4": "You crouch low and push upward, reaching for a ledge just within your grasp as the climb begins."
             },
             "Failure": {
-                "0": "Your grip slips and you slide back down.",
-                "1": "You struggle to find purchase and are forced to stop.",
-                "2": "Halfway up, your foot misses and you lose your nerve.",
-                "3": "You barely make any progress before exhaustion takes over.",
-                "4": "A loose rock breaks free, sending you tumbling back to the ground."
+                "0": "Your grip falters and you drop back to the base of the climb.",
+                "1": "Loose stone crumbles beneath your hand, forcing you to slide back down.",
+                "2": "You lose your balance and retreat to solid ground to try again.",
+                "3": "The incline proves steeper than expected—you back down, breathing heavily.",
+                "4": "A sharp pull in your arm stops you short, and you step away to recover before continuing."
             }
         },
         "Crawl": {
             "Success": {
-                "0": "You shimmy through the tight space and emerge unharmed.",
-                "1": "You move carefully and reach the other side without incident.",
-                "2": "Despite the cramped space, you make it through with ease.",
-                "3": "You crawl slowly, brushing past obstacles with practiced precision.",
-                "4": "With patience, you exit the tunnel without a scratch."
+                "0": "The stone is cool beneath your hands; as you kneel, you see the tunnel stretches forward into gloom.",
+                "1": "You crouch beside the opening, peering into the narrow passage as dust shifts in the dim light.",
+                "2": "You ease down onto the ground, shoulders brushing stone as the gap ahead narrows like a throat.",
+                "3": "Hands steady against the cave floor, you lean in and feel the musty air rising from the hollow beyond.",
+                "4": "You lower yourself slowly, breath steady, as the low crawlspace yawns open beneath the overhang."
             },
             "Failure": {
-                "0": "You get stuck partway and must retreat awkwardly.",
-                "1": "A sharp rock scrapes you painfully as you squeeze through.",
-                "2": "You misjudge the space and get wedged in tightly.",
-                "3": "Dust fills your lungs, forcing you to back out coughing.",
-                "4": "You panic midway and have to crawl back the way you came."
+                "0": "You get stuck partway through and awkwardly retreat to the entrance.",
+                "1": "A sharp rock scrapes your side and you pull back with a wince.",
+                "2": "You wedge yourself in too tightly and are forced to slowly back out.",
+                "3": "Dust chokes the narrow space, and coughing, you reverse your crawl.",
+                "4": "Panic rises as the tunnel tightens, and you scramble back the way you came."
             }
         },
         "Detect Trap": {
             "Success": {
-                "0": "You notice a hidden wire glinting in the light.",
-                "1": "You spot a pressure plate concealed under the dust.",
-                "2": "Your careful observation reveals a barely visible snare.",
-                "3": "You detect a faint irregularity in the floor tiles.",
-                "4": "You find subtle marks indicating a nearby trap."
+                "0": "You slow your pace and begin scanning the ground and walls for anything out of place.",
+                "1": "Your eyes trace every crevice, pausing over each tile and stone.",
+                "2": "You crouch low, brushing dust aside as you study the edges of the corridor.",
+                "3": "Your gaze lingers on a worn groove along the floor, something about it catching your attention.",
+                "4": "You move cautiously, focusing on subtle changes in the environment that might betray a trap."
             },
             "Failure": {
-                "0": "You scan the area but see nothing unusual.",
-                "1": "Everything looks normal—perhaps too normal.",
-                "2": "You miss the signs, unaware of the danger ahead.",
-                "3": "Your inspection turns up nothing of concern.",
-                "4": "You look carefully, but the trap remains hidden."
+                "0": "You sweep your eyes across the area but find nothing unusual and move on.",
+                "1": "Everything appears undisturbed, though a faint doubt remains in your mind.",
+                "2": "Despite a careful search, nothing stands out as suspicious.",
+                "3": "You finish your inspection without uncovering anything noteworthy.",
+                "4": "After a few moments of examination, you conclude the path is clear—at least, as far as you can tell."
             }
         },
         "Disarm Trap": {
             "Success": {
-                "0": "With a delicate touch, you disable the trap mechanism.",
-                "1": "You cut the correct wire and the trap clicks harmlessly.",
-                "2": "Your steady hands dismantle the trap with practiced skill.",
-                "3": "The trap mechanism disengages with a soft clack.",
-                "4": "You remove the final component, rendering the trap inert."
+                "0": "You kneel beside the mechanism, tools in hand, and begin tracing the connections with care.",
+                "1": "You study the trap's design and select the right tool, adjusting your grip before proceeding.",
+                "2": "You lean close, breath shallow as your fingers begin to work through the exposed trigger assembly.",
+                "3": "The trap’s inner workings reveal themselves slowly as you begin to dismantle it piece by piece.",
+                "4": "You set your kit beside the trap and begin to probe the components, identifying their tension points."
             },
             "Failure": {
-                "0": "A misstep triggers the trap—you're too late.",
-                "1": "The wire snaps—too soon—and the trap springs.",
-                "2": "Your hands slip and set off the mechanism.",
-                "3": "You fumble with the tools and the trap arms instead.",
-                "4": "A loud click warns you of failure a moment too late."
+                "0": "Your hand slips as you reach for the trigger wire—you jerk back, heart pounding.",
+                "1": "A gear shifts unexpectedly beneath your tools, and you recoil from the sudden motion.",
+                "2": "A sharp click breaks the silence as your probe touches the wrong node—you freeze and retreat.",
+                "3": "Sweat beads on your brow as the trap resists your careful pressure—you withdraw to reassess.",
+                "4": "The trap's complexity overwhelms your approach, and you pull back before making it worse."
             }
         },
         "Investigate": {
             "Success": {
-                "0": "You uncover a clue hidden beneath debris.",
-                "1": "Your search reveals a small, significant detail.",
-                "2": "You find evidence that others have been here.",
-                "3": "You spot something everyone else missed.",
-                "4": "Your careful examination yields valuable insight."
+                "0": "You kneel beside the rubble and begin brushing away debris with patient hands.",
+                "1": "You study the nearby wall, looking for patterns, wear, or anything out of place.",
+                "2": "You run your fingers along the stone surface, seeking the subtle trace of disturbance.",
+                "3": "You lean in close, eyes adjusting to the shadows as you search for hidden details.",
+                "4": "You move carefully through the space, letting instinct guide your attention to the smallest inconsistencies."
             },
             "Failure": {
-                "0": "You find nothing of interest.",
-                "1": "Your search turns up only dust and old scratches.",
-                "2": "Whatever was here seems long gone.",
-                "3": "You disturb the area but uncover nothing useful.",
-                "4": "You miss the key detail amid the clutter."
+                "0": "You sort through the area but find nothing that catches your attention.",
+                "1": "Your search turns up old dust and scratches—nothing useful stands out.",
+                "2": "You examine every corner, but whatever was here has long since vanished.",
+                "3": "After several moments of scanning and prodding, you find nothing worth noting.",
+                "4": "You pause, reconsider, and conclude there's little to be learned from this spot."
             }
         },
         "Jump": {
             "Success": {
-                "0": "You leap gracefully and land on solid ground.",
-                "1": "Your jump clears the gap with room to spare.",
-                "2": "You time your jump perfectly and stick the landing.",
-                "3": "You spring over the obstacle and land cleanly.",
-                "4": "You launch forward and land just as planned."
+                "0": "You step back, eyeing the gap ahead as your muscles tense in preparation.",
+                "1": "Your feet find solid footing, breath tight as you focus on the landing spot.",
+                "2": "You lower your stance, arms swinging as you prepare to make the leap.",
+                "3": "The space ahead narrows your focus—every muscle ready to spring forward.",
+                "4": "With the ledge in sight, you shift your weight and commit to the motion of the jump."
             },
             "Failure": {
-                "0": "You misjudge the distance and fall short.",
-                "1": "You slip just as you push off, crashing below.",
-                "2": "You land awkwardly, twisting your ankle.",
-                "3": "You barely miss your mark and scramble to hold on.",
-                "4": "Your footing gives out and you tumble down."
+                "0": "You falter just before takeoff, losing momentum and stepping back from the edge.",
+                "1": "Your foot slips at the last second and you lurch forward, forced to steady yourself.",
+                "2": "The distance suddenly feels longer, and you hesitate, pulling away from the jump.",
+                "3": "A crack beneath your bootstartles you into retreating from the edge.",
+                "4": "You lean forward to jump but instinct halts you—the ground doesn't feel right."
             }
         },
         "Light Torch": {
             "Success": {
-                "0": "The torch catches quickly, bathing the area in warm light.",
-                "1": "A spark catches and soon the flame flickers steadily.",
-                "2": "You strike flint and light the torch with ease.",
-                "3": "The torch bursts to life, illuminating your surroundings.",
-                "4": "You ignite the torch smoothly, ready to press on."
+                "0": "You strike the flint near the torch's base, watching for that first hopeful spark.",
+                "1": "Your fingers move quickly, brushing tinder into place before bringing steel to stone.",
+                "2": "You crouch beside the unlit torch and begin working your tools with practiced rhythm.",
+                "3": "The dry fibers catch the first flicker of heat as you coax a flame to life.",
+                "4": "You shelter the torch from the breeze and begin sparking against the waiting cloth."
             },
             "Failure": {
-                "0": "The torch refuses to catch despite several attempts.",
-                "1": "Your flint sparks, but the flame dies instantly.",
-                "2": "The torch is too damp and won’t light.",
-                "3": "You fumble the tools, struggling to make a flame.",
-                "4": "The wind snuffs out every spark before it can grow."
+                "0": "The spark flickers and fades, leaving the torch still dark in your grasp.",
+                "1": "Your hands fumble with damp tinder, and you pause to dry your tools.",
+                "2": "A gust of wind catches your kindling, scattering it across the floor.",
+                "3": "The torch feels too damp to catch, and you set it aside with a frustrated breath.",
+                "4": "You strike the flint again and again, but the spark refuses to take hold."
             }
         },
         "Pick Lock": {
             "Success": {
-                "0": "With finesse, you unlock it in moments.",
-                "1": "The tumblers click one by one until the lock opens.",
-                "2": "You hear a satisfying click as the lock releases.",
-                "3": "Your tools work quickly and quietly—success.",
-                "4": "You pick the lock expertly and move on."
+                "0": "You kneel beside the lock and slide your tools into place, feeling for each faint resistance.",
+                "1": "Your fingers work with precision as you test the pins one by one.",
+                "2": "You bring out your kit and press close, ears tuned to the tiniest click from within the mechanism.",
+                "3": "The lock gives slightly as you begin probing its tumblers with practiced care.",
+                "4": "You crouch by the lock, applying light pressure as you tease out its secrets."
             },
             "Failure": {
-                "0": "Your pick snaps inside the lock.",
-                "1": "The lock refuses to turn despite your efforts.",
-                "2": "You slip and jam the mechanism.",
-                "3": "You waste precious time with no result.",
-                "4": "The tools slip and you fail to pick the lock."
+                "0": "Your tool catches abruptly, and you pull back before it snaps.",
+                "1": "A false click sends a jolt of frustration through you, and you reset your grip.",
+                "2": "You push too hard, and the mechanism jams—best to stop and reassess.",
+                "3": "Your picks slip out of place, and you exhale sharply before trying again.",
+                "4": "You work the lock for a while, but the pins refuse to yield—this may take a different approach."
             }
         },
         "Open Door": {
             "Success": {
-                "0": "The door creaks open, revealing the path ahead.",
-                "1": "You push the door open with little resistance.",
-                "2": "The lid lifts smoothly, revealing its contents.",
-                "3": "You open it carefully and peer inside.",
-                "4": "With a gentle tug, the opening yields."
+                "0": "You place your hand on the handle, testing its give as you prepare to open it.",
+                "1": "You lean forward, pressing against the door’s surface to feel for movement.",
+                "2": "Fingers brushing the edges, you find the seam and start to apply gentle pressure.",
+                "3": "Your palm rests against the worn wood as you push slowly, ears tuned for resistance.",
+                "4": "You adjust your grip on the latch and begin to pull, listening for the telltale creak."
             },
             "Failure": {
-                "0": "It refuses to budge, stuck fast.",
-                "1": "You strain, but it remains tightly closed.",
-                "2": "You pull and pull, but it won’t open.",
-                "3": "The hinges are too rusted to move.",
-                "4": "Something’s blocking it from the other side."
+                "0": "You tug at the door, but it won’t budge—it seems stuck fast.",
+                "1": "Your push meets stiff resistance, and the door remains closed.",
+                "2": "You try the handle again, but it’s jammed tight in the frame.",
+                "3": "The hinges groan but refuse to give—you take a step back in frustration.",
+                "4": "Something heavy must be blocking it from the other side—the door stays shut."
             }
         },
         "Sneak": {
             "Success": {
-                "0": "You move silently, unnoticed by anything nearby.",
-                "1": "Your steps are light and quiet, slipping through shadows.",
-                "2": "You creep forward without making a sound.",
-                "3": "You blend with the surroundings, completely undetected.",
-                "4": "You pass through the area like a shadow."
+                "0": "You lower your stance and begin to move, each footfall measured and deliberate.",
+                "1": "You steady your breath and slip into the shadows, senses attuned to every sound.",
+                "2": "You scan the path ahead, then begin advancing slowly through the cover.",
+                "3": "You hug the wall and press forward, placing each step with quiet precision.",
+                "4": "You stay low, watching your surroundings as you slip silently into motion."
             },
             "Failure": {
-                "0": "A twig snaps underfoot, giving you away.",
-                "1": "Your footstep echoes loudly in the still air.",
-                "2": "You stumble, making far too much noise.",
-                "3": "You trip over debris, alerting everything nearby.",
-                "4": "You’re spotted almost immediately."
+                "0": "A twig snaps beneath your boot and you freeze, ears straining for response.",
+                "1": "You stumble slightly, the scrape of stone louder than you’d hoped.",
+                "2": "The shadows shift around you, and you falter, unsure of your cover.",
+                "3": "Your foot brushes debris, sending pebbles skittering across the floor.",
+                "4": "A sharp intake of breath betrays your position—you pause, tense and alert."
             }
         },
         "Unlock": {
             "Success": {
-                "0": "The mechanism clicks open easily in your hands.",
-                "1": "You slide the key in smoothly and turn it without issue.",
-                "2": "The lock yields to your tools and opens.",
-                "3": "With a satisfying click, the door unlocks.",
-                "4": "You disengage the lock and the way is clear."
+                "0": "You hold the key in your palm a moment before fitting it into the lock, feeling the teeth catch.",
+                "1": "You press the mechanism carefully into place, feeling each click echo faintly in the chamber.",
+                "2": "With steady fingers, you align the key and begin to turn slowly.",
+                "3": "You slide the key into the old lock, meeting resistance before gently applying pressure.",
+                "4": "You test the locking mechanism first, then insert the key with cautious precision."
             },
             "Failure": {
-                "0": "The key bends slightly and refuses to turn.",
-                "1": "You try again and again, but the lock won’t budge.",
-                "2": "The mechanism sticks, locked tight.",
-                "3": "Your key breaks off in the lock.",
-                "4": "The tumblers won’t align—failure."
+                "0": "The key grinds in the mechanism, but the lock refuses to yield.",
+                "1": "You turn the key halfway before it catches and won’t move further.",
+                "2": "The teeth don’t seem to align—you pull the key free to try again.",
+                "3": "You press too firmly and feel the key bend slightly—you withdraw before forcing it.",
+                "4": "The lock remains unmoved despite your careful efforts—something inside resists."
             }
         },
         "Proceed": {
             "Success": {
-                "0": "You move forward with confidence into the unknown.",
-                "1": "You press on, feeling momentum carry you forward.",
-                "2": "You advance steadily, undeterred by hesitation.",
-                "3": "With resolve, you continue deeper into your journey.",
-                "4": "You take the next step, certain and focused."
+                "0": "You take a step forward, heart steady as you prepare to continue onward.",
+                "1": "You glance ahead, then press on into the next space without hesitation.",
+                "2": "Your feet move with purpose, carrying you deeper into the unknown.",
+                "3": "With quiet confidence, you cross the threshold into what lies beyond.",
+                "4": "You steady yourself and push ahead, the weight of choice behind you."
             },
             "Failure": {
-                "0": "You hesitate, gripped by uncertainty.",
-                "1": "A sudden fear stops you in your tracks.",
-                "2": "You step forward and falter, unsure of your path.",
-                "3": "Your courage fades and you retreat momentarily.",
-                "4": "You second-guess yourself, unsure whether to continue."
+                "0": "A sudden unease roots you in place, and you pause to reconsider.",
+                "1": "You take a step but quickly pull back, sensing something isn't right.",
+                "2": "Your instincts whisper caution, and you wait a moment longer before moving.",
+                "3": "A chill skims your spine and your advance falters—you stop just shy of commitment.",
+                "4": "You hesitate on the edge, uncertainty rising as the path ahead darkens."
             }
         }
     }

@@ -72,6 +72,7 @@ type NodeMetaData struct {
 	IsDeadNode   bool
 	Color        Colors
 	IsResolvable bool
+	dificulties  map[string]float32
 }
 
 func NewStartNodeMetaData() *NodeMetaData {
@@ -81,6 +82,10 @@ func NewStartNodeMetaData() *NodeMetaData {
 		IsDeadNode:   false,
 		Color:        Colors(Cyan),
 		IsResolvable: false,
+		dificulties: map[string]float32{
+			"Investigate": 0.5,
+			"Light Torch": 0.5,
+		},
 	}
 }
 
@@ -91,6 +96,10 @@ func NewDecisionNodeMetaData() *NodeMetaData {
 		IsDeadNode:   false,
 		Color:        Colors(Blue),
 		IsResolvable: true,
+		dificulties: map[string]float32{
+			"Investigate": 0.5,
+			"Light Torch": 0.5,
+		},
 	}
 }
 
@@ -101,6 +110,10 @@ func NewEncounterNodeMetaData() *NodeMetaData {
 		IsDeadNode:   false,
 		Color:        Colors(Red),
 		IsResolvable: true,
+		dificulties: map[string]float32{
+			"Investigate": 0.5,
+			"Light Torch": 0.5,
+		},
 	}
 }
 
@@ -111,6 +124,10 @@ func NewSceneryNodeMetaData() *NodeMetaData {
 		IsDeadNode:   false,
 		Color:        Colors(Green),
 		IsResolvable: true,
+		dificulties: map[string]float32{
+			"Investigate": 0.5,
+			"Light Torch": 0.5,
+		},
 	}
 }
 
@@ -121,6 +138,10 @@ func NewEndingNodeMetaData() *NodeMetaData {
 		IsDeadNode:   false,
 		Color:        Colors(Purple),
 		IsResolvable: false,
+		dificulties: map[string]float32{
+			"Investigate": 0.5,
+			"Light Torch": 0.5,
+		},
 	}
 }
 
@@ -131,6 +152,10 @@ func NewDeadEndNodeMetaData() *NodeMetaData {
 		IsDeadNode:   true,
 		Color:        Colors(Black),
 		IsResolvable: false,
+		dificulties: map[string]float32{
+			"Investigate": 0.5,
+			"Light Torch": 0.5,
+		},
 	}
 }
 
@@ -235,4 +260,8 @@ func (n *Node) GetMetaData() *NodeMetaData {
 
 func (n *Node) SetMetaData(metaData *NodeMetaData) {
 	n.metaData = metaData
+}
+
+func (n *Node) GetDifficulties() map[string]float32 {
+	return n.metaData.dificulties
 }

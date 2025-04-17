@@ -198,12 +198,61 @@ func (loader *ActionsLoader) GetRandomFailure(actionKey string) string {
 	return action.Failure[keys[rand.Intn(len(keys))]]
 }
 
-/*
-loader := utilities.NewActionsLoader()
-err := loader.LoadFromFile("actions.json")
-if err != nil {
-    log.Fatal(err)
+// TransitionLoader holds all transitions loaded from the JSON file.
+type TransitionLoader struct {
+	Texts map[string]map[string]map[string]map[string]string `json:"Texts"`
 }
-fmt.Println(loader.GetRandomSuccess("Swim"))
-fmt.Println(loader.GetRandomFailure("Bash"))
-*/
+
+func NewTransitionLoader() *TransitionLoader {
+	return &TransitionLoader{
+		Texts: make(map[string]map[string]map[string]map[string]string),
+	}
+}
+
+func (loader *TransitionLoader) LoadFromFile(filename string) error {
+	fmt.Println("Loading transitions file:", filename)
+
+	data, err := ioutil.ReadFile(filename)
+	if err != nil {
+		fmt.Println("Error reading file:", err)
+		return fmt.Errorf("failed to read file: %w", err)
+	}
+
+	err = json.Unmarshal(data, &loader.Texts)
+	if err != nil {
+		fmt.Println("Error unmarshaling JSON:", err)
+		return fmt.Errorf("failed to unmarshal JSON: %w", err)
+	}
+
+	return nil
+}
+
+// GetTransition returns the transition text for a given theme, edgeType, and id.
+func (loader *TransitionLoader) GetTransition(theme, edgeType, action, id string) string {
+	themeMap, ok := loader.Texts[theme]
+	if !ok {
+		return "No transition for this theme. 77"
+	}
+	edgeMap, ok := themeMap[edgeType]
+	if !ok {
+		return "No transition for this edge type. 77"
+	}
+	actionMap, ok := edgeMap[action]
+	if !ok {
+		return "No transition for this action. 77"
+	}
+	text, ok := actionMap[id]
+	if !ok {
+		return "No transition for this id. 77"
+	}
+	return text
+}
+
+func LoadTransitionText() *TransitionLoader {
+	transitionLoader := NewTransitionLoader()
+	err := transitionLoader.LoadFromFile("src/lib/text/transitions.json")
+	if err != nil {
+		panic(fmt.Sprintf("Error loading traversal text: %s", err))
+	}
+	return transitionLoader
+}

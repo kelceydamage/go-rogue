@@ -6,6 +6,14 @@ import (
 	"go-rogue/src/lib/maps"
 )
 
+func PresentEventActions(node *maps.Node) []actions.Action {
+	return []actions.Action{
+		actions.NewInvestigateAction(node),
+		actions.NewLightTorchAction(node),
+		actions.NewSearchForExistsAction(node),
+	}
+}
+
 func PresentEdgeActions(edge *maps.Edge) []actions.Action {
 	var availableActions []actions.Action
 
@@ -23,7 +31,6 @@ func PresentEdgeActions(edge *maps.Edge) []actions.Action {
 	case maps.Tunnel:
 		availableActions = []actions.Action{
 			actions.NewCrawlAction(edge),
-			actions.NewLightTorchAction(edge),
 			actions.NewProceedAction(edge),
 		}
 	case maps.UnlockedDoor:
@@ -37,9 +44,7 @@ func PresentEdgeActions(edge *maps.Edge) []actions.Action {
 			actions.NewUnlockAction(edge),
 		}
 	case maps.HiddenDoor:
-		availableActions = []actions.Action{
-			actions.NewInvestigateAction(edge),
-		}
+		availableActions = []actions.Action{}
 	default:
 		fmt.Println("You encounter an unknown obstacle.")
 	}

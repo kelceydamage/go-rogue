@@ -6,13 +6,13 @@ import (
 
 type InvestigateAction struct {
 	name       string
-	difficulty int
+	difficulty float32
 }
 
-func NewInvestigateAction(edge *maps.Edge) *InvestigateAction {
+func NewInvestigateAction(node *maps.Node) *InvestigateAction {
 	return &InvestigateAction{
 		name:       "Investigate",
-		difficulty: edge.GetDifficulty(),
+		difficulty: node.GetDifficulties()["Investigate"],
 	}
 }
 

@@ -4,13 +4,13 @@ import "go-rogue/src/lib/maps"
 
 type LightTorchAction struct {
 	name       string
-	difficulty int
+	difficulty float32
 }
 
-func NewLightTorchAction(edge *maps.Edge) *LightTorchAction {
+func NewLightTorchAction(node *maps.Node) *LightTorchAction {
 	return &LightTorchAction{
 		name:       "Light Torch",
-		difficulty: edge.GetDifficulty(),
+		difficulty: node.GetDifficulties()["Light Torch"],
 	}
 }
 

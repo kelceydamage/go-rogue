@@ -100,7 +100,8 @@ func NewTraversalProcessor(
 	return TraversalProcessor
 }
 
-func (tp *TraversalProcessor) Execute(currentNode *maps.Node, player *entities.Player, currentLine int) int {
+func (tp *TraversalProcessor) Execute(sceneGraph *maps.SceneGraph, player *entities.Player, currentLine int) int {
+	currentNode := sceneGraph.GetNode(player.GetCurrentPosition())
 	tp.SetTraversalOptions(currentNode, player)
 	// TODO: There is a segfault going back to node 0
 	// Execute the traversal logic here
@@ -191,10 +192,9 @@ func (tp *TraversalProcessor) DrawBackTrackingOptionScreen(currentNode *maps.Nod
 			fmt.Sprintf(
 				"[%s] Back the way you came: %s",
 				"U",
-				//player.GetPreviousPosition(),
 				currentNode.GetEdge(player.GetPreviousPosition()).GetPreviewText(),
 			),
-			config.General.WordWrapWidth,
+			config.General.WordWrapWidth-10,
 		)
 		for _, line := range wrappedText {
 			fmt.Printf("\033[%d;%dH%s\n", currentLine, config.General.Offset+5, line)
@@ -236,9 +236,16 @@ func (tp *TraversalProcessor) DrawActionResultsScreen(
 	action actions.Action,
 	currentLine int,
 ) int {
+	edge.SetLastUsedTraversalAction(action.GetName())
 	currentLine += 3
-	actionText := tp.ActionTextLoader.GetRandomSuccess(action.GetName())
-	fmt.Printf("\033[%d;%dH%s\n", currentLine, config.General.Offset, actionText)
+	wrappedText := utilities.WrapTextNoIndent(
+		tp.ActionTextLoader.GetRandomSuccess(action.GetName()),
+		config.General.WordWrapWidth,
+	)
+	for _, line := range wrappedText {
+		fmt.Printf("\033[%d;%dH%s\n", currentLine, config.General.Offset, line)
+		currentLine++
+	}
 	return currentLine
 }
 

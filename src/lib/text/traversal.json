@@ -23,6 +23,98 @@
                 "4": "Following the faint whispers, you step cautiously forward into the mysteries that await."
             }
         },
+        "Obstacle": {
+            "PreviewText": {
+                "0": "The corridor ends in a pile of collapsed stone.",
+                "1": "A heavy grate has fallen into the hallway ahead.",
+                "2": "Rubble blocks the narrow passage beyond.",
+                "3": "Dust swirls in the air—something large recently gave way here.",
+                "4": "A tangle of broken beams and bricks obstructs the path."
+            },
+            "Text": {
+                "0": "A cave-in has filled this stretch of hallway with ancient debris.",
+                "1": "A rusted portcullis lies across the floor, half-buried in stone.",
+                "2": "The corridor is obstructed by fallen blocks and shattered masonry.",
+                "3": "Timbers and chains are piled together in a mound of tangled wreckage.",
+                "4": "You reach a corridor where the ceiling has dropped, forming a barricade of ruin."
+            },
+            "TransitionText": {
+                "0": "You pass the rubble and step back into the dungeon’s shadowy halls.",
+                "1": "You move through the wreckage and continue into the next chamber.",
+                "2": "You cross over the debris and press on through the broken corridor.",
+                "3": "You make it past the blockage, the way ahead dim but clear.",
+                "4": "You emerge beyond the obstruction, dusting off as you move forward."
+            }
+        },
+        "Chasm": {
+            "PreviewText": {
+                "0": "A gaping hole opens in the corridor floor, yawning into darkness.",
+                "1": "The hallway ends abruptly in a deep pit lined with broken stone.",
+                "2": "The floor ahead has collapsed, leaving a black void between platforms.",
+                "3": "A massive crack splits the dungeon floor, carved by time and neglect.",
+                "4": "You come upon a chasm strewn with the remains of a shattered bridge."
+            },
+            "Text": {
+                "0": "You approach a wide pit where the dungeon floor has caved in completely.",
+                "1": "Rubble lines the edge of a great divide, torchlight failing to reach the bottom.",
+                "2": "The stones here are fractured and uneven, crumbling into the gap below.",
+                "3": "The walls widen into a chamber split by a deep trench filled with ancient bones.",
+                "4": "Only fragments of stone and rusted metal remain where a bridge once stood."
+            },
+            "TransitionText": {
+                "0": "You make it across and pause, the hollow silence of the dungeon pressing in around you.",
+                "1": "You land on cracked stone and continue forward, the pit at your back.",
+                "2": "You navigate the gap and push onward, boots scraping ancient dust.",
+                "3": "You reach the far platform and move deeper into the dungeon's silence.",
+                "4": "You emerge across the chasm and enter a new stretch of ruinous corridor."
+            }
+        },
+        "Ledge": {
+            "PreviewText": {
+                "0": "The corridor drops away into darkness—only a narrow stone path remains.",
+                "1": "You see torchlight dancing on the wall beyond a razor-thin ledge.",
+                "2": "Crumbled masonry reveals a walkway just wide enough to walk.",
+                "3": "The floor has fallen away, leaving only a beam across the gap.",
+                "4": "You glimpse rusted rails beside a ledge curving around the chamber wall."
+            },
+            "Text": {
+                "0": "You find a ledge clinging to the side of a sunken chamber, one misstep from the void.",
+                "1": "The corridor thins to a ledge carved into the dungeon wall, centuries worn.",
+                "2": "Only a narrow span of stone remains where the floor collapsed long ago.",
+                "3": "A line of bricks juts from the wall, guiding your path above the abyss.",
+                "4": "You find a foot-wide shelf stretching across the wall—no handrail, no mercy."
+            },
+            "TransitionText": {
+                "0": "You make it across the ledge, pressed close to the wall, heart pounding in the dark.",
+                "1": "Each step lands true, and the path widens at last.",
+                "2": "You shuffle past the gap and find your footing on solid stone again.",
+                "3": "You reach the other side, breath ragged and boots coated in dust.",
+                "4": "The far end rises to meet you, and the ledge fades behind into shadow."
+            }
+        },
+        "Cliff": {
+            "PreviewText": {
+                "0": "The corridor ends in a sudden vertical shaft reaching high into darkness.",
+                "1": "Broken stairs lead nowhere—the only path is up a sheer wall.",
+                "2": "You see torchlight flickering from far above—there’s a climb ahead.",
+                "3": "The tunnel narrows, ending at a jagged stone rise.",
+                "4": "Dust falls from above as you approach a collapsed shaft."
+            },
+            "Text": {
+                "0": "You find yourself at the base of a vertical tunnel, rough stone walls rising steeply.",
+                "1": "A collapsed stairwell leads to a cracked shaft ascending into shadow.",
+                "2": "Masonry crumbles around an old climb path, the handholds aged but present.",
+                "3": "You stand before a forgotten well shaft now used as a passage upward.",
+                "4": "Loose bricks and rusted hooks mark the wall of this vertical chamber."
+            },
+            "TransitionText": {
+                "0": "You pull yourself over the final ledge and steady your breath in the upper hall.",
+                "1": "You reach the top, boots scraping stone as you stand upright.",
+                "2": "You rise into a higher level, the air colder as shadows shift around you.",
+                "3": "You grasp the last rung and emerge into a crumbling corridor.",
+                "4": "You climb out of the shaft, the silence above different than below."
+            }
+        },
         "Crossing": {
             "Preview": {
                 "0": "A subterranean river rushes ominously ahead.",
@@ -163,6 +255,98 @@
                 "4": "Listening closely, you venture further down the path, guided by the soft whispers of leaves into the heart of the forest."
             }
         },
+        "Obstacle": {
+            "PreviewText": {
+                "0": "A fallen tree blocks the trail ahead.",
+                "1": "Loose rocks tumble from the hillside—something has collapsed across the path.",
+                "2": "A thicket of brush clogs the way forward.",
+                "3": "The path narrows abruptly as gnarled roots twist into the air.",
+                "4": "You spot a natural barrier of vines, logs, and debris."
+            },
+            "Text": {
+                "0": "A massive tree lies across the path, forcing a detour or a climb.",
+                "1": "Boulders have shifted down from above, forming a jagged wall of rubble.",
+                "2": "Dense brambles block the trail, too thick to pass through directly.",
+                "3": "The way is barred by a tangle of roots and mud, rising like a wooden barricade.",
+                "4": "A pile of wind-felled debris has created a blockade ahead."
+            },
+            "TransitionText": {
+                "0": "You make it past the fallen tree and return to the trail beyond.",
+                "1": "You overcome the rubble and continue along the path through the trees.",
+                "2": "You force your way past the brush and breathe easier as the path opens up again.",
+                "3": "You break through the root tangle and find your footing on clearer ground.",
+                "4": "You move beyond the barrier, the trail slowly emerging from the chaos."
+            }
+        },
+        "Chasm": {
+            "PreviewText": {
+                "0": "The ground splits ahead, a natural gorge interrupting the path.",
+                "1": "You hear rushing water below—a chasm divides the trail ahead.",
+                "2": "A ravine opens between two ridges, faint mist rising from its depths.",
+                "3": "The forest gives way to a wide crevice stretching into shadow.",
+                "4": "A jagged break in the earth blocks your way forward."
+            },
+            "Text": {
+                "0": "You stand before a forest chasm, its depth obscured by roots and ferns dangling overhead.",
+                "1": "A rushing stream cuts through a steep gorge, the trail picking up on the far side.",
+                "2": "The gap is wide but manageable, the stone edges mossy yet stable.",
+                "3": "Wind funnels through a narrow canyon below, whistling past fallen logs and jutting stone.",
+                "4": "The land is split by erosion, a broken ridge rising on the opposite bank."
+            },
+            "TransitionText": {
+                "0": "You cross the chasm and land safely on the far side, trees greeting you once more.",
+                "1": "With effort and care, you reach the other side and continue your path through the forest.",
+                "2": "You clear the ravine and steady yourself, leaves rustling in the stillness ahead.",
+                "3": "You reach the far ridge and exhale as the woods close in again around you.",
+                "4": "You rise onto solid ground again, the crevice behind you fading into shadow."
+            }
+        },
+        "Ledge": {
+            "PreviewText": {
+                "0": "The trail narrows sharply ahead, with a steep drop off one side.",
+                "1": "Beyond the ferns, a narrow ledge skirts the cliffside.",
+                "2": "You hear wind whistle below—a precarious edge is near.",
+                "3": "The forest path has eroded, leaving only a slim passage ahead.",
+                "4": "You spot animal tracks along a narrow shelf carved into the hill."
+            },
+            "Text": {
+                "0": "You reach a narrow ledge carved into the mountainside, flanked by trees and steep air.",
+                "1": "The path becomes a thin shelf of dirt hugging the rocky hill’s edge.",
+                "2": "A narrow overgrown walkway clings to the cliff face, with little room to pass.",
+                "3": "The trail edges along a steep ravine, loose stones tumbling as you step close.",
+                "4": "You find a ledge following the ridge, barely wide enough to walk without brushing the wall."
+            },
+            "TransitionText": {
+                "0": "You carefully cross the ledge, heart steady as forest returns to meet your feet.",
+                "1": "With slow steps, you traverse the edge and find stable ground again.",
+                "2": "You cross the narrow path and exhale as trees close in once more.",
+                "3": "Each step holds as you complete the crossing and rejoin the trail.",
+                "4": "You walk the ridge with care and relief, emerging where the ledge gives way to safety."
+            }
+        },
+        "Cliff": {
+            "PreviewText": {
+                "0": "The trees thin ahead, revealing a steep incline climbing through the canopy.",
+                "1": "You glimpse rocky terrain rising abruptly beyond the mossy trail.",
+                "2": "Birdsong echoes from above—a vertical wall blocks the forest path.",
+                "3": "Thick roots cling to the slope ahead; something steep lies beyond.",
+                "4": "The air grows still as the ground rises into a sudden woodland cliff."
+            },
+            "Text": {
+                "0": "You arrive at a steep bluff where roots twist through exposed earth and rock.",
+                "1": "The forest gives way to a mossy cliff, green and glistening in the filtered sunlight.",
+                "2": "A narrow stone rise splits the trail, its climb slick with leaves and lichen.",
+                "3": "The trail ends abruptly at a steep ledge rising toward the canopy.",
+                "4": "You approach a craggy outcrop, the only path forward snaking up its side."
+            },
+            "TransitionText": {
+                "0": "You crest the bluff and take in the swaying forest stretching below.",
+                "1": "You climb the final few feet and emerge into a new stretch of trees.",
+                "2": "You reach the top, the forest unfolding again beyond the rise.",
+                "3": "You pull yourself over the ledge, greeted by a breeze through the leaves.",
+                "4": "You rise to the upper trail, your climb rewarded with a new path ahead."
+            }
+        },
         "Crossing": {
             "Preview": {
                 "0": "A gentle stream glimmers invitingly ahead.",
@@ -301,6 +485,98 @@
                 "2": "Descending carefully, you move toward the hidden chambers, your curiosity pulling you deeper into the cave's embrace.",
                 "3": "Steadying your footing, you advance further along the damp path, eager to discover the secrets hidden in the shadows ahead.",
                 "4": "Drawing a deep breath, you press onward through the tight passage, eager for the mysteries that lie ahead to reveal themselves."
+            }
+        },
+        "Obstacle": {
+            "PreviewText": {
+                "0": "A pile of fallen rock blocks the way forward.",
+                "1": "Stalactites have collapsed in the tunnel ahead.",
+                "2": "A section of the cave has eroded into a wall of debris.",
+                "3": "You hear shifting rock—the way ahead has changed.",
+                "4": "The passage narrows, filled with rubble and slick stone."
+            },
+            "Text": {
+                "0": "The tunnel is obstructed by a collapse of jagged boulders and loose shale.",
+                "1": "Stones lie scattered like teeth, forming a barricade across the passage.",
+                "2": "A slope of unstable rock has slid into the cavern’s path.",
+                "3": "The way is blocked by broken formations, their edges sharp and wet.",
+                "4": "Moisture has pooled around a collapsed section, turning the ground to muck."
+            },
+            "TransitionText": {
+                "0": "You make it past the rockfall and return to stable footing.",
+                "1": "You navigate the pile of stone and continue deeper into the cave.",
+                "2": "You press on beyond the debris, the tunnel opening up once again.",
+                "3": "You emerge from the tangle of broken rock and regain your bearings.",
+                "4": "You step clear of the rubble and rejoin the winding path beyond."
+            }
+        },
+        "Chasm": {
+            "PreviewText": {
+                "0": "A sheer break in the cave floor reveals a void glowing faintly below.",
+                "1": "You hear dripping water echoing from far beneath—a chasm lies ahead.",
+                "2": "The path ends in a gap carved by centuries of erosion.",
+                "3": "Glowing crystals shimmer across a crevice that splits the chamber.",
+                "4": "A rocky rift breaks the floor, its edges jagged and wet."
+            },
+            "Text": {
+                "0": "You arrive at a deep fissure carved by time, mist rising from the blackness below.",
+                "1": "The cave opens into a chamber split by a deep gap, echoing with distant drips.",
+                "2": "A narrow path ends abruptly where the stone floor has collapsed inward.",
+                "3": "The air is cool and damp as you face a chasm stretching across the cavern.",
+                "4": "A split in the rock divides the chamber, glowing minerals lighting both edges."
+            },
+            "TransitionText": {
+                "0": "You cross the chasm and emerge onto a new ledge, cave walls looming ahead.",
+                "1": "With a final push, you reach the far side and continue into the dark.",
+                "2": "You land with a grunt and steady yourself, moving deeper into the cave.",
+                "3": "You reach the other side, stalactites above guiding your way forward.",
+                "4": "You rise from the crevice’s edge and press onward along the twisting tunnel."
+            }
+        },
+        "Ledge": {
+            "PreviewText": {
+                "0": "A chasm yawns beside you—only a narrow shelf hugs the cavern wall.",
+                "1": "The stone path thins, curving precariously along a glowing drop.",
+                "2": "The echo of water far below signals a sharp drop just ahead.",
+                "3": "You feel a cold draft—air moves freely through a large opening to your left.",
+                "4": "You notice faint chalk marks hugging a narrow ridge along the cave wall."
+            },
+            "Text": {
+                "0": "You find a thin ledge of rock tracing the wall above a deep crevasse.",
+                "1": "A slick trail of mineral-streaked stone offers just enough footing.",
+                "2": "The tunnel turns to a ledge barely wider than your boots, overlooking a drop.",
+                "3": "Crystals glitter far below as you face the ledge carved into ancient rock.",
+                "4": "A narrow rise clings to the cavern edge, the floor lost beneath mist."
+            },
+            "TransitionText": {
+                "0": "You move slowly along the ledge, never looking down until solid stone returns.",
+                "1": "You cross with quiet resolve, the cave narrowing again into familiar ground.",
+                "2": "Your steps echo softly as you complete the crossing, sweat chilling on your brow.",
+                "3": "You navigate the curve and pull yourself onto the safer passage ahead.",
+                "4": "The ledge leads you forward until it widens into a broader tunnel."
+            }
+        },
+        "Cliff": {
+            "PreviewText": {
+                "0": "The cavern opens into a deep chamber with a stone wall stretching high above.",
+                "1": "Faint light glimmers from a shelf far overhead—an ascent may be possible.",
+                "2": "A ledge breaks the smooth rock ahead, reachable only by climbing.",
+                "3": "The cave floor dips, then rises steeply into shadowed stone.",
+                "4": "A narrow ascent looms before you, carved by years of dripping water."
+            },
+            "Text": {
+                "0": "You stand before a steep rise of stone, slick with moisture and covered in glowing moss.",
+                "1": "Jagged rock juts out along a cavern wall, hinting at a rough but possible climb.",
+                "2": "A narrow chute winds upward through stone—cramped, but navigable.",
+                "3": "You see the remnants of handholds chiseled into the mineral wall.",
+                "4": "A towering stone face divides the chamber, lined with trickling water."
+            },
+            "TransitionText": {
+                "0": "You climb the final stretch and emerge onto a dry shelf of stone above.",
+                "1": "You pull yourself onto a narrow ledge, crystals glittering nearby.",
+                "2": "You climb upward, eventually crawling onto stable ground once more.",
+                "3": "You hoist yourself past the last stone lip, greeted by a cool breeze.",
+                "4": "You ascend and step out into a higher chamber, the climb behind you."
             }
         },
         "Crossing": {

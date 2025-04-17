@@ -1,0 +1,188 @@
+{
+    "Dungeon": {
+        "HiddenDoor": [
+            "Behind a tattered tapestry, you uncover the outline of a sealed archway hidden within the wall’s masonry.",
+            "A section of stonework bears faint markings—scratches and wear that suggest a hidden seam runs vertically through it.",
+            "Your torchlight glints off a concealed hinge behind a dusty shelf, revealing the edge of what could be a hidden doorway.",
+            "An ornate torch sconce is slightly loose. On closer inspection, it’s attached to a mechanism embedded in the stone wall.",
+            "Pressing along the wall, your fingers sink into a shallow groove—just wide enough to suggest a panel may be disguised here.",
+            "An uneven section of bricks stands out from the rest. The mortar is newer, as though something has been sealed behind it.",
+            "You spot a hairline crack tracing a perfect rectangle on the floor, nearly invisible except in the right light.",
+            "A worn statue rests off-center on its base. Drag marks in the dust imply it may conceal something beneath or behind it.",
+            "Symbols etched into the wall form a pattern—one that wraps around what appears to be a hidden frame.",
+            "A cold draft escapes from a space between two stones—too narrow to see through, but unmistakably artificial."
+        ],
+        "Trap": [
+            "A thin wire stretches across the hallway at ankle height, barely visible in the flickering torchlight.",
+            "The stone beneath your foot shifts slightly but doesn't sink—on closer inspection, it's a pressure plate set flush with the floor.",
+            "Etchings along the base of a nearby statue hint at movement; dust patterns suggest its arms are rigged to swing.",
+            "One of the wall tiles bears faint scorch marks around its edges. A vent beside it suggests a hidden flame mechanism.",
+            "You spot a series of tiny holes in the wall at chest height—perfectly aligned across the corridor.",
+            "A broken tile reveals a spring-loaded mechanism beneath it, still gleaming with oil and tension.",
+            "Chains hang loosely from the ceiling, but one segment is taut, leading into a small hole in the stone.",
+            "An ornate shield mounted on the wall is rigged with fine gears—clearly more than just decoration.",
+            "You notice a faint smear of dried blood at the base of a doorway—beside it, a slit in the wall is just wide enough for a blade.",
+            "A faint ticking echoes in the chamber. Tracing the sound, you find a hollow brick that vibrates when touched."
+        ],
+        "Item": [
+            "Beneath a loose floor tile, you uncover a hidden cache wrapped in dust-stained cloth, long forgotten by time.",
+            "A decayed satchel lies wedged behind a collapsed column. Something solid still rests inside.",
+            "You pry open a false panel in the wall and reveal a narrow compartment containing an object glinting faintly in the gloom.",
+            "Near a forgotten altar, the rubble shifts to reveal something half-buried in the stonework.",
+            "You reach into a hollow behind cracked masonry and your hand closes around something smooth and cool to the touch.",
+            "An overturned brazier reveals a hollow base. Inside rests an object shrouded in soot and cobwebs.",
+            "Stashed beneath a mound of crumbled brick and ash, you uncover a bundle wrapped in crumbling leather straps.",
+            "At the base of a rotted statue, you discover a shallow indentation in the stone filled with something deliberately hidden.",
+            "A small alcove behind a rusted grate contains an item nestled carefully in old cloth and straw.",
+            "You disturb a pile of bones and debris, revealing a container partially crushed but still sealed."
+        ],
+        "KeyOrMechanism": [
+            "Inside a hollow wall recess, you discover a small, rusted object bound in cloth—its weight and shape hint at importance.",
+            "Beneath a crumbling statue pedestal, a hidden panel clicks open, revealing a coiled mechanism shrouded in dust and gears.",
+            "You pry loose a floor tile to reveal a narrow shaft containing a glint of metal attached to a chain that vanishes into darkness.",
+            "At the base of a torch sconce, you find a hidden switch engraved with faded symbols—long unused, but intact.",
+            "Behind a loose brick near an arched doorway, you discover a concealed slot holding a finely crafted piece of metalwork.",
+            "A recess in the wall contains a sealed iron box bolted into the stone. The faint outline of a symbol decorates its lid.",
+            "A row of protruding bricks includes one that depresses with a soft click, triggering a distant grind of moving stone.",
+            "An abandoned desk drawer creaks open to reveal a key-like object tucked inside a folded piece of brittle parchment.",
+            "In the center of a crumbled mosaic, a raised tile appears out of place. When pressed, the sound of shifting mechanisms echoes down the corridor.",
+            "Under a thick layer of soot inside a burned-out lantern, you find a small metal tool—ornate and precisely shaped."
+        ],
+        "Failure": [
+            "As you probe the wall, a tile suddenly shifts beneath your hand—too late, you hear the click of a mechanism activating nearby.",
+            "You disturb a pile of rubble, and something metallic snaps beneath the debris. A low grinding noise begins to echo through the corridor.",
+            "Reaching into a dark crevice, your fingers brush something sharp. Pain flares instantly, and you recoil as blood drips to the stone floor.",
+            "A puff of stale air bursts from a crack in the wall—followed by the hiss of escaping gas.",
+            "You shift a loose stone, but the wall beside you buckles, dislodging rubble that crashes to the ground with a deafening thud.",
+            "A concealed mechanism triggers underfoot, and the floor gives a slight lurch—something has been set in motion.",
+            "You hear a soft chime as you disturb a pressure plate, followed by a distant metallic rattle deeper in the dungeon.",
+            "Your attempt to pry open a panel results in a sudden jolt—sparks flare, and your hand is flung back, numb.",
+            "A hidden latch snaps loudly, echoing off the corridor walls and drawing attention from unseen quarters.",
+            "You trip a hidden tripwire buried in the dust, and somewhere in the dark, a chain begins to pull tight."
+        ]
+    },
+    "Forest": {
+        "HiddenDoor": [
+            "Behind a thick curtain of ivy, you notice the faint outline of a wooden frame embedded in the tree trunk.",
+            "Beneath a tangle of roots, a flat stone bears tool marks and an unnatural seam running across its surface.",
+            "A patch of bark peels away from a tree, revealing old iron rivets set into the wood beneath.",
+            "You find a mossy mound with stones arranged too precisely to be natural—at its base, something glints faintly.",
+            "A twisted vine conceals a circular symbol carved into the rock face, worn by rain but still symmetrical.",
+            "Near a thicket, fallen leaves disguise a sunken hatch outlined in aged wood and rusted metal.",
+            "At the base of an ancient oak, a section of ground rings hollow beneath your boot.",
+            "You spot a ring of mushrooms growing in an unnatural spiral around a small, flat boulder with a carved notch.",
+            "A cluster of stacked stones hides an angular silhouette—just beneath them, a narrow gap breathes cool air.",
+            "High in the brush, you glimpse a branch knotted around what looks like a handle partially swallowed by the tree."
+        ],
+        "Trap": [
+            "A patch of leaves rustles unnaturally underfoot—beneath it lies a lattice of branches framing a shallow pit.",
+            "A glint of twine catches your eye, stretched taut between two saplings and looped through carved stakes.",
+            "Fresh claw marks on a nearby tree direct your gaze to a snare hidden beneath a pile of ferns.",
+            "You notice a series of sharpened sticks angled toward the trail, partly buried under fallen needles.",
+            "A rock along the path bears unusual notches—following them reveals a bent sapling rigged with tension.",
+            "A hollow log is rigged with vines and bark, concealing a small covered pit inside its base.",
+            "Birdsong suddenly ceases nearby. Investigating the silence, you find a crude tripwire nearly buried in moss.",
+            "A camouflaged net lies suspended above the trail, strung between trees and anchored with natural fiber cords.",
+            "You notice unnatural grooves in the dirt, leading to a mechanism disguised as a bundle of sticks.",
+            "An area of the trail seems too clear—no footprints, no underbrush, and an odd tension in the air beneath a fallen branch."
+        ],
+        "Item": [
+            "Beneath a patch of moss at the base of an old tree, you uncover something hidden in a bundle of rotting cloth.",
+            "A hollow beneath tangled roots contains a carefully wrapped object, protected from weather and age.",
+            "Inside the hollow of a fallen log, you discover a small container tucked neatly among dry leaves and twine.",
+            "Your boot catches on a buried shape beneath the forest floor—digging around it reveals something wrapped in hide.",
+            "Near a trickling stream, you find a natural alcove in the rock where something has been stashed with care.",
+            "A cluster of stones appears purposefully stacked. Beneath them lies a cache protected beneath bark and vine.",
+            "Wedged in the crook of a twisted tree, you find an object cradled by the wood as if placed there intentionally.",
+            "A pile of feathers and fur reveals a makeshift nest—tucked inside is a small bundle bound with forest twine.",
+            "At the edge of a secluded glade, you brush aside leaves to reveal a hidden recess carved into a boulder.",
+            "You lift a slab of bark and uncover a cache hidden in the soft soil beneath, nestled among dried herbs and moss."
+        ],
+        "KeyOrMechanism": [
+            "Beneath a tangle of roots, you uncover a stone plate with spiral carvings. Lifting it reveals a carved slot and a recessed mechanism.",
+            "A hollow in a fallen tree shelters a bundle wrapped in leaves and twine. Inside is a small, cold object that clicks faintly when turned.",
+            "You follow a trail of animal tracks to a stump split by lightning—inside, nestled among moss, is something metallic and precise.",
+            "A section of bark pulls away from a tree to reveal an embedded lever, hidden beneath layers of lichen and age.",
+            "A weathered stone at the base of a hilltop bears unfamiliar glyphs. Beneath it lies a key-shaped fragment wrapped in hide.",
+            "A natural knot in a tree trunk conceals a small compartment, inside of which rests a curved implement carved from bone or antler.",
+            "You find a row of totems, each carved with distinct markings. One can be rotated, revealing a gear-driven cavity beneath.",
+            "A glimmer beneath a shallow creek bed leads to a buried mechanism surrounded by stone runes and shaped like a lock housing.",
+            "Inside a hollow log, you discover a vine-wrapped switch that, when touched, causes the forest floor nearby to subtly shift.",
+            "Among a cluster of stones arranged in a spiral, a central rock clicks when pressed, revealing a slot in the earth beneath."
+        ],
+        "Failure": [
+            "As you brush aside a patch of undergrowth, a concealed snare tightens around your wrist, yanking you sideways into the brush.",
+            "You overturn a mossy rock, and the sudden motion triggers a cluster of thorns to spring up from the soil beneath.",
+            "Reaching into a hollow log, you're met with a sharp sting—something unseen bites, and your hand recoils in pain.",
+            "You disturb a pile of leaves, and a hidden branch swings down with a snap, narrowly missing your head.",
+            "A soft crunch underfoot gives way as the ground collapses slightly, revealing a pit beneath your boot.",
+            "Trying to pry open a tree hollow, you hear a sickening crack as part of the bark splinters, sending wood and insects scattering.",
+            "You lean against a vine-covered stone, but it shifts with your weight, sending a cascade of rocks tumbling noisily down a slope.",
+            "A hidden tripwire snaps with a twang, followed by rustling leaves in the distance—you’re no longer alone.",
+            "Your hand brushes something slick—sap or something else—but the smell is sharp, and it burns your skin slightly.",
+            "A startled bird erupts from the underbrush, scattering debris and drawing a chorus of alarm calls from the forest around you."
+        ]
+    },
+    "Cave": {
+        "HiddenDoor": [
+            "A section of the cavern wall appears smoother than the rest—its surface marred by faint tool marks forming a rectangular outline.",
+            "A thin breeze escapes from behind a curtain of stalactites. When parted, they reveal a narrow crevice lined with worked stone.",
+            "Your light catches a seam in the rock, where the cave’s natural texture gives way to something carved and deliberate.",
+            "Among the rubble, you notice stones arranged in a pattern—too symmetrical to be random. At their center is a half-buried handle.",
+            "A section of the floor bears faint chisel marks, forming a square shape with a fine crack at its edge.",
+            "Behind a cluster of crystals, you notice a narrow alcove that ends abruptly at a wall of stone—but something about it feels off.",
+            "A carved spiral symbol in the rock seems out of place. Beneath it, a groove trails downward into the floor.",
+            "One stalagmite has been hollowed out, revealing a thin shaft leading into the darkness—it was deliberately shaped.",
+            "At the edge of a shallow pool, a stone slab sits slightly raised—its edges unnaturally straight for this environment.",
+            "You notice discoloration in the wall where moisture doesn't reach—beneath the mineral deposits is a door-shaped boundary."
+        ],
+        "Trap": [
+            "Near the cave wall, a thin tripwire stretches between two stalagmites, nearly invisible against the shadows.",
+            "A section of gravel crunches oddly underfoot—beneath it, metal glints in the dim light: a buried trigger plate.",
+            "You spot a hole drilled into the wall just above eye level. A faint glimmer inside hints at something mechanical.",
+            "A cluster of bones lies too cleanly arranged. Closer inspection reveals pressure plates hidden beneath the pile.",
+            "Above, a row of jagged stones is suspended by rotted rope. A small pebble fall reveals the trap’s delicate balance.",
+            "A narrow tunnel shows tool marks on the walls—at its center, a thin strand of wire vibrates in the still air.",
+            "Your foot catches a taut vine strung low across the floor. It leads to a mechanism half-hidden under lichen-covered stone.",
+            "Moisture drips from the ceiling around a single tile of dry rock—oddly square and free of moss.",
+            "A small groove runs along the ceiling, guiding your eyes to a rusted dart embedded in the far wall.",
+            "The remains of a broken tripwire dangle from the rocks, and beside it, a spring-loaded spike trap lies half-sprung and reset."
+        ],
+        "Item": [
+            "Between cracks in the rock wall, you spot something tucked inside a crevice, carefully wrapped and undisturbed.",
+            "A small recess behind a curtain of stalactites holds a bundle nestled among dried mineral deposits and webbing.",
+            "You uncover a stone outcropping that sounds hollow—within it lies a hidden cavity sheltering an aged container.",
+            "Beneath a layer of dust and loose gravel, your hand brushes against something smooth and deliberately placed.",
+            "A ledge just above eye level hides a shadowy nook. Reaching in, your fingers close around a solid, wrapped bundle.",
+            "Deep within a narrow fissure, something glints faintly, half-buried in the damp stone floor.",
+            "In the curve of a stalagmite, you find a woven pouch wedged into a naturally formed bowl in the rock.",
+            "You discover a shallow pit tucked beneath a flowstone curtain, its contents carefully placed beneath layers of silt.",
+            "A cluster of cave roots hides a natural alcove. Inside, something is wrapped tightly in oilcloth and cord.",
+            "Your torchlight reveals a crack in the cavern wall—inside rests a forgotten cache, protected from time and moisture."
+        ],
+        "KeyOrMechanism": [
+            "Beneath a loose slab of stone, you uncover a carved tablet with notches along its edge and a smooth, key-like form beneath it.",
+            "You brush away sediment from a wall engraving and reveal a recess shaped like a lock, with a narrow groove set beside it.",
+            "Inside a crack in the rock wall, you find a metal object resting atop ancient bones—its design delicate and deliberate.",
+            "A spiral of crystals ends in a shallow depression, where a piece of worked stone fits perfectly, like part of a larger system.",
+            "Your hand catches on a jut of stone that shifts slightly. Behind it is a small lever embedded in the cavern wall.",
+            "In a natural alcove above a ledge, you find a narrow chiseled slot, beside which lies an object wrapped in brittle leather.",
+            "You spot an odd pattern in the cave floor—pressing one stone causes the sound of grinding mechanisms deeper below.",
+            "A section of mineral wall breaks away easily, revealing a pulley system embedded behind it, still intact despite the moisture.",
+            "A flowstone curtain hides a crude stone key nestled in a carved basin, as if placed for safekeeping generations ago.",
+            "You uncover a cache of mining tools beside an ancient pack. Hidden among the rusted gear is a small piece of engraved metal that doesn’t match the rest."
+        ],
+        "Failure": [
+            "As you inspect a crevice in the wall, the stone crumbles suddenly beneath your grip, sending you sprawling against jagged rock.",
+            "A loose patch of gravel shifts beneath your step, and you tumble briefly before catching yourself on a sharp outcropping.",
+            "You reach into a narrow opening only to feel a sudden snap—something metallic clamps around your wrist before falling still.",
+            "A hissing sound erupts as you move a stalagmite fragment—beneath it, a gas vent begins to spew a choking vapor.",
+            "You tug at a loose stone, and the ceiling above shifts ominously. Pebbles rain down in warning from the darkness overhead.",
+            "While brushing aside mineral buildup, a brittle ledge collapses beneath your hand, plunging shards to the cavern floor below.",
+            "A faint buzzing grows louder as you disturb a cluster of glowing fungi—something within them stirs angrily.",
+            "Your boot catches on a nearly invisible tripline. A distant echo follows, deep and metallic, from further within the cave.",
+            "You reach into a shallow pool to investigate a glint, but something cold and serpentine brushes against your arm.",
+            "Trying to pry open a narrow stone slot, your tool snaps with a crack that echoes far too loudly through the tunnels."
+        ]
+    }
+}

@@ -1,0 +1,425 @@
+{
+    "Forest": {
+        "Path": {
+            "Proceed": {
+                "0": "You proceed along the forest trail, each step in harmony with the rustling trees.",
+                "1": "You move forward through the dappled sunlight, leaves whispering above.",
+                "2": "The path curves through the trees as you proceed calmly into the wood.",
+                "3": "You follow the gentle incline, guided by the breeze and birdsong.",
+                "4": "The path welcomes you onward, deeper into the heart of the forest."
+            }
+        },
+        "Chasm": {
+            "Jump": {
+                "0": "You take a running start and leap across a gorge where the forest floor has collapsed, landing in a spray of loose leaves.",
+                "1": "You vault over a sudden ravine split by a fallen tree, catching yourself on a mossy slope.",
+                "2": "You leap over a rocky gap veiled in mist, your landing cushioned by soft earth and pine needles.",
+                "3": "You spring across a narrow forest canyon, grabbing a root for balance on the far side.",
+                "4": "You bound over a cliff break formed by erosion, dirt crumbling as you pull yourself up."
+            }
+        },
+        "Ledge": {
+            "Proceed": {
+                "0": "You edge along a narrow ledge overlooking a forested ravine, branches clawing at your shoulders.",
+                "1": "You step carefully along a mossy ridgeline, balancing above a steep drop into ferns below.",
+                "2": "You follow a tight trail carved into the hillside, with birdsong far beneath your boots.",
+                "3": "You walk across a fallen tree forming a natural bridge, arms out for balance.",
+                "4": "You proceed along a crumbling deer path that skirts a cliff, leaves rustling at your side."
+            }
+        },
+        "Cliff": {
+            "Climb": {
+                "0": "You climb a rocky slope flanked by twisted roots, pulling yourself up handhold by handhold.",
+                "1": "You ascend a mossy cliffside, branches helping guide your climb to the ridge above.",
+                "2": "You scale a forested bluff, bark scraping your fingers as you rise into sunlight.",
+                "3": "You climb a ledge of stone and root, the scent of pine intensifying with each step.",
+                "4": "You pull yourself up a steep rise, loose earth shifting under your feet as you crest the top."
+            }
+        },
+        "HiddenDoor": {
+            "Examine": {
+                "0": "You pull aside a curtain of ivy to reveal a wooden door cleverly concealed in a tree’s roots.",
+                "1": "You brush away leaves and discover a narrow wooden frame embedded in the underbrush.",
+                "2": "You spot a faint seam between moss-covered stones—beneath it, a latch clicks open.",
+                "3": "You notice a hollow behind thick vines and gently part them to reveal a narrow wooden passage.",
+                "4": "You follow a trail of unusual bark and find a hidden door nestled within a thicket."
+            }
+        },
+        "LockedDoor": {
+            "Bash": {
+                "0": "You slam your shoulder into the old wooden door until it finally gives way into the grove beyond.",
+                "1": "You strike the ivy-covered door with force, splintering the frame as vines tear loose.",
+                "2": "You charge the mossy gate, wood cracking beneath your weight as it bursts open.",
+                "3": "You pound against the weathered door until the lock gives with a sharp crack.",
+                "4": "You bash open the overgrown hatch, bark and rusted metal raining down as it swings inward."
+            },
+            "LockPick": {
+                "0": "You kneel by the old wooden door and deftly pick the lock, pushing it open into the grove.",
+                "1": "You part the ivy, revealing the mechanism, and with a click, the door unlocks smoothly.",
+                "2": "You work the mossy gate’s rusted lock until it surrenders with a soft snap.",
+                "3": "Your tools twist precisely in the keyhole, and the door creaks open at last.",
+                "4": "You brush aside debris, pick the worn mechanism, and open the hatch with a click."
+            },
+            "Unlock": {
+                "0": "You insert the iron key and unlock the old door, entering the grove beyond.",
+                "1": "You push the ivy aside and turn the key with a satisfying click.",
+                "2": "You unlock the moss-covered gate and walk through as the hinges moan.",
+                "3": "The key turns firmly in the rusted lock, and the door swings open into shadow.",
+                "4": "You lift the latch with your key and open the aged hatch into the trees."
+            }
+        },
+        "UnlockedDoor": {
+            "Open": {
+                "0": "You push open a crooked wooden gate nestled between overgrown hedges, revealing a sunlit trail beyond.",
+                "1": "You open an old, moss-covered door standing free in the woods, revealing an untouched glade.",
+                "2": "You pull open a narrow archway made of roots and bark, stepping into a whisper-quiet clearing.",
+                "3": "You press gently against a wooden panel set into a tree, revealing a hidden grove bathed in light.",
+                "4": "You lift a vine-wrapped latch and the door creaks open into a natural stone corridor within the forest."
+            }
+        },
+        "Tunnel": {
+            "Crawl": {
+                "0": "You drop to your hands and knees and crawl through a tunnel of tangled roots and thick ferns.",
+                "1": "You squeeze beneath a low canopy of thorns and crawl forward in the earthy dark.",
+                "2": "You crawl through a tight space between tree roots, soil damp against your palms.",
+                "3": "You push through a bramble-choked passage, crawling through the forest floor’s underbelly.",
+                "4": "You crawl beneath a fallen tree, squeezing through damp moss and scattered leaves."
+            },
+            "Proceed": {
+                "0": "You stoop low and walk carefully through the tunnel of roots and ferns.",
+                "1": "You duck beneath the thorny canopy, brushing branches aside as you go.",
+                "2": "You shuffle through the space between old roots, back bent and cautious.",
+                "3": "You push through the tight underbrush, navigating the narrow passage ahead.",
+                "4": "You proceed under the fallen tree, crouching through damp moss and loose soil."
+            }
+        },
+        "Crossing": {
+            "Swim": {
+                "0": "You slip into the quiet stream and swim across beneath a canopy of branches.",
+                "1": "You wade into a deeper stretch and swim steadily past lily-covered stones.",
+                "2": "You lower yourself into a clear pond and swim through the cool, shaded water.",
+                "3": "You swim through a wide, slow-moving creek as sunlight filters through the trees.",
+                "4": "You dive into the forest river and swim across toward a mossy embankment."
+            },
+            "Jump": {
+                "0": "You leap over the quiet stream, clearing the narrow gap beneath the branches.",
+                "1": "You take a running start and hop across the lily-covered stones to reach the far bank.",
+                "2": "You jump from a low outcrop beside the pond, landing lightly on the far side.",
+                "3": "You bound over the wide creek using a few stable rocks to cross without getting wet.",
+                "4": "You leap from one mossy stone to another, landing firmly on the opposite riverbank."
+            },
+            "Proceed": {
+                "0": "You step carefully through the shallow stream, brushing aside low branches as you go.",
+                "1": "You wade through the cool water between lily-covered stones, boots soaking but steady.",
+                "2": "You walk the pond’s edge, the water brushing your knees as you move through.",
+                "3": "You cross the wide creek by balancing along a fallen log, arms spread for balance.",
+                "4": "You make your way across the river using mossy stones and steady footing."
+            }
+        },
+        "Obstacle": {
+            "Climb": {
+                "0": "You climb up and pull yourself over the fallen trunk, continuing onward.",
+                "1": "With some effort, you climb the rocks and find the trail again.",
+                "2": "You climb carefully over the tangled brush and press forward.",
+                "3": "The obstacle is steep, but you climb it with determination and carry on.",
+                "4": "You hoist yourself up and climb over the natural barrier to keep moving."
+            },
+            "Jump": {
+                "0": "You leap over the fallen trunk and land smoothly, continuing onward.",
+                "1": "With some effort, you jump the rocks and find the trail again.",
+                "2": "You jump cleanly over the tangled brush and press forward.",
+                "3": "The obstacle is steep, but you jump across with precision and carry on.",
+                "4": "You jump over the natural barrier and keep moving with momentum."
+            },
+            "Bash": {
+                "0": "You slam into the fallen trunk and bash your way through, continuing onward.",
+                "1": "With effort, you bash apart the rocks and find the trail again.",
+                "2": "You break through the tangled brush and press forward.",
+                "3": "The obstacle is steep, but you bash a path through and carry on.",
+                "4": "You power through the natural barrier and keep moving forward."
+            }
+        }
+    },
+    "Dungeon": {
+        "Path": {
+            "Proceed": {
+                "0": "You proceed through the musty corridor, boots echoing off ancient stone.",
+                "1": "Each step forward reveals more of the dimly lit dungeon passage.",
+                "2": "You follow the narrow hallway, torchlight flickering across cracked bricks.",
+                "3": "The path stretches on, carved from cold stone and shadow.",
+                "4": "You walk deeper into the dungeon, walls closing in around your resolve."
+            }
+        },
+        "Chasm": {
+            "Jump": {
+                "0": "You leap across a yawning breach in the stone floor, landing hard on crumbling flagstones.",
+                "1": "You jump over a sunken pit lined with broken columns, catching your breath on the far ledge.",
+                "2": "You spring over a crack in the foundation, torchlight flickering across the depth below.",
+                "3": "You vault a trench in the hallway floor, bracing against a wall to stay upright.",
+                "4": "You leap over a collapsed stairwell, boots skidding on debris as you find your footing."
+            }
+        },
+        "Ledge": {
+            "Proceed": {
+                "0": "You inch forward along a cracked stone ledge high above a pit, your hand steady on the wall.",
+                "1": "You move along a narrow catwalk, rusted chains hanging beside you in the dark.",
+                "2": "You balance carefully on a ledge carved into the dungeon wall, dust sifting into the void below.",
+                "3": "You walk the edge of a broken archway, each step echoing down the chamber.",
+                "4": "You press onward along a slim bridge of stone, darkness yawning to either side."
+            }
+        },
+        "Cliff": {
+            "Climb": {
+                "0": "You climb a rough stone shaft, the carved walls slick with age and grime.",
+                "1": "You ascend the remnants of a collapsed stairwell, bricks jutting like jagged steps.",
+                "2": "You climb a broken wall, iron hooks embedded sporadically offering shaky support.",
+                "3": "You scramble up a vertical tunnel, gripping cracks in the crumbling dungeon masonry.",
+                "4": "You pull yourself up the narrow shaft, dust and stone raining from above as you ascend."
+            }
+        },
+        "HiddenDoor": {
+            "Examine": {
+                "0": "You run your hand along the brick wall and feel a draft—pressing inward, a hidden panel swings open.",
+                "1": "You tap the stones and hear a hollow sound—one block shifts, revealing a secret doorway.",
+                "2": "You examine the wall closely and find a hairline crack outlining a concealed doorframe.",
+                "3": "You uncover a pressure plate under dust and trigger it—stones grind aside revealing a hidden room.",
+                "4": "You spot a pattern etched faintly on the wall—pressing it, the bricks pivot open into shadow."
+            }
+        },
+        "LockedDoor": {
+            "Bash": {
+                "0": "You slam into the iron-bound door until it bursts open with a metallic scream.",
+                "1": "Your blow cracks the wooden door’s frame, and the bolt snaps loose.",
+                "2": "You throw your weight into the stone-banded door, breaking through into the next hall.",
+                "3": "You shoulder the heavy dungeon door until it gives with a resounding crack.",
+                "4": "You kick the metal-clad hatch and the rusted hinges snap free, revealing darkness beyond."
+            },
+            "LockPick": {
+                "0": "You pick the lock beneath the rusted iron plate, and the door swings inward.",
+                "1": "With steady hands, you disarm the trap and unlock the dungeon door.",
+                "2": "You wiggle your pick through the ancient mechanism and hear a sharp click.",
+                "3": "The lock is old, but your tools make quick work of it—it swings open silently.",
+                "4": "You bypass the trap and pick the lock, the hatch opening to a cold draft."
+            },
+            "Unlock": {
+                "0": "You insert a worn key into the lock and the dungeon door yields with a groan.",
+                "1": "You turn the key, feeling resistance, then the bolt releases with a metallic thunk.",
+                "2": "The lock clicks and the door creaks open to a corridor lined with torch sconces.",
+                "3": "You twist the key carefully, and the iron door opens smoothly on rusted hinges.",
+                "4": "You unlock the hatch and descend into the chamber beyond, shadows stretching out ahead."
+            }
+        },
+        "UnlockedDoor": {
+            "Open": {
+                "0": "You heave open a rusted iron door, the hinges groaning as a hallway stretches into darkness.",
+                "1": "You open a carved wooden door that clicks softly, revealing a storage room thick with cobwebs.",
+                "2": "You push open a stone slab that swings inward, revealing a chamber lit by a single torch.",
+                "3": "You gently open a timeworn metal hatch set into the dungeon wall, dust swirling in the air.",
+                "4": "You swing open a heavy wooden gate reinforced with iron, revealing a hallway sloping downward."
+            }
+        },
+        "Tunnel": {
+            "Crawl": {
+                "0": "You get down and crawl through a crumbling ventilation shaft, dust clinging to your hands.",
+                "1": "You inch forward on all fours through a narrow passage carved into the dungeon wall.",
+                "2": "You crawl under low stone arches, jagged bricks scraping your shoulders.",
+                "3": "You push forward through a collapsed hallway, squeezing between fallen beams.",
+                "4": "You crawl through a drain tunnel, the stone slick beneath your palms."
+            },
+            "Proceed": {
+                "0": "You duck into the crumbling shaft, stepping lightly over scattered debris.",
+                "1": "You proceed through the narrow cut in the wall, brushing against cold stone.",
+                "2": "You walk hunched under the tight arches, watching your footing carefully.",
+                "3": "You move through the rubble-strewn corridor, slipping between broken supports.",
+                "4": "You step cautiously through the drain tunnel, each footfall echoing in the dark."
+            }
+        },
+        "Crossing": {
+            "Swim": {
+                "0": "You dive into the dark water channel and swim beneath the crumbling stone archway.",
+                "1": "You enter a flooded hallway and swim slowly through the cold, stagnant water.",
+                "2": "You swim across a deep cistern beneath rusted chains hanging from the ceiling.",
+                "3": "You pass through murky water pooled in the dungeon’s center hall, breath held tight.",
+                "4": "You swim through a partially collapsed tunnel, narrowly avoiding sharp stone debris."
+            },
+            "Jump": {
+                "0": "You jump the narrow channel and land on cracked stone beneath the archway.",
+                "1": "You leap across the flooded hall, avoiding the cold water below.",
+                "2": "You take a long jump over the deep cistern, landing near the rusted chains.",
+                "3": "You bound over the stagnant pool in the center of the dungeon, landing in silence.",
+                "4": "You leap the debris-filled tunnel, clearing jagged stones and broken beams."
+            },
+            "Proceed": {
+                "0": "You walk cautiously through the shallow channel beneath the dungeon arch.",
+                "1": "You wade through the ankle-deep water of the hall, each step echoing.",
+                "2": "You move slowly along the cistern’s edge, brushing against damp stone.",
+                "3": "You step through the central chamber, keeping your feet dry along a narrow ledge.",
+                "4": "You tread carefully through the crumbled tunnel, water trickling around broken stones."
+            }
+        },
+        "Obstacle": {
+            "Climb": {
+                "0": "You climb over the collapsed rubble and drop down on the other side.",
+                "1": "Gripping the broken stone, you climb and reach safer ground.",
+                "2": "You scramble up the barricade, climbing steadily as you press forward.",
+                "3": "The ascent is rough, but you manage to climb over.",
+                "4": "You pull yourself up and over the dungeon debris using the climb."
+            },
+            "Jump": {
+                "0": "You jump over the collapsed rubble and land cleanly on the other side.",
+                "1": "With momentum, you jump from stone to stone and reach safer ground.",
+                "2": "You leap over the barricade and press forward without pause.",
+                "3": "You jump the rubble heap and keep your footing beyond.",
+                "4": "A strong jump clears the dungeon debris and you continue."
+            },
+            "Bash": {
+                "0": "You bash through the collapsed rubble, clearing a path to the other side.",
+                "1": "With a mighty blow, you bash the stonework and reach safer ground.",
+                "2": "You break down the barricade and move forward.",
+                "3": "You bash the rubble until a gap opens to continue onward.",
+                "4": "The dungeon debris yields under your strikes and you proceed."
+            }
+        }
+    },
+    "Cave": {
+        "Path": {
+            "Proceed": {
+                "0": "You move carefully along the cave path, echoes following each step.",
+                "1": "You press on, the air growing cooler and damper with every step.",
+                "2": "Your footsteps crunch softly on gravel as the cave bends ahead.",
+                "3": "With steady progress, you navigate the natural tunnel deeper inside.",
+                "4": "You walk forward, light from your torch revealing the cavern’s slow descent."
+            }
+        },
+        "Chasm": {
+            "Jump": {
+                "0": "You jump a jagged crack in the cavern floor, the sound of falling stones echoing below.",
+                "1": "You bound across a deep crevasse glowing faintly with bioluminescent fungi.",
+                "2": "You leap over a rift in the rock, barely clearing a pool of black water far below.",
+                "3": "You push off a ledge and sail across a wind-carved gap, landing beside a glowing crystal cluster.",
+                "4": "You jump over a split in the cavern where molten rock once flowed, breath held tight as you land."
+            }
+        },
+        "Ledge": {
+            "Proceed": {
+                "0": "You proceed across a narrow shelf of stone above an underground ravine, shadows shifting below.",
+                "1": "You walk along a mineral-streaked ledge, each footstep a splash in the silence.",
+                "2": "You edge around the cave wall where the path narrows, breath held at the drop beside you.",
+                "3": "You follow a chalky trail along the cliffside, torchlight flickering against the cavern wall.",
+                "4": "You move along a slippery ledge, stalactites looming just overhead."
+            }
+        },
+        "Cliff": {
+            "Climb": {
+                "0": "You climb a jagged stone face, water trickling beside you from a hidden spring.",
+                "1": "You ascend a wall of slick mineral deposits, crystals glittering in the dark.",
+                "2": "You scale a steep slope of shale and moss, fingers slipping on wet rock.",
+                "3": "You climb along a ridgeline inside the cave, ledges narrow and damp underfoot.",
+                "4": "You pull yourself upward past glowing fungi, breath echoing in the hollow space below."
+            }
+        },
+        "HiddenDoor": {
+            "Examine": {
+                "0": "You brush dust from the stone and reveal a natural fissure shaped into a disguised entrance.",
+                "1": "You trace a shallow groove in the rock that outlines a carefully hidden doorway.",
+                "2": "You feel along the rough surface until your fingers catch a latch camouflaged in stone.",
+                "3": "You push gently on a patch of wet stone—it shifts, revealing a narrow tunnel beyond.",
+                "4": "You tap a hollow-sounding wall, and part of it swings inward with a gust of cool air."
+            }
+        },
+        "LockedDoor": {
+            "Bash": {
+                "0": "You slam into the stone-framed door until it cracks and swings open into the cavern.",
+                "1": "With a grunt, you bash the brittle frame, and the lock shatters with a loud snap.",
+                "2": "You strike the door with all your strength and it breaks open in a shower of dust.",
+                "3": "You crash into the heavy wooden slab and force it open with brute effort.",
+                "4": "You bash the hatch repeatedly until the rusted lock gives way and it swings wide."
+            },
+            "LockPick": {
+                "0": "You kneel beside the stone door, working the lock until it clicks open.",
+                "1": "You brush away gravel, expose the lock, and pick it open with quiet precision.",
+                "2": "You slide your tools into the weathered mechanism and twist until the bolt disengages.",
+                "3": "You carefully work the lock, and it gives with a soft creak beneath your fingers.",
+                "4": "The ancient latch resists, but you coax it open and reveal a chamber veiled in mist."
+            },
+            "Unlock": {
+                "0": "You insert a heavy key into the stone-framed door and unlock it with effort.",
+                "1": "You turn the iron key slowly, and the creaking door swings into the cave interior.",
+                "2": "You unlock the aged mechanism, revealing a tunnel sparkling with moisture.",
+                "3": "You push the key in deep and turn—there’s a satisfying snap as it yields.",
+                "4": "The hatch unlocks and swings open, revealing steps leading deeper underground."
+            }
+        },
+        "UnlockedDoor": {
+            "Open": {
+                "0": "You open a rotting wooden door wedged between cave walls, revealing a tunnel bathed in mineral light.",
+                "1": "You push open a door made of bone and vine, revealing a chamber echoing with water drops.",
+                "2": "You pull open a rounded stone door carved into the cavern itself, revealing a hidden passage.",
+                "3": "You open a rusted grate embedded in rock, the scent of damp earth rushing out.",
+                "4": "You open a creaky wooden hatch buried in gravel, revealing a shaft leading deeper underground."
+            }
+        },
+        "Tunnel": {
+            "Crawl": {
+                "0": "You get on your belly and crawl through a jagged opening just large enough for your frame.",
+                "1": "You squeeze into a tunnel formed by fractured rock, dragging yourself forward inch by inch.",
+                "2": "You crawl through a low slit in the cavern wall, stalactites just overhead.",
+                "3": "You worm your way through a winding gap, pebbles crunching beneath you.",
+                "4": "You crawl through a narrow natural chute, damp and echoing with every breath."
+            },
+            "Proceed": {
+                "0": "You duck into the low opening and move slowly through the cramped space.",
+                "1": "You walk in a crouch through the fractured rock tunnel, shoulders brushing the sides.",
+                "2": "You shuffle through the slit in the stone, head low beneath pointed rock.",
+                "3": "You wind your way carefully through the narrow passage, hands steadying on both walls.",
+                "4": "You move cautiously through the chute, walls slick and narrowing as you go."
+            }
+        },
+        "Crossing": {
+            "Swim": {
+                "0": "You slip into the cold underground stream and swim beneath the jagged overhang.",
+                "1": "You paddle through waist-high cave water between glittering stone columns.",
+                "2": "You swim across a flooded cavern where light pierces through a hole in the ceiling.",
+                "3": "You move slowly through a pitch-dark channel, trusting the current to guide you.",
+                "4": "You swim under a narrow passage filled with echoing drips and shifting shadows."
+            },
+            "Jump": {
+                "0": "You jump over the narrow stream, landing just beyond the rocky overhang.",
+                "1": "You leap from stone to stone between the glittering columns, feet barely splashing.",
+                "2": "You spring over the flooded section, landing just below the shaft of sunlight.",
+                "3": "You vault across the darkened trench, using momentum to clear the unseen depths.",
+                "4": "You jump over the narrow waterway, avoiding the slick stone beneath dripping rock."
+            },
+            "Proceed": {
+                "0": "You walk a narrow ledge above the underground stream, ducking beneath the jagged ceiling.",
+                "1": "You cross slowly between glittering columns, the cold water brushing your legs.",
+                "2": "You wade across the flooded cave, light sparkling on the ripples ahead.",
+                "3": "You edge through the dark passage, one foot in water, one on stone.",
+                "4": "You move beneath the dripping ceiling, echoing droplets marking each step."
+            }
+        },
+        "Obstacle": {
+            "Climb": {
+                "0": "You find footholds and climb over the boulder blocking your way.",
+                "1": "You climb the rock pile and descend carefully on the other side.",
+                "2": "With effort, you climb past the jagged blockage in the cave.",
+                "3": "You ascend the rocky debris slowly and continue deeper.",
+                "4": "You climb over the obstruction, mindful of your footing."
+            },
+            "Jump": {
+                "0": "You jump over the boulder, clearing it with a single bound.",
+                "1": "You jump the rock pile and land smoothly on the far side.",
+                "2": "With a burst of energy, you jump past the jagged blockage.",
+                "3": "You jump over the rocky debris and press on.",
+                "4": "A careful jump takes you over the obstruction without injury."
+            },
+            "Bash": {
+                "0": "You bash through the boulder’s edge, creating a narrow path.",
+                "1": "With strength, you bash the rock pile aside to continue.",
+                "2": "You break through the jagged blockage with force.",
+                "3": "You bash the rocky debris, opening enough space to pass.",
+                "4": "The obstruction crumbles under your strikes and you move forward."
+            }
+        }
+    }
+}

@@ -8,12 +8,16 @@ import (
 type EdgeType string
 
 const (
-	Tunnel       EdgeType = "Tunnel"
-	Path         EdgeType = "Path"
-	UnlockedDoor EdgeType = "UnlockedDoor"
-	LockedDoor   EdgeType = "LockedDoor"
-	HiddenDoor   EdgeType = "HiddenDoor"
-	Crossing     EdgeType = "Crossing"
+	Tunnel            EdgeType = "Tunnel"
+	Path              EdgeType = "Path"
+	UnlockedDoor      EdgeType = "UnlockedDoor"
+	LockedDoor        EdgeType = "LockedDoor"
+	HiddenDoor        EdgeType = "HiddenDoor"
+	Crossing          EdgeType = "Crossing"
+	Cliff             EdgeType = "Cliff"
+	Ledge             EdgeType = "Ledge"
+	Chasm             EdgeType = "Chasm"
+	TraversalObstacle EdgeType = "TraversalObstacle"
 )
 
 type EdgeStyle string
@@ -104,25 +108,47 @@ var EdgeTypes = map[EdgeType]*EdgeMetaData{
 }
 
 type Edge struct {
-	metaData       *EdgeMetaData
-	resolved       bool
-	dificulty      int
-	ids            []int
-	previewText    string
-	text           string
-	transitionText string
+	metaData               *EdgeMetaData
+	resolved               bool
+	isHidden               bool
+	dificulty              int
+	ids                    []int
+	previewText            string
+	text                   string
+	transitionText         string
+	scenarioId             string
+	lastUsedTravesalAction string
 }
 
 func NewEdge(edgeType EdgeType, ids []int, difficulty int, textScenarios *utilities.EdgeTypeScenarios, scenario string) *Edge {
-	return &Edge{
-		metaData:       EdgeTypes[edgeType],
-		resolved:       false,
-		dificulty:      difficulty,
-		ids:            ids,
-		text:           textScenarios.Text[scenario],
-		previewText:    textScenarios.Preview[scenario],
-		transitionText: textScenarios.Transition[scenario],
+	isHidden := false
+	if edgeType == "HiddenDoor" {
+		isHidden = true
 	}
+	return &Edge{
+		metaData:               EdgeTypes[edgeType],
+		resolved:               false,
+		isHidden:               isHidden,
+		dificulty:              difficulty,
+		ids:                    ids,
+		text:                   textScenarios.Text[scenario],
+		previewText:            textScenarios.Preview[scenario],
+		transitionText:         textScenarios.Transition[scenario],
+		scenarioId:             scenario,
+		lastUsedTravesalAction: "",
+	}
+}
+
+func (e *Edge) GetLastUsedTraversalAction() string {
+	return e.lastUsedTravesalAction
+}
+
+func (e *Edge) SetLastUsedTraversalAction(action string) {
+	e.lastUsedTravesalAction = action
+}
+
+func (e *Edge) GetScenarioId() string {
+	return e.scenarioId
 }
 
 func (e *Edge) GetPreviewText() string {

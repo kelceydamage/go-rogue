@@ -64,9 +64,10 @@ func (g *Game) Run() {
 	g.World.AddZone(0, 0, 0, 0, true)
 	actionTextLoader := utilities.NewActionsLoader()
 	traversalProcessor := NewTraversalProcessor(&InputProcessor{}, actionTextLoader)
-	eventProcessor := NewEventProcessor()
+	eventProcessor := NewEventProcessor(&InputProcessor{})
 	userInterface.DrawTitleText("Go Rogue")
-	maps.WriteDotFile("graph.dot", g.World.GetCurrentZone().GetSceneGraph())
+	sceneGraph := g.World.GetCurrentZone().GetSceneGraph()
+	maps.WriteDotFile("graph.dot", sceneGraph)
 
 	ticker := time.NewTicker(time.Duration(g.TickRate*1000) * time.Millisecond)
 	defer ticker.Stop()
@@ -77,16 +78,16 @@ func (g *Game) Run() {
 	}
 
 	for range ticker.C {
+		sceneGraph := g.World.GetCurrentZone().GetSceneGraph()
 		utilities.ClearScreenBelow(2, config.General.Offset)
 		DrawPlayerAttributes(g.Player)
 		// Unpack the current node
-		currentNode := g.World.GetCurrentZone().GetSceneGraph().GetNode(g.Player.GetCurrentPosition())
 		currentLine := 3
 		// Draw the event screen
 
 		// Draw Traversal Options
-		currentLine = eventProcessor.Execute(currentNode, g.Player, currentLine)
-		currentLine = traversalProcessor.Execute(currentNode, g.Player, currentLine)
+		currentLine = eventProcessor.Execute(sceneGraph, g.Player, currentLine)
+		currentLine = traversalProcessor.Execute(sceneGraph, g.Player, currentLine)
 
 		currentLine += 2
 		err := keyboard.Open()
