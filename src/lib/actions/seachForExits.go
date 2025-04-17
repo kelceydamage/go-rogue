@@ -9,7 +9,7 @@ type SearchForExistsAction struct {
 
 func NewSearchForExistsAction(node *maps.Node) *SearchForExistsAction {
 	return &SearchForExistsAction{
-		name:       "Search For Exists",
+		name:       "Search For Exits",
 		difficulty: 0,
 	}
 }

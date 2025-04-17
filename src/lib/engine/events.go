@@ -41,7 +41,7 @@ func (e *EventProcessor) Execute(sceneGraph *maps.SceneGraph, player *entities.P
 		),
 		currentLine,
 	)
-	if input == "Search For Exists" {
+	if input == "Search For Exits" {
 		return currentLine
 	}
 	currentLine += 3
